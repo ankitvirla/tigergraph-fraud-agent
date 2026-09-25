@@ -1,0 +1,66 @@
+========================================================================
+FRAUD PROBABILITY CALIBRATION - FIRST STAGE ANALYSIS
+========================================================================
+
+STATUS
+------
+The evidence calibration layer has been consumed successfully.
+This script does NOT produce statistically calibrated fraud
+probabilities and does NOT make fraud/policy decisions.
+
+IMPORTANT DISTINCTION
+---------------------
+risk_score is treated as an observed upstream score/signal.
+risk_score is NOT used as fraud_probability.
+
+CURRENT LIMITATION
+------------------
+The calibrated benchmark output does not contain a verified
+current-case fraud outcome label. Therefore the 20 benchmark cases
+cannot by themselves justify a statistically calibrated mapping
+from evidence configuration to probability.
+
+EVIDENCE BANDS
+--------------
+high_evidence_convergence: 2
+insufficient_supporting_evidence: 1
+limited_independent_evidence: 7
+moderate_evidence_convergence: 3
+substantial_evidence_convergence: 7
+
+These bands are descriptive evidence configurations only.
+They must NOT be interpreted as probabilities.
+
+INDEPENDENT EVIDENCE DISTRIBUTION
+---------------------------------
+0 independent groups: 1 cases
+1 independent groups: 7 cases
+2 independent groups: 3 cases
+3 independent groups: 4 cases
+4 independent groups: 4 cases
+5 independent groups: 1 cases
+
+RISK SCORE SUMMARY
+------------------
+min    = 0.050000
+max    = 0.900000
+mean   = 0.536000
+median = 0.530000
+
+NEXT STEP
+---------
+Before implementing a probability formula, establish a verified
+outcome target for the benchmark cases, or obtain an appropriate
+historical labeled dataset.
+
+Once an outcome target exists, evaluate candidate methods such as:
+1. logistic regression over calibrated evidence features,
+2. monotonic evidence-score calibration,
+3. isotonic/Platt calibration when enough labeled data exists,
+4. benchmark holdout/cross-validation to measure calibration.
+
+Do not assign arbitrary probabilities such as 0.85 merely because
+a case has many evidence signals. Evidence strength and independence
+must first be related to observed outcomes.
+
+========================================================================

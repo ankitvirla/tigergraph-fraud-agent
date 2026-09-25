@@ -1,0 +1,127 @@
+{
+  "input": "analysis/final_probability_model_predictions.csv",
+  "rows": 1113,
+  "fraud_cases": 1003,
+  "cleared_cases": 110,
+  "test_fraud_rate": 0.9011680143755616,
+  "roc_auc": 0.9868440134143027,
+  "brier_score": 0.02860314000703825,
+  "ece_10_equal_width": 0.01777226996026048,
+  "probability_distribution": {
+    "min": 0.0099355476510036,
+    "median": 0.9978393220128048,
+    "mean": 0.9059979248149488,
+    "p90": 0.9979029371842472,
+    "max": 0.9981833033640762
+  },
+  "diagnostic_groups": {
+    "fraud_below_10_percent": 8,
+    "cleared_at_least_90_percent": 4,
+    "all_below_10_percent": 54,
+    "all_10_to_below_90_percent": 100,
+    "all_at_least_90_percent": 959
+  },
+  "adequately_populated_band_count": 2,
+  "observed_rate_decreases_among_adequately_populated_bands": 0,
+  "calibration_bands": [
+    {
+      "band": "0.00-0.10",
+      "count": 54,
+      "share_of_test": 0.04851752021563342,
+      "mean_predicted": 0.04674285965758459,
+      "observed_fraud_rate": 0.14814814814814814,
+      "absolute_error": 0.10140528849056354,
+      "small_sample": false
+    },
+    {
+      "band": "0.10-0.20",
+      "count": 17,
+      "share_of_test": 0.015274034141958671,
+      "mean_predicted": 0.1352379896625279,
+      "observed_fraud_rate": 0.17647058823529413,
+      "absolute_error": 0.04123259857276623,
+      "small_sample": true
+    },
+    {
+      "band": "0.20-0.30",
+      "count": 11,
+      "share_of_test": 0.009883198562443846,
+      "mean_predicted": 0.23869325586829182,
+      "observed_fraud_rate": 0.09090909090909091,
+      "absolute_error": 0.1477841649592009,
+      "small_sample": true
+    },
+    {
+      "band": "0.30-0.40",
+      "count": 11,
+      "share_of_test": 0.009883198562443846,
+      "mean_predicted": 0.3564955406089046,
+      "observed_fraud_rate": 0.36363636363636365,
+      "absolute_error": 0.007140823027459053,
+      "small_sample": true
+    },
+    {
+      "band": "0.40-0.50",
+      "count": 7,
+      "share_of_test": 0.006289308176100629,
+      "mean_predicted": 0.4399679685619846,
+      "observed_fraud_rate": 0.42857142857142855,
+      "absolute_error": 0.011396539990556065,
+      "small_sample": true
+    },
+    {
+      "band": "0.50-0.60",
+      "count": 13,
+      "share_of_test": 0.011680143755615454,
+      "mean_predicted": 0.5562671280798432,
+      "observed_fraud_rate": 0.38461538461538464,
+      "absolute_error": 0.1716517434644586,
+      "small_sample": true
+    },
+    {
+      "band": "0.60-0.70",
+      "count": 10,
+      "share_of_test": 0.008984725965858042,
+      "mean_predicted": 0.6543378253488745,
+      "observed_fraud_rate": 0.4,
+      "absolute_error": 0.2543378253488745,
+      "small_sample": true
+    },
+    {
+      "band": "0.70-0.80",
+      "count": 18,
+      "share_of_test": 0.016172506738544475,
+      "mean_predicted": 0.7619032195473526,
+      "observed_fraud_rate": 0.4444444444444444,
+      "absolute_error": 0.3174587751029082,
+      "small_sample": true
+    },
+    {
+      "band": "0.80-0.90",
+      "count": 13,
+      "share_of_test": 0.011680143755615454,
+      "mean_predicted": 0.8502281333971939,
+      "observed_fraud_rate": 0.9230769230769231,
+      "absolute_error": 0.07284878967972919,
+      "small_sample": true
+    },
+    {
+      "band": "0.90-1.00",
+      "count": 959,
+      "share_of_test": 0.8616352201257862,
+      "mean_predicted": 0.996228991582419,
+      "observed_fraud_rate": 0.9958289885297185,
+      "absolute_error": 0.00040000305270049274,
+      "small_sample": false
+    }
+  ],
+  "flags": [
+    "8 confirmed fraud cases predicted below 10%; inspect their evidence.",
+    "4 cleared cases predicted at or above 90%; inspect their evidence.",
+    "Some probability bands contain fewer than 30 cases; avoid interpreting their observed rates as stable.",
+    "Historical closed-case test prevalence is not representative of arbitrary production transactions without separate validation.",
+    "Predictions alone cannot verify feature leakage, evidence provenance, or training/serving feature parity."
+  ],
+  "scope": "held-out historical closed cases; case-level outcome probability",
+  "thresholds_are_diagnostics_not_decision_rules": true
+}

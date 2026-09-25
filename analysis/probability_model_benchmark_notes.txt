@@ -1,0 +1,71 @@
+========================================================================
+FRAUD PROBABILITY MODEL BENCHMARK
+========================================================================
+
+DATASET
+------------------------------------------------------------------------
+Rows: 5,565
+Confirmed fraud: 4,665
+Cleared: 900
+Date range: 2016-07-02 07:17:26 -> 2016-11-02 02:00:37
+
+TEMPORAL SPLIT
+------------------------------------------------------------------------
+train: 3,339 rows | fraud=2,662 | cleared=677 | fraud_rate=0.7972 | 2016-07-02T07:17:26 -> 2016-09-11T08:00:56
+validation: 1,113 rows | fraud=1,000 | cleared=113 | fraud_rate=0.8985 | 2016-09-11T08:11:34 -> 2016-10-06T13:48:10
+test: 1,113 rows | fraud=1,003 | cleared=110 | fraud_rate=0.9012 | 2016-10-06T14:14:04 -> 2016-11-02T02:00:37
+
+MODEL FEATURES
+------------------------------------------------------------------------
+- risk_score
+- strong_support_count
+- medium_support_count
+- weak_support_count
+- strong_contradiction_count
+- medium_contradiction_count
+- weak_contradiction_count
+- context_evidence_count
+- independent_evidence_count
+- card_testing
+- cnp
+- cnp_new_device
+- account_takeover
+- out_of_region
+- new_device
+- proxy_network
+- channel_novelty
+- product_novelty
+- out_of_region_behavior
+- repeated_historical_abuse
+- shared_device_profile
+
+TEST METRICS
+------------------------------------------------------------------------
+hist_gradient_boosting: ROC-AUC=0.9871 | PR-AUC=0.9986 | Brier=0.0315 | LogLoss=0.1026 | ECE=0.0267
+hist_gradient_boosting_sigmoid_calibrated: ROC-AUC=0.9871 | PR-AUC=0.9986 | Brier=0.0359 | LogLoss=0.1331 | ECE=0.0241
+random_forest: ROC-AUC=0.9870 | PR-AUC=0.9986 | Brier=0.0298 | LogLoss=0.1163 | ECE=0.0477
+random_forest_sigmoid_calibrated: ROC-AUC=0.9870 | PR-AUC=0.9986 | Brier=0.0301 | LogLoss=0.1019 | ECE=0.0302
+logistic_regression: ROC-AUC=0.9832 | PR-AUC=0.9982 | Brier=0.0328 | LogLoss=0.1062 | ECE=0.0203
+logistic_regression_sigmoid_calibrated: ROC-AUC=0.9832 | PR-AUC=0.9982 | Brier=0.0366 | LogLoss=0.1357 | ECE=0.0273
+risk_score_baseline: ROC-AUC=0.0510 | PR-AUC=0.7675 | Brier=0.3860 | LogLoss=1.0969 | ECE=0.5287
+
+INTERPRETATION RULES
+------------------------------------------------------------------------
+1. No metric is treated as a final model-selection verdict by this script.
+2. PR-AUC and ROC-AUC describe discrimination.
+3. Brier, log loss, and ECE describe probability quality/calibration.
+4. The sigmoid calibration layer is fitted on validation only.
+5. The chronological test set is not used for fitting or calibration.
+6. risk_score remains distinct from fraud_probability.
+7. HHG-001 through HHG-020 are not used for fitting.
+
+NEXT STEP
+------------------------------------------------------------------------
+Use this benchmark output to decide which model families warrant
+deeper calibration and error analysis. Do not copy a test metric
+directly into a production probability formula.
+
+Metrics: analysis/probability_model_benchmark_metrics.csv
+Predictions: analysis/probability_model_benchmark_predictions.csv
+Summary: analysis/probability_model_benchmark_summary.json
+Notes: analysis/probability_model_benchmark_notes.txt

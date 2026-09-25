@@ -1,0 +1,33 @@
+FINAL PROBABILITY AUDIT — RAPID REVIEW
+==================================================
+Test cases: 1,113 | Fraud: 1,003 (90.12%) | Cleared: 110
+ROC-AUC: 0.986844
+Brier: 0.028603 | ECE (10 equal-width bands): 0.017772
+Fraud below 10%: 8 | Cleared at/above 90%: 4
+Middle [10%,90%) cases: 100 | High [90%,100%] cases: 959
+
+CALIBRATION BANDS (n<30 = sparse)
+     band  count  share_of_test  mean_predicted  observed_fraud_rate  absolute_error  small_sample
+0.00-0.10     54         0.0485          0.0467               0.1481          0.1014         False
+0.10-0.20     17         0.0153          0.1352               0.1765          0.0412          True
+0.20-0.30     11         0.0099          0.2387               0.0909          0.1478          True
+0.30-0.40     11         0.0099          0.3565               0.3636          0.0071          True
+0.40-0.50      7         0.0063          0.4400               0.4286          0.0114          True
+0.50-0.60     13         0.0117          0.5563               0.3846          0.1717          True
+0.60-0.70     10         0.0090          0.6543               0.4000          0.2543          True
+0.70-0.80     18         0.0162          0.7619               0.4444          0.3175          True
+0.80-0.90     13         0.0117          0.8502               0.9231          0.0728          True
+0.90-1.00    959         0.8616          0.9962               0.9958          0.0004         False
+
+FLAGS / LIMITATIONS
+- 8 confirmed fraud cases predicted below 10%; inspect their evidence.
+- 4 cleared cases predicted at or above 90%; inspect their evidence.
+- Some probability bands contain fewer than 30 cases; avoid interpreting their observed rates as stable.
+- Historical closed-case test prevalence is not representative of arbitrary production transactions without separate validation.
+- Predictions alone cannot verify feature leakage, evidence provenance, or training/serving feature parity.
+
+NEXT ACTION (TIME-BOXED)
+Inspect the highest confidence_error rows in final_probability_error_cases.csv.
+If no feature leakage or obvious serving mismatch appears, freeze this model for the demo.
+Integrate using exactly the same feature derivation and feature ordering as training.
+Label outputs as historical closed-case, case-level estimates; do not claim production calibration.

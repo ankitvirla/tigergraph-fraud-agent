@@ -1,0 +1,50 @@
+FINAL FRAUD PROBABILITY MODEL
+==============================
+
+Model:
+  HistGradientBoostingClassifier + sigmoid/Platt calibration
+
+Feature count:
+  18
+
+Features:
+  risk_score, strong_support_count, medium_support_count, weak_support_count, medium_contradiction_count, context_evidence_count, independent_evidence_count, card_testing, cnp, cnp_new_device, account_takeover, out_of_region, new_device, proxy_network, channel_novelty, product_novelty, repeated_historical_abuse, shared_device_profile
+
+Removed after ablation:
+  - strong_contradiction_count
+  - weak_contradiction_count
+  - out_of_region_behavior
+
+Chronological split:
+  Train      : 3,339 rows, fraud rate 0.7972
+  Validation : 1,113 rows, fraud rate 0.8985
+  Test       : 1,113 rows, fraud rate 0.9012
+
+Calibration:
+  Sigmoid/Platt calibration fitted explicitly on validation only.
+  Test set remained untouched until final evaluation.
+
+TEST METRICS
+------------
+ROC-AUC   : 0.986844
+PR-AUC    : 0.998618
+Brier     : 0.028603
+Log Loss  : 0.092010
+ECE (10)  : 0.017772
+
+Probability bands
+-----------------
+band       count    predicted_mean    observed_fraud_rate    abs_error
+0.00-0.10       54          0.046743              0.148148   0.101405\n0.10-0.20       17          0.135238              0.176471   0.041233\n0.20-0.30       11          0.238693              0.090909   0.147784\n0.30-0.40       11          0.356496              0.363636   0.007141\n0.40-0.50        7          0.439968              0.428571   0.011397\n0.50-0.60       13          0.556267              0.384615   0.171652\n0.60-0.70       10          0.654338              0.400000   0.254338\n0.70-0.80       18          0.761903              0.444444   0.317459\n0.80-0.90       13          0.850228              0.923077   0.072849\n0.90-1.00      959          0.996229              0.995829   0.000400\n
+Important interpretation:
+- risk_score remains an input feature. The audit found its direction differs
+  from the historical fraud label, but this script does not redefine its
+  upstream semantics.
+- Duplicate/all-zero features removed in the cleaned feature set had negligible
+  impact in the ablation benchmark.
+- The historical case population is approximately 84% fraud overall and about
+  90% fraud in the held-out test split. Therefore, high predicted probabilities
+  should not be interpreted as universally calibrated transaction-level
+  probabilities in a lower-prevalence production population.
+- HHG-001 through HHG-020 are not used here because they do not have authoritative
+  labels.

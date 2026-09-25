@@ -1,0 +1,57 @@
+FRAUD PROBABILITY TRAINING DATA AUDIT
+========================================================================
+
+This audit is diagnostic. It does not select a production model.
+
+Rows: 5565 | Fraud: 4665 | Cleared: 900 | Fraud rate: 0.8383
+Date range: 2016-07-02 07:17:26 -> 2016-11-02 02:00:37
+
+TEMPORAL SPLITS
+------------------------------------------------------------------------
+train: rows=3339 fraud=2662 cleared=677 fraud_rate=0.7972 range=2016-07-02 07:17:26 -> 2016-09-11 08:00:56
+validation: rows=1113 fraud=1000 cleared=113 fraud_rate=0.8985 range=2016-09-11 08:11:34 -> 2016-10-06 13:48:10
+test: rows=1113 fraud=1003 cleared=110 fraud_rate=0.9012 range=2016-10-06 14:14:04 -> 2016-11-02 02:00:37
+
+RISK_SCORE DIAGNOSTIC
+------------------------------------------------------------------------
+Raw AUC: 0.057568
+Inverted (1-risk_score) AUC: 0.942432
+Spearman with label: -0.564358
+Mean fraud score: 0.475132
+Mean cleared score: 0.881256
+
+Risk-score quantile buckets:
+  B01: (0.009000000000000001, 0.14] | n=560 | fraud_rate=1.0000 | mean=0.0875
+  B02: (0.14, 0.23] | n=578 | fraud_rate=1.0000 | mean=0.1908
+  B03: (0.23, 0.34] | n=586 | fraud_rate=1.0000 | mean=0.2877
+  B04: (0.34, 0.45] | n=546 | fraud_rate=1.0000 | mean=0.3972
+  B05: (0.45, 0.57] | n=557 | fraud_rate=1.0000 | mean=0.5168
+  B06: (0.57, 0.68] | n=560 | fraud_rate=1.0000 | mean=0.6313
+  B07: (0.68, 0.78] | n=547 | fraud_rate=1.0000 | mean=0.7345
+  B08: (0.78, 0.84] | n=553 | fraud_rate=0.5769 | mean=0.8204
+  B09: (0.84, 0.89] | n=545 | fraud_rate=0.4110 | mean=0.8681
+  B10: (0.89, 0.99] | n=533 | fraud_rate=0.3527 | mean=0.9286
+
+FEATURE FLAGS
+------------------------------------------------------------------------
+- risk_score has very low raw univariate AUC; inspect score direction/semantics before using it as a probability.
+- 1-risk_score has materially higher diagnostic AUC than risk_score; verify whether risk_score is reversed or represents a different concept.
+- The historical case dataset has a high fraud prevalence; probability calibration may not transfer directly to a lower-prevalence production population.
+- Some model features are highly correlated; coefficient signs/importances may be unstable or hard to interpret in isolation.
+- Detected 2 exact duplicate feature pair(s); review whether both should remain as model inputs.
+
+ALL-ZERO FEATURES
+- strong_contradiction_count, weak_contradiction_count
+
+HIGH CORRELATION PAIRS (|Spearman| >= 0.95)
+------------------------------------------------------------------------
+- out_of_region <-> out_of_region_behavior: 1.000000
+- weak_support_count <-> product_novelty: 0.997961
+
+REVIEW NOTES
+------------------------------------------------------------------------
+1. Univariate associations describe the historical case dataset; they are not causal effects.
+2. Strong correlations can make multivariate coefficient signs difficult to interpret.
+3. Risk-score inversion is a diagnostic only. Verify the upstream definition before changing its meaning.
+4. High historical fraud prevalence is important when interpreting probability calibration.
+5. HHG-001–020 are not included because they do not provide authoritative labels.

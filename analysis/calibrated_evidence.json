@@ -1,0 +1,2238 @@
+{
+  "metadata": {
+    "script": "benchmark_evidence_calibration.py",
+    "generated_at": "2026-09-21T19:51:39.224864+00:00",
+    "case_count": 20,
+    "fraud_probability_calculated": false,
+    "final_decision_calculated": false
+  },
+  "calibration_rules": {
+    "device_profile": "DeviceInfo + id_30 + id_31 + id_33",
+    "common_device_profiles_are_downweighted": true,
+    "risk_score_is_not_fraud_probability": true,
+    "historical_cases_are_support_only": true,
+    "historical_cleared_cases_contradict_fraud": true,
+    "directional_evidence_schema": true,
+    "independence_requires_supporting_strong_or_medium": true,
+    "correlated_signals_share_evidence_groups": true,
+    "future_transactions_after_case_opening_are_not_added": true
+  },
+  "cases": [
+    {
+      "case_id": "HHG-001",
+      "raw_context": {
+        "case_id": "HHG-001",
+        "trigger_type": "risk_score",
+        "flagged_txn_id": 3514030,
+        "customer_id": "C12382",
+        "card_id": "C12382-K1",
+        "opened_at": "2016-12-05T01:55:28",
+        "risk_score": 0.61,
+        "amount": 77.07,
+        "channel": "in_person",
+        "ProductCD": "W"
+      },
+      "evidence": [
+        {
+          "signal_type": "repeated_historical_abuse",
+          "strength": "strong",
+          "direction": "supports_fraud",
+          "independence_group": "historical",
+          "source": "benchmark_summary",
+          "raw": {
+            "repeated_abuse_candidate": true,
+            "historical_confirmed_count": 4
+          },
+          "explanation": "The customer's/card's prior history contains repeated abuse-related cases. This is historical support and is not independent current-transaction evidence."
+        },
+        {
+          "signal_type": "post_flagged_activity",
+          "strength": "weak",
+          "direction": "context",
+          "independence_group": "temporal_behavior",
+          "source": "transaction_windows",
+          "raw": {
+            "post_flagged_activity_until_case_open": 1
+          },
+          "explanation": "1 transaction(s) occurred after the flagged transaction but before case opening. This signal respects the case-opening cutoff and does not use future transactions."
+        },
+        {
+          "signal_type": "historical_case_history",
+          "strength": "strong",
+          "direction": "supports_fraud",
+          "independence_group": "historical",
+          "source": "historical_case_summary",
+          "raw": {
+            "historical_case_count": 4,
+            "historical_confirmed_count": 4,
+            "historical_cleared_count": 0,
+            "historical_patterns": "[\"card_not_present_new_device\", \"out_of_region_use\"]",
+            "historical_exposure": 591.13,
+            "historical_report_count": 0
+          },
+          "explanation": "4 prior cases were confirmed fraud with no prior cleared cases in the qualifying history. Historical evidence is support/context only and is restricted to cases available before the current case opening."
+        }
+      ],
+      "evidence_summary": {
+        "strong_count": 2,
+        "medium_count": 0,
+        "weak_count": 1,
+        "not_material_count": 0,
+        "supporting_count": 2,
+        "contradicting_count": 0,
+        "context_count": 1,
+        "independent_evidence_groups": [
+          "historical"
+        ],
+        "independent_evidence_count": 1,
+        "independent_evidence_rule": "direction=supports_fraud AND strength in {strong,medium} AND unique independence_group"
+      },
+      "contradictions": [],
+      "fraud_probability": null,
+      "decision": null,
+      "stop_reason": null
+    },
+    {
+      "case_id": "HHG-002",
+      "raw_context": {
+        "case_id": "HHG-002",
+        "trigger_type": "risk_score",
+        "flagged_txn_id": 3478782,
+        "customer_id": "C11891",
+        "card_id": "C11891-K1",
+        "opened_at": "2016-11-22T23:27:07",
+        "risk_score": 0.79,
+        "amount": 292.36,
+        "channel": "online",
+        "ProductCD": "C"
+      },
+      "evidence": [
+        {
+          "signal_type": "historical_case_history",
+          "strength": "medium",
+          "direction": "supports_fraud",
+          "independence_group": "historical",
+          "source": "historical_case_summary",
+          "raw": {
+            "historical_case_count": 1,
+            "historical_confirmed_count": 1,
+            "historical_cleared_count": 0,
+            "historical_patterns": "[\"card_not_present_fraud\"]",
+            "historical_exposure": 90.54,
+            "historical_report_count": 0
+          },
+          "explanation": "One prior case was confirmed fraud with no qualifying cleared case in the available history. Historical evidence is support/context only and is restricted to cases available before the current case opening."
+        }
+      ],
+      "evidence_summary": {
+        "strong_count": 0,
+        "medium_count": 1,
+        "weak_count": 0,
+        "not_material_count": 0,
+        "supporting_count": 1,
+        "contradicting_count": 0,
+        "context_count": 0,
+        "independent_evidence_groups": [
+          "historical"
+        ],
+        "independent_evidence_count": 1,
+        "independent_evidence_rule": "direction=supports_fraud AND strength in {strong,medium} AND unique independence_group"
+      },
+      "contradictions": [],
+      "fraud_probability": null,
+      "decision": null,
+      "stop_reason": null
+    },
+    {
+      "case_id": "HHG-003",
+      "raw_context": {
+        "case_id": "HHG-003",
+        "trigger_type": "customer_report",
+        "flagged_txn_id": 3530164,
+        "customer_id": "C08623",
+        "card_id": "C08623-K2",
+        "opened_at": "2016-12-10T15:01:21",
+        "risk_score": 0.4,
+        "amount": 49.0,
+        "channel": "in_person",
+        "ProductCD": "W"
+      },
+      "evidence": [
+        {
+          "signal_type": "repeated_historical_abuse",
+          "strength": "strong",
+          "direction": "supports_fraud",
+          "independence_group": "historical",
+          "source": "benchmark_summary",
+          "raw": {
+            "repeated_abuse_candidate": true,
+            "historical_confirmed_count": 5
+          },
+          "explanation": "The customer's/card's prior history contains repeated abuse-related cases. This is historical support and is not independent current-transaction evidence."
+        },
+        {
+          "signal_type": "email_novelty",
+          "strength": "weak",
+          "direction": "context",
+          "independence_group": "email",
+          "source": "email_analysis",
+          "raw": {
+            "email_novelty": true,
+            "purchaser_email_seen_before": true,
+            "recipient_email_seen_before": false
+          },
+          "explanation": "Email-related activity appears novel relative to the available customer history. This is contextual evidence rather than proof of fraud."
+        },
+        {
+          "signal_type": "historical_case_history",
+          "strength": "strong",
+          "direction": "supports_fraud",
+          "independence_group": "historical",
+          "source": "historical_case_summary",
+          "raw": {
+            "historical_case_count": 6,
+            "historical_confirmed_count": 5,
+            "historical_cleared_count": 1,
+            "historical_patterns": "[\"account_takeover\", \"none\", \"out_of_region_use\"]",
+            "historical_exposure": 1154.18,
+            "historical_report_count": 0
+          },
+          "explanation": "5 prior cases were confirmed fraud, although 1 prior cases were also cleared. Historical evidence therefore supports elevated concern but is not proof of the current event. Historical evidence is support/context only and is restricted to cases available before the current case opening."
+        },
+        {
+          "signal_type": "historical_cleared_cases",
+          "strength": "medium",
+          "direction": "contradicts_fraud",
+          "independence_group": "historical",
+          "source": "historical_case_summary",
+          "raw": {
+            "historical_cleared_count": 1
+          },
+          "explanation": "1 prior case(s) were cleared. This is a contradictory historical signal and should be considered when assessing current evidence."
+        }
+      ],
+      "evidence_summary": {
+        "strong_count": 2,
+        "medium_count": 1,
+        "weak_count": 1,
+        "not_material_count": 0,
+        "supporting_count": 2,
+        "contradicting_count": 1,
+        "context_count": 1,
+        "independent_evidence_groups": [
+          "historical"
+        ],
+        "independent_evidence_count": 1,
+        "independent_evidence_rule": "direction=supports_fraud AND strength in {strong,medium} AND unique independence_group"
+      },
+      "contradictions": [
+        {
+          "type": "historical_cleared_cases",
+          "severity": "medium",
+          "direction": "contradicts_fraud",
+          "independence_group": "historical",
+          "explanation": "1 prior case(s) involving the customer/card were cleared. This does not negate current signals but should prevent historical evidence from being treated as conclusive."
+        }
+      ],
+      "fraud_probability": null,
+      "decision": null,
+      "stop_reason": null
+    },
+    {
+      "case_id": "HHG-004",
+      "raw_context": {
+        "case_id": "HHG-004",
+        "trigger_type": "customer_report",
+        "flagged_txn_id": 3583227,
+        "customer_id": "C08106",
+        "card_id": "C08106-K1",
+        "opened_at": "2016-12-29T07:53:54",
+        "risk_score": 0.34,
+        "amount": 128.33,
+        "channel": "online",
+        "ProductCD": "C"
+      },
+      "evidence": [
+        {
+          "signal_type": "card_not_present_pattern",
+          "strength": "medium",
+          "direction": "supports_fraud",
+          "independence_group": "behavioral_pattern",
+          "source": "benchmark_summary",
+          "raw": {
+            "cnp_candidate": true
+          },
+          "explanation": "The flagged transaction and surrounding activity match the documented online card-not-present candidate pattern."
+        },
+        {
+          "signal_type": "cnp_new_device_pattern",
+          "strength": "medium",
+          "direction": "supports_fraud",
+          "independence_group": "behavioral_pattern",
+          "source": "benchmark_summary",
+          "raw": {
+            "cnp_new_device_candidate": true
+          },
+          "explanation": "The flagged transaction is an online transaction with the documented new-device indicator. This strengthens the CNP pattern but is intentionally grouped with the same behavioral-pattern evidence family."
+        },
+        {
+          "signal_type": "repeated_historical_abuse",
+          "strength": "strong",
+          "direction": "supports_fraud",
+          "independence_group": "historical",
+          "source": "benchmark_summary",
+          "raw": {
+            "repeated_abuse_candidate": true,
+            "historical_confirmed_count": 3
+          },
+          "explanation": "The customer's/card's prior history contains repeated abuse-related cases. This is historical support and is not independent current-transaction evidence."
+        },
+        {
+          "signal_type": "new_device_indicator",
+          "strength": "medium",
+          "direction": "supports_fraud",
+          "independence_group": "identity_device",
+          "source": "identity",
+          "raw": {
+            "id_15": "New"
+          },
+          "explanation": "The identity record contains id_15=New. This is treated as an observed identity/device indicator and not as proof of unauthorized activity."
+        },
+        {
+          "signal_type": "shared_device_profile",
+          "strength": "not_material",
+          "direction": "context",
+          "independence_group": "network",
+          "source": "shared_device_network",
+          "raw": {
+            "candidate": false,
+            "device_profile": " |  | firefox 47.0 | ",
+            "device_profile_specificity": 1,
+            "customer_count": 6,
+            "transaction_count": 8,
+            "other_customer_count": 5
+          },
+          "explanation": "Device profile is too incomplete to support a meaningful cross-customer shared-profile signal."
+        },
+        {
+          "signal_type": "historical_case_history",
+          "strength": "strong",
+          "direction": "supports_fraud",
+          "independence_group": "historical",
+          "source": "historical_case_summary",
+          "raw": {
+            "historical_case_count": 4,
+            "historical_confirmed_count": 3,
+            "historical_cleared_count": 1,
+            "historical_patterns": "[\"card_not_present_fraud\", \"none\"]",
+            "historical_exposure": 171.0,
+            "historical_report_count": 0
+          },
+          "explanation": "3 prior cases were confirmed fraud, although 1 prior cases were also cleared. Historical evidence therefore supports elevated concern but is not proof of the current event. Historical evidence is support/context only and is restricted to cases available before the current case opening."
+        },
+        {
+          "signal_type": "historical_cleared_cases",
+          "strength": "medium",
+          "direction": "contradicts_fraud",
+          "independence_group": "historical",
+          "source": "historical_case_summary",
+          "raw": {
+            "historical_cleared_count": 1
+          },
+          "explanation": "1 prior case(s) were cleared. This is a contradictory historical signal and should be considered when assessing current evidence."
+        }
+      ],
+      "evidence_summary": {
+        "strong_count": 2,
+        "medium_count": 4,
+        "weak_count": 0,
+        "not_material_count": 1,
+        "supporting_count": 5,
+        "contradicting_count": 1,
+        "context_count": 1,
+        "independent_evidence_groups": [
+          "behavioral_pattern",
+          "historical",
+          "identity_device"
+        ],
+        "independent_evidence_count": 3,
+        "independent_evidence_rule": "direction=supports_fraud AND strength in {strong,medium} AND unique independence_group"
+      },
+      "contradictions": [
+        {
+          "type": "historical_cleared_cases",
+          "severity": "medium",
+          "direction": "contradicts_fraud",
+          "independence_group": "historical",
+          "explanation": "1 prior case(s) involving the customer/card were cleared. This does not negate current signals but should prevent historical evidence from being treated as conclusive."
+        }
+      ],
+      "fraud_probability": null,
+      "decision": null,
+      "stop_reason": null
+    },
+    {
+      "case_id": "HHG-005",
+      "raw_context": {
+        "case_id": "HHG-005",
+        "trigger_type": "risk_score",
+        "flagged_txn_id": 3523199,
+        "customer_id": "C02923",
+        "card_id": "C02923-K1",
+        "opened_at": "2016-12-08T03:38:37",
+        "risk_score": 0.54,
+        "amount": 100.07,
+        "channel": "online",
+        "ProductCD": "R"
+      },
+      "evidence": [
+        {
+          "signal_type": "cnp_new_device_pattern",
+          "strength": "medium",
+          "direction": "supports_fraud",
+          "independence_group": "behavioral_pattern",
+          "source": "benchmark_summary",
+          "raw": {
+            "cnp_new_device_candidate": true
+          },
+          "explanation": "The flagged transaction is an online transaction with the documented new-device indicator. This strengthens the CNP pattern but is intentionally grouped with the same behavioral-pattern evidence family."
+        },
+        {
+          "signal_type": "repeated_historical_abuse",
+          "strength": "strong",
+          "direction": "supports_fraud",
+          "independence_group": "historical",
+          "source": "benchmark_summary",
+          "raw": {
+            "repeated_abuse_candidate": true,
+            "historical_confirmed_count": 3
+          },
+          "explanation": "The customer's/card's prior history contains repeated abuse-related cases. This is historical support and is not independent current-transaction evidence."
+        },
+        {
+          "signal_type": "new_device_indicator",
+          "strength": "medium",
+          "direction": "supports_fraud",
+          "independence_group": "identity_device",
+          "source": "identity",
+          "raw": {
+            "id_15": "New"
+          },
+          "explanation": "The identity record contains id_15=New. This is treated as an observed identity/device indicator and not as proof of unauthorized activity."
+        },
+        {
+          "signal_type": "identity_match_status",
+          "strength": "weak",
+          "direction": "context",
+          "independence_group": "identity_device",
+          "source": "identity",
+          "raw": {
+            "id_34": "match_status:1"
+          },
+          "explanation": "An id_34 match-status value is present. Because the field's semantics are not documented, it is retained as an opaque observed signal rather than assigned a specific fraud meaning."
+        },
+        {
+          "signal_type": "shared_device_profile",
+          "strength": "weak",
+          "direction": "context",
+          "independence_group": "network",
+          "source": "shared_device_network",
+          "raw": {
+            "candidate": true,
+            "device_profile": "iOS Device | iOS 9.3.5 | mobile safari 9.0 | 1024x768",
+            "device_profile_specificity": 4,
+            "customer_count": 110,
+            "transaction_count": 164,
+            "other_customer_count": 109
+          },
+          "explanation": "The exact device profile is used by many customers, so profile matching is treated as a weak signal rather than evidence of a shared physical device."
+        },
+        {
+          "signal_type": "email_novelty",
+          "strength": "weak",
+          "direction": "context",
+          "independence_group": "email",
+          "source": "email_analysis",
+          "raw": {
+            "email_novelty": true,
+            "purchaser_email_seen_before": false,
+            "recipient_email_seen_before": true
+          },
+          "explanation": "Email-related activity appears novel relative to the available customer history. This is contextual evidence rather than proof of fraud."
+        },
+        {
+          "signal_type": "historical_case_history",
+          "strength": "strong",
+          "direction": "supports_fraud",
+          "independence_group": "historical",
+          "source": "historical_case_summary",
+          "raw": {
+            "historical_case_count": 3,
+            "historical_confirmed_count": 3,
+            "historical_cleared_count": 0,
+            "historical_patterns": "[\"account_takeover\"]",
+            "historical_exposure": 1787.0400000000002,
+            "historical_report_count": 0
+          },
+          "explanation": "3 prior cases were confirmed fraud with no prior cleared cases in the qualifying history. Historical evidence is support/context only and is restricted to cases available before the current case opening."
+        }
+      ],
+      "evidence_summary": {
+        "strong_count": 2,
+        "medium_count": 2,
+        "weak_count": 3,
+        "not_material_count": 0,
+        "supporting_count": 4,
+        "contradicting_count": 0,
+        "context_count": 3,
+        "independent_evidence_groups": [
+          "behavioral_pattern",
+          "historical",
+          "identity_device"
+        ],
+        "independent_evidence_count": 3,
+        "independent_evidence_rule": "direction=supports_fraud AND strength in {strong,medium} AND unique independence_group"
+      },
+      "contradictions": [],
+      "fraud_probability": null,
+      "decision": null,
+      "stop_reason": null
+    },
+    {
+      "case_id": "HHG-006",
+      "raw_context": {
+        "case_id": "HHG-006",
+        "trigger_type": "customer_report",
+        "flagged_txn_id": 3476682,
+        "customer_id": "C07297",
+        "card_id": "C07297-K1",
+        "opened_at": "2016-11-22T02:30:00",
+        "risk_score": 0.25,
+        "amount": 482.12,
+        "channel": "online",
+        "ProductCD": "C"
+      },
+      "evidence": [
+        {
+          "signal_type": "card_not_present_pattern",
+          "strength": "medium",
+          "direction": "supports_fraud",
+          "independence_group": "behavioral_pattern",
+          "source": "benchmark_summary",
+          "raw": {
+            "cnp_candidate": true
+          },
+          "explanation": "The flagged transaction and surrounding activity match the documented online card-not-present candidate pattern."
+        },
+        {
+          "signal_type": "cnp_new_device_pattern",
+          "strength": "medium",
+          "direction": "supports_fraud",
+          "independence_group": "behavioral_pattern",
+          "source": "benchmark_summary",
+          "raw": {
+            "cnp_new_device_candidate": true
+          },
+          "explanation": "The flagged transaction is an online transaction with the documented new-device indicator. This strengthens the CNP pattern but is intentionally grouped with the same behavioral-pattern evidence family."
+        },
+        {
+          "signal_type": "account_takeover_pattern",
+          "strength": "medium",
+          "direction": "supports_fraud",
+          "independence_group": "behavioral_identity",
+          "source": "benchmark_summary",
+          "raw": {
+            "account_takeover_candidate": true,
+            "supporting_signal_count": 0
+          },
+          "explanation": "The transaction behavior contains signals compatible with the documented account-takeover candidate pattern. The candidate remains an inference and is not itself a fraud verdict."
+        },
+        {
+          "signal_type": "new_device_indicator",
+          "strength": "medium",
+          "direction": "supports_fraud",
+          "independence_group": "identity_device",
+          "source": "identity",
+          "raw": {
+            "id_15": "New"
+          },
+          "explanation": "The identity record contains id_15=New. This is treated as an observed identity/device indicator and not as proof of unauthorized activity."
+        },
+        {
+          "signal_type": "identity_match_status",
+          "strength": "weak",
+          "direction": "context",
+          "independence_group": "identity_device",
+          "source": "identity",
+          "raw": {
+            "id_34": "match_status:2"
+          },
+          "explanation": "An id_34 match-status value is present. Because the field's semantics are not documented, it is retained as an opaque observed signal rather than assigned a specific fraud meaning."
+        },
+        {
+          "signal_type": "shared_device_profile",
+          "strength": "weak",
+          "direction": "context",
+          "independence_group": "network",
+          "source": "shared_device_network",
+          "raw": {
+            "candidate": true,
+            "device_profile": "Trident/7.0 | Windows 7 | ie 11.0 for desktop | 1920x1080",
+            "device_profile_specificity": 4,
+            "customer_count": 494,
+            "transaction_count": 1063,
+            "other_customer_count": 493
+          },
+          "explanation": "The exact device profile is used by many customers, so profile matching is treated as a weak signal rather than evidence of a shared physical device."
+        },
+        {
+          "signal_type": "post_flagged_activity",
+          "strength": "weak",
+          "direction": "context",
+          "independence_group": "temporal_behavior",
+          "source": "transaction_windows",
+          "raw": {
+            "post_flagged_activity_until_case_open": 1
+          },
+          "explanation": "1 transaction(s) occurred after the flagged transaction but before case opening. This signal respects the case-opening cutoff and does not use future transactions."
+        },
+        {
+          "signal_type": "email_novelty",
+          "strength": "weak",
+          "direction": "context",
+          "independence_group": "email",
+          "source": "email_analysis",
+          "raw": {
+            "email_novelty": true,
+            "purchaser_email_seen_before": true,
+            "recipient_email_seen_before": false
+          },
+          "explanation": "Email-related activity appears novel relative to the available customer history. This is contextual evidence rather than proof of fraud."
+        }
+      ],
+      "evidence_summary": {
+        "strong_count": 0,
+        "medium_count": 4,
+        "weak_count": 4,
+        "not_material_count": 0,
+        "supporting_count": 4,
+        "contradicting_count": 0,
+        "context_count": 4,
+        "independent_evidence_groups": [
+          "behavioral_identity",
+          "behavioral_pattern",
+          "identity_device"
+        ],
+        "independent_evidence_count": 3,
+        "independent_evidence_rule": "direction=supports_fraud AND strength in {strong,medium} AND unique independence_group"
+      },
+      "contradictions": [],
+      "fraud_probability": null,
+      "decision": null,
+      "stop_reason": null
+    },
+    {
+      "case_id": "HHG-007",
+      "raw_context": {
+        "case_id": "HHG-007",
+        "trigger_type": "risk_score",
+        "flagged_txn_id": 3514948,
+        "customer_id": "C09933",
+        "card_id": "C09933-K2",
+        "opened_at": "2016-12-05T03:46:14",
+        "risk_score": 0.87,
+        "amount": 111.92,
+        "channel": "in_person",
+        "ProductCD": "W"
+      },
+      "evidence": [
+        {
+          "signal_type": "repeated_historical_abuse",
+          "strength": "strong",
+          "direction": "supports_fraud",
+          "independence_group": "historical",
+          "source": "benchmark_summary",
+          "raw": {
+            "repeated_abuse_candidate": true,
+            "historical_confirmed_count": 18
+          },
+          "explanation": "The customer's/card's prior history contains repeated abuse-related cases. This is historical support and is not independent current-transaction evidence."
+        },
+        {
+          "signal_type": "post_flagged_activity",
+          "strength": "weak",
+          "direction": "context",
+          "independence_group": "temporal_behavior",
+          "source": "transaction_windows",
+          "raw": {
+            "post_flagged_activity_until_case_open": 3
+          },
+          "explanation": "3 transaction(s) occurred after the flagged transaction but before case opening. This signal respects the case-opening cutoff and does not use future transactions."
+        },
+        {
+          "signal_type": "email_novelty",
+          "strength": "weak",
+          "direction": "context",
+          "independence_group": "email",
+          "source": "email_analysis",
+          "raw": {
+            "email_novelty": true,
+            "purchaser_email_seen_before": true,
+            "recipient_email_seen_before": false
+          },
+          "explanation": "Email-related activity appears novel relative to the available customer history. This is contextual evidence rather than proof of fraud."
+        },
+        {
+          "signal_type": "historical_case_history",
+          "strength": "strong",
+          "direction": "supports_fraud",
+          "independence_group": "historical",
+          "source": "historical_case_summary",
+          "raw": {
+            "historical_case_count": 19,
+            "historical_confirmed_count": 18,
+            "historical_cleared_count": 1,
+            "historical_patterns": "[\"account_takeover\", \"none\", \"out_of_region_use\"]",
+            "historical_exposure": 12195.93,
+            "historical_report_count": 4
+          },
+          "explanation": "18 prior cases were confirmed fraud, although 1 prior cases were also cleared. Historical evidence therefore supports elevated concern but is not proof of the current event. Historical evidence is support/context only and is restricted to cases available before the current case opening."
+        },
+        {
+          "signal_type": "historical_cleared_cases",
+          "strength": "medium",
+          "direction": "contradicts_fraud",
+          "independence_group": "historical",
+          "source": "historical_case_summary",
+          "raw": {
+            "historical_cleared_count": 1
+          },
+          "explanation": "1 prior case(s) were cleared. This is a contradictory historical signal and should be considered when assessing current evidence."
+        }
+      ],
+      "evidence_summary": {
+        "strong_count": 2,
+        "medium_count": 1,
+        "weak_count": 2,
+        "not_material_count": 0,
+        "supporting_count": 2,
+        "contradicting_count": 1,
+        "context_count": 2,
+        "independent_evidence_groups": [
+          "historical"
+        ],
+        "independent_evidence_count": 1,
+        "independent_evidence_rule": "direction=supports_fraud AND strength in {strong,medium} AND unique independence_group"
+      },
+      "contradictions": [
+        {
+          "type": "historical_cleared_cases",
+          "severity": "medium",
+          "direction": "contradicts_fraud",
+          "independence_group": "historical",
+          "explanation": "1 prior case(s) involving the customer/card were cleared. This does not negate current signals but should prevent historical evidence from being treated as conclusive."
+        }
+      ],
+      "fraud_probability": null,
+      "decision": null,
+      "stop_reason": null
+    },
+    {
+      "case_id": "HHG-008",
+      "raw_context": {
+        "case_id": "HHG-008",
+        "trigger_type": "customer_report",
+        "flagged_txn_id": 3558054,
+        "customer_id": "C13171",
+        "card_id": "C13171-K2",
+        "opened_at": "2016-12-20T03:08:56",
+        "risk_score": 0.38,
+        "amount": 55.68,
+        "channel": "online",
+        "ProductCD": "C"
+      },
+      "evidence": [
+        {
+          "signal_type": "repeated_historical_abuse",
+          "strength": "strong",
+          "direction": "supports_fraud",
+          "independence_group": "historical",
+          "source": "benchmark_summary",
+          "raw": {
+            "repeated_abuse_candidate": true,
+            "historical_confirmed_count": 18
+          },
+          "explanation": "The customer's/card's prior history contains repeated abuse-related cases. This is historical support and is not independent current-transaction evidence."
+        },
+        {
+          "signal_type": "shared_device_profile",
+          "strength": "not_material",
+          "direction": "context",
+          "independence_group": "network",
+          "source": "shared_device_network",
+          "raw": {
+            "candidate": false,
+            "device_profile": " |  | chrome 66.0 | ",
+            "device_profile_specificity": 1,
+            "customer_count": 125,
+            "transaction_count": 419,
+            "other_customer_count": 124
+          },
+          "explanation": "Device profile is too incomplete to support a meaningful cross-customer shared-profile signal."
+        },
+        {
+          "signal_type": "historical_case_history",
+          "strength": "strong",
+          "direction": "supports_fraud",
+          "independence_group": "historical",
+          "source": "historical_case_summary",
+          "raw": {
+            "historical_case_count": 19,
+            "historical_confirmed_count": 18,
+            "historical_cleared_count": 1,
+            "historical_patterns": "[\"card_not_present_fraud\", \"card_not_present_new_device\", \"none\"]",
+            "historical_exposure": 5190.34,
+            "historical_report_count": 0
+          },
+          "explanation": "18 prior cases were confirmed fraud, although 1 prior cases were also cleared. Historical evidence therefore supports elevated concern but is not proof of the current event. Historical evidence is support/context only and is restricted to cases available before the current case opening."
+        },
+        {
+          "signal_type": "historical_cleared_cases",
+          "strength": "medium",
+          "direction": "contradicts_fraud",
+          "independence_group": "historical",
+          "source": "historical_case_summary",
+          "raw": {
+            "historical_cleared_count": 1
+          },
+          "explanation": "1 prior case(s) were cleared. This is a contradictory historical signal and should be considered when assessing current evidence."
+        }
+      ],
+      "evidence_summary": {
+        "strong_count": 2,
+        "medium_count": 1,
+        "weak_count": 0,
+        "not_material_count": 1,
+        "supporting_count": 2,
+        "contradicting_count": 1,
+        "context_count": 1,
+        "independent_evidence_groups": [
+          "historical"
+        ],
+        "independent_evidence_count": 1,
+        "independent_evidence_rule": "direction=supports_fraud AND strength in {strong,medium} AND unique independence_group"
+      },
+      "contradictions": [
+        {
+          "type": "historical_cleared_cases",
+          "severity": "medium",
+          "direction": "contradicts_fraud",
+          "independence_group": "historical",
+          "explanation": "1 prior case(s) involving the customer/card were cleared. This does not negate current signals but should prevent historical evidence from being treated as conclusive."
+        }
+      ],
+      "fraud_probability": null,
+      "decision": null,
+      "stop_reason": null
+    },
+    {
+      "case_id": "HHG-009",
+      "raw_context": {
+        "case_id": "HHG-009",
+        "trigger_type": "customer_report",
+        "flagged_txn_id": 3581141,
+        "customer_id": "C08299",
+        "card_id": "C08299-K1",
+        "opened_at": "2016-12-28T17:10:53",
+        "risk_score": 0.28,
+        "amount": 30.02,
+        "channel": "online",
+        "ProductCD": "S"
+      },
+      "evidence": [
+        {
+          "signal_type": "identity_match_status",
+          "strength": "weak",
+          "direction": "context",
+          "independence_group": "identity_device",
+          "source": "identity",
+          "raw": {
+            "id_34": "match_status:2"
+          },
+          "explanation": "An id_34 match-status value is present. Because the field's semantics are not documented, it is retained as an opaque observed signal rather than assigned a specific fraud meaning."
+        },
+        {
+          "signal_type": "email_novelty",
+          "strength": "weak",
+          "direction": "context",
+          "independence_group": "email",
+          "source": "email_analysis",
+          "raw": {
+            "email_novelty": true,
+            "purchaser_email_seen_before": false,
+            "recipient_email_seen_before": true
+          },
+          "explanation": "Email-related activity appears novel relative to the available customer history. This is contextual evidence rather than proof of fraud."
+        }
+      ],
+      "evidence_summary": {
+        "strong_count": 0,
+        "medium_count": 0,
+        "weak_count": 2,
+        "not_material_count": 0,
+        "supporting_count": 0,
+        "contradicting_count": 0,
+        "context_count": 2,
+        "independent_evidence_groups": [],
+        "independent_evidence_count": 0,
+        "independent_evidence_rule": "direction=supports_fraud AND strength in {strong,medium} AND unique independence_group"
+      },
+      "contradictions": [],
+      "fraud_probability": null,
+      "decision": null,
+      "stop_reason": null
+    },
+    {
+      "case_id": "HHG-010",
+      "raw_context": {
+        "case_id": "HHG-010",
+        "trigger_type": "risk_score",
+        "flagged_txn_id": 3506725,
+        "customer_id": "C10434",
+        "card_id": "C10434-K1",
+        "opened_at": "2016-12-02T18:18:27",
+        "risk_score": 0.9,
+        "amount": 1000.03,
+        "channel": "online",
+        "ProductCD": "R"
+      },
+      "evidence": [
+        {
+          "signal_type": "cnp_new_device_pattern",
+          "strength": "medium",
+          "direction": "supports_fraud",
+          "independence_group": "behavioral_pattern",
+          "source": "benchmark_summary",
+          "raw": {
+            "cnp_new_device_candidate": true
+          },
+          "explanation": "The flagged transaction is an online transaction with the documented new-device indicator. This strengthens the CNP pattern but is intentionally grouped with the same behavioral-pattern evidence family."
+        },
+        {
+          "signal_type": "new_device_indicator",
+          "strength": "medium",
+          "direction": "supports_fraud",
+          "independence_group": "identity_device",
+          "source": "identity",
+          "raw": {
+            "id_15": "New"
+          },
+          "explanation": "The identity record contains id_15=New. This is treated as an observed identity/device indicator and not as proof of unauthorized activity."
+        },
+        {
+          "signal_type": "identity_match_status",
+          "strength": "weak",
+          "direction": "context",
+          "independence_group": "identity_device",
+          "source": "identity",
+          "raw": {
+            "id_34": "match_status:2"
+          },
+          "explanation": "An id_34 match-status value is present. Because the field's semantics are not documented, it is retained as an opaque observed signal rather than assigned a specific fraud meaning."
+        },
+        {
+          "signal_type": "shared_device_profile",
+          "strength": "weak",
+          "direction": "context",
+          "independence_group": "network",
+          "source": "shared_device_network",
+          "raw": {
+            "candidate": true,
+            "device_profile": "Windows | Windows 10 | edge 16.0 | 1366x768",
+            "device_profile_specificity": 4,
+            "customer_count": 185,
+            "transaction_count": 337,
+            "other_customer_count": 184
+          },
+          "explanation": "The exact device profile is used by many customers, so profile matching is treated as a weak signal rather than evidence of a shared physical device."
+        },
+        {
+          "signal_type": "historical_case_history",
+          "strength": "weak",
+          "direction": "context",
+          "independence_group": "historical",
+          "source": "historical_case_summary",
+          "raw": {
+            "historical_case_count": 1,
+            "historical_confirmed_count": 0,
+            "historical_cleared_count": 1,
+            "historical_patterns": "[\"none\"]",
+            "historical_exposure": 0.0,
+            "historical_report_count": 0
+          },
+          "explanation": "Prior alerts were cleared rather than confirmed fraud. This is historical context and should not be interpreted as support for current fraud. Historical evidence is support/context only and is restricted to cases available before the current case opening."
+        },
+        {
+          "signal_type": "historical_cleared_cases",
+          "strength": "medium",
+          "direction": "contradicts_fraud",
+          "independence_group": "historical",
+          "source": "historical_case_summary",
+          "raw": {
+            "historical_cleared_count": 1
+          },
+          "explanation": "1 prior case(s) were cleared. This is a contradictory historical signal and should be considered when assessing current evidence."
+        }
+      ],
+      "evidence_summary": {
+        "strong_count": 0,
+        "medium_count": 3,
+        "weak_count": 3,
+        "not_material_count": 0,
+        "supporting_count": 2,
+        "contradicting_count": 1,
+        "context_count": 3,
+        "independent_evidence_groups": [
+          "behavioral_pattern",
+          "identity_device"
+        ],
+        "independent_evidence_count": 2,
+        "independent_evidence_rule": "direction=supports_fraud AND strength in {strong,medium} AND unique independence_group"
+      },
+      "contradictions": [
+        {
+          "type": "historical_cleared_cases",
+          "severity": "medium",
+          "direction": "contradicts_fraud",
+          "independence_group": "historical",
+          "explanation": "1 prior case(s) involving the customer/card were cleared. This does not negate current signals but should prevent historical evidence from being treated as conclusive."
+        },
+        {
+          "type": "risk_score_evidence_mismatch",
+          "severity": "low",
+          "direction": "contradicts_fraud",
+          "independence_group": "risk_score",
+          "explanation": "risk_score=0.90 is high while no strong calibrated evidence is currently present. The agent should investigate rather than equating risk_score with fraud_probability."
+        }
+      ],
+      "fraud_probability": null,
+      "decision": null,
+      "stop_reason": null
+    },
+    {
+      "case_id": "HHG-011",
+      "raw_context": {
+        "case_id": "HHG-011",
+        "trigger_type": "customer_report",
+        "flagged_txn_id": 3583368,
+        "customer_id": "C11923",
+        "card_id": "C11923-K2",
+        "opened_at": "2016-12-29T06:27:44",
+        "risk_score": 0.39,
+        "amount": 131.3,
+        "channel": "online",
+        "ProductCD": "C"
+      },
+      "evidence": [
+        {
+          "signal_type": "card_testing_pattern",
+          "strength": "strong",
+          "direction": "supports_fraud",
+          "independence_group": "behavioral_pattern",
+          "source": "benchmark_summary",
+          "raw": {
+            "card_testing_candidate": true,
+            "small_auth_count_48h": 5
+          },
+          "explanation": "The transaction sequence contains 5 small authorizations within the previous 48 hours. This is consistent with the documented card-testing candidate pattern but does not independently establish fraud."
+        },
+        {
+          "signal_type": "cnp_new_device_pattern",
+          "strength": "medium",
+          "direction": "supports_fraud",
+          "independence_group": "behavioral_pattern",
+          "source": "benchmark_summary",
+          "raw": {
+            "cnp_new_device_candidate": true
+          },
+          "explanation": "The flagged transaction is an online transaction with the documented new-device indicator. This strengthens the CNP pattern but is intentionally grouped with the same behavioral-pattern evidence family."
+        },
+        {
+          "signal_type": "repeated_historical_abuse",
+          "strength": "strong",
+          "direction": "supports_fraud",
+          "independence_group": "historical",
+          "source": "benchmark_summary",
+          "raw": {
+            "repeated_abuse_candidate": true,
+            "historical_confirmed_count": 10
+          },
+          "explanation": "The customer's/card's prior history contains repeated abuse-related cases. This is historical support and is not independent current-transaction evidence."
+        },
+        {
+          "signal_type": "new_device_indicator",
+          "strength": "medium",
+          "direction": "supports_fraud",
+          "independence_group": "identity_device",
+          "source": "identity",
+          "raw": {
+            "id_15": "New"
+          },
+          "explanation": "The identity record contains id_15=New. This is treated as an observed identity/device indicator and not as proof of unauthorized activity."
+        },
+        {
+          "signal_type": "shared_device_profile",
+          "strength": "medium",
+          "direction": "supports_fraud",
+          "independence_group": "network",
+          "source": "shared_device_network",
+          "raw": {
+            "candidate": false,
+            "device_profile": "SM-G610F Build/NRD90M |  | chrome 66.0 for android | ",
+            "device_profile_specificity": 2,
+            "customer_count": 3,
+            "transaction_count": 3,
+            "other_customer_count": 2
+          },
+          "explanation": "The device profile is relatively rare across customers, but profile completeness does not justify treating it as definitive shared-device evidence."
+        },
+        {
+          "signal_type": "post_flagged_activity",
+          "strength": "weak",
+          "direction": "context",
+          "independence_group": "temporal_behavior",
+          "source": "transaction_windows",
+          "raw": {
+            "post_flagged_activity_until_case_open": 5
+          },
+          "explanation": "5 transaction(s) occurred after the flagged transaction but before case opening. This signal respects the case-opening cutoff and does not use future transactions."
+        },
+        {
+          "signal_type": "historical_case_history",
+          "strength": "strong",
+          "direction": "supports_fraud",
+          "independence_group": "historical",
+          "source": "historical_case_summary",
+          "raw": {
+            "historical_case_count": 11,
+            "historical_confirmed_count": 10,
+            "historical_cleared_count": 1,
+            "historical_patterns": "[\"card_not_present_new_device\", \"card_testing\", \"none\"]",
+            "historical_exposure": 11095.35,
+            "historical_report_count": 5
+          },
+          "explanation": "10 prior cases were confirmed fraud, although 1 prior cases were also cleared. Historical evidence therefore supports elevated concern but is not proof of the current event. Historical evidence is support/context only and is restricted to cases available before the current case opening."
+        },
+        {
+          "signal_type": "historical_cleared_cases",
+          "strength": "medium",
+          "direction": "contradicts_fraud",
+          "independence_group": "historical",
+          "source": "historical_case_summary",
+          "raw": {
+            "historical_cleared_count": 1
+          },
+          "explanation": "1 prior case(s) were cleared. This is a contradictory historical signal and should be considered when assessing current evidence."
+        }
+      ],
+      "evidence_summary": {
+        "strong_count": 3,
+        "medium_count": 4,
+        "weak_count": 1,
+        "not_material_count": 0,
+        "supporting_count": 6,
+        "contradicting_count": 1,
+        "context_count": 1,
+        "independent_evidence_groups": [
+          "behavioral_pattern",
+          "historical",
+          "identity_device",
+          "network"
+        ],
+        "independent_evidence_count": 4,
+        "independent_evidence_rule": "direction=supports_fraud AND strength in {strong,medium} AND unique independence_group"
+      },
+      "contradictions": [
+        {
+          "type": "historical_cleared_cases",
+          "severity": "medium",
+          "direction": "contradicts_fraud",
+          "independence_group": "historical",
+          "explanation": "1 prior case(s) involving the customer/card were cleared. This does not negate current signals but should prevent historical evidence from being treated as conclusive."
+        }
+      ],
+      "fraud_probability": null,
+      "decision": null,
+      "stop_reason": null
+    },
+    {
+      "case_id": "HHG-012",
+      "raw_context": {
+        "case_id": "HHG-012",
+        "trigger_type": "risk_score",
+        "flagged_txn_id": 3553342,
+        "customer_id": "C05876",
+        "card_id": "C05876-K2",
+        "opened_at": "2016-12-18T05:00:31",
+        "risk_score": 0.55,
+        "amount": 30.91,
+        "channel": "in_person",
+        "ProductCD": "W"
+      },
+      "evidence": [
+        {
+          "signal_type": "email_novelty",
+          "strength": "weak",
+          "direction": "context",
+          "independence_group": "email",
+          "source": "email_analysis",
+          "raw": {
+            "email_novelty": true,
+            "purchaser_email_seen_before": true,
+            "recipient_email_seen_before": false
+          },
+          "explanation": "Email-related activity appears novel relative to the available customer history. This is contextual evidence rather than proof of fraud."
+        },
+        {
+          "signal_type": "historical_case_history",
+          "strength": "medium",
+          "direction": "supports_fraud",
+          "independence_group": "historical",
+          "source": "historical_case_summary",
+          "raw": {
+            "historical_case_count": 2,
+            "historical_confirmed_count": 1,
+            "historical_cleared_count": 1,
+            "historical_patterns": "[\"card_not_present_fraud\", \"none\"]",
+            "historical_exposure": 149.99,
+            "historical_report_count": 0
+          },
+          "explanation": "Historical activity contains 1 confirmed case(s) and 1 cleared case(s). This provides context but also introduces contradictory historical evidence. Historical evidence is support/context only and is restricted to cases available before the current case opening."
+        },
+        {
+          "signal_type": "historical_cleared_cases",
+          "strength": "medium",
+          "direction": "contradicts_fraud",
+          "independence_group": "historical",
+          "source": "historical_case_summary",
+          "raw": {
+            "historical_cleared_count": 1
+          },
+          "explanation": "1 prior case(s) were cleared. This is a contradictory historical signal and should be considered when assessing current evidence."
+        }
+      ],
+      "evidence_summary": {
+        "strong_count": 0,
+        "medium_count": 2,
+        "weak_count": 1,
+        "not_material_count": 0,
+        "supporting_count": 1,
+        "contradicting_count": 1,
+        "context_count": 1,
+        "independent_evidence_groups": [
+          "historical"
+        ],
+        "independent_evidence_count": 1,
+        "independent_evidence_rule": "direction=supports_fraud AND strength in {strong,medium} AND unique independence_group"
+      },
+      "contradictions": [
+        {
+          "type": "historical_cleared_cases",
+          "severity": "medium",
+          "direction": "contradicts_fraud",
+          "independence_group": "historical",
+          "explanation": "1 prior case(s) involving the customer/card were cleared. This does not negate current signals but should prevent historical evidence from being treated as conclusive."
+        }
+      ],
+      "fraud_probability": null,
+      "decision": null,
+      "stop_reason": null
+    },
+    {
+      "case_id": "HHG-013",
+      "raw_context": {
+        "case_id": "HHG-013",
+        "trigger_type": "risk_score",
+        "flagged_txn_id": 3526826,
+        "customer_id": "C07671",
+        "card_id": "C07671-K2",
+        "opened_at": "2016-12-09T05:39:29",
+        "risk_score": 0.76,
+        "amount": 35.66,
+        "channel": "online",
+        "ProductCD": "C"
+      },
+      "evidence": [
+        {
+          "signal_type": "cnp_new_device_pattern",
+          "strength": "medium",
+          "direction": "supports_fraud",
+          "independence_group": "behavioral_pattern",
+          "source": "benchmark_summary",
+          "raw": {
+            "cnp_new_device_candidate": true
+          },
+          "explanation": "The flagged transaction is an online transaction with the documented new-device indicator. This strengthens the CNP pattern but is intentionally grouped with the same behavioral-pattern evidence family."
+        },
+        {
+          "signal_type": "account_takeover_pattern",
+          "strength": "medium",
+          "direction": "supports_fraud",
+          "independence_group": "behavioral_identity",
+          "source": "benchmark_summary",
+          "raw": {
+            "account_takeover_candidate": true,
+            "supporting_signal_count": 0
+          },
+          "explanation": "The transaction behavior contains signals compatible with the documented account-takeover candidate pattern. The candidate remains an inference and is not itself a fraud verdict."
+        },
+        {
+          "signal_type": "repeated_historical_abuse",
+          "strength": "strong",
+          "direction": "supports_fraud",
+          "independence_group": "historical",
+          "source": "benchmark_summary",
+          "raw": {
+            "repeated_abuse_candidate": true,
+            "historical_confirmed_count": 3
+          },
+          "explanation": "The customer's/card's prior history contains repeated abuse-related cases. This is historical support and is not independent current-transaction evidence."
+        },
+        {
+          "signal_type": "new_device_indicator",
+          "strength": "medium",
+          "direction": "supports_fraud",
+          "independence_group": "identity_device",
+          "source": "identity",
+          "raw": {
+            "id_15": "New"
+          },
+          "explanation": "The identity record contains id_15=New. This is treated as an observed identity/device indicator and not as proof of unauthorized activity."
+        },
+        {
+          "signal_type": "shared_device_profile",
+          "strength": "weak",
+          "direction": "context",
+          "independence_group": "network",
+          "source": "shared_device_network",
+          "raw": {
+            "candidate": true,
+            "device_profile": "Windows |  | chrome 66.0 | ",
+            "device_profile_specificity": 2,
+            "customer_count": 59,
+            "transaction_count": 166,
+            "other_customer_count": 58
+          },
+          "explanation": "The exact device profile is used by many customers, so profile matching is treated as a weak signal rather than evidence of a shared physical device."
+        },
+        {
+          "signal_type": "post_flagged_activity",
+          "strength": "weak",
+          "direction": "context",
+          "independence_group": "temporal_behavior",
+          "source": "transaction_windows",
+          "raw": {
+            "post_flagged_activity_until_case_open": 1
+          },
+          "explanation": "1 transaction(s) occurred after the flagged transaction but before case opening. This signal respects the case-opening cutoff and does not use future transactions."
+        },
+        {
+          "signal_type": "historical_case_history",
+          "strength": "strong",
+          "direction": "supports_fraud",
+          "independence_group": "historical",
+          "source": "historical_case_summary",
+          "raw": {
+            "historical_case_count": 4,
+            "historical_confirmed_count": 3,
+            "historical_cleared_count": 1,
+            "historical_patterns": "[\"account_takeover\", \"card_not_present_new_device\", \"none\"]",
+            "historical_exposure": 2263.96,
+            "historical_report_count": 1
+          },
+          "explanation": "3 prior cases were confirmed fraud, although 1 prior cases were also cleared. Historical evidence therefore supports elevated concern but is not proof of the current event. Historical evidence is support/context only and is restricted to cases available before the current case opening."
+        },
+        {
+          "signal_type": "historical_cleared_cases",
+          "strength": "medium",
+          "direction": "contradicts_fraud",
+          "independence_group": "historical",
+          "source": "historical_case_summary",
+          "raw": {
+            "historical_cleared_count": 1
+          },
+          "explanation": "1 prior case(s) were cleared. This is a contradictory historical signal and should be considered when assessing current evidence."
+        }
+      ],
+      "evidence_summary": {
+        "strong_count": 2,
+        "medium_count": 4,
+        "weak_count": 2,
+        "not_material_count": 0,
+        "supporting_count": 5,
+        "contradicting_count": 1,
+        "context_count": 2,
+        "independent_evidence_groups": [
+          "behavioral_identity",
+          "behavioral_pattern",
+          "historical",
+          "identity_device"
+        ],
+        "independent_evidence_count": 4,
+        "independent_evidence_rule": "direction=supports_fraud AND strength in {strong,medium} AND unique independence_group"
+      },
+      "contradictions": [
+        {
+          "type": "historical_cleared_cases",
+          "severity": "medium",
+          "direction": "contradicts_fraud",
+          "independence_group": "historical",
+          "explanation": "1 prior case(s) involving the customer/card were cleared. This does not negate current signals but should prevent historical evidence from being treated as conclusive."
+        }
+      ],
+      "fraud_probability": null,
+      "decision": null,
+      "stop_reason": null
+    },
+    {
+      "case_id": "HHG-014",
+      "raw_context": {
+        "case_id": "HHG-014",
+        "trigger_type": "analyst_request",
+        "flagged_txn_id": 3478561,
+        "customer_id": "C13487",
+        "card_id": "C13487-K1",
+        "opened_at": "2016-11-22T20:11:00",
+        "risk_score": 0.05,
+        "amount": 74.96,
+        "channel": "online",
+        "ProductCD": "C"
+      },
+      "evidence": [
+        {
+          "signal_type": "cnp_new_device_pattern",
+          "strength": "medium",
+          "direction": "supports_fraud",
+          "independence_group": "behavioral_pattern",
+          "source": "benchmark_summary",
+          "raw": {
+            "cnp_new_device_candidate": true
+          },
+          "explanation": "The flagged transaction is an online transaction with the documented new-device indicator. This strengthens the CNP pattern but is intentionally grouped with the same behavioral-pattern evidence family."
+        },
+        {
+          "signal_type": "account_takeover_pattern",
+          "strength": "medium",
+          "direction": "supports_fraud",
+          "independence_group": "behavioral_identity",
+          "source": "benchmark_summary",
+          "raw": {
+            "account_takeover_candidate": true,
+            "supporting_signal_count": 0
+          },
+          "explanation": "The transaction behavior contains signals compatible with the documented account-takeover candidate pattern. The candidate remains an inference and is not itself a fraud verdict."
+        },
+        {
+          "signal_type": "new_device_indicator",
+          "strength": "medium",
+          "direction": "supports_fraud",
+          "independence_group": "identity_device",
+          "source": "identity",
+          "raw": {
+            "id_15": "New"
+          },
+          "explanation": "The identity record contains id_15=New. This is treated as an observed identity/device indicator and not as proof of unauthorized activity."
+        },
+        {
+          "signal_type": "proxy_network_indicator",
+          "strength": "medium",
+          "direction": "supports_fraud",
+          "independence_group": "identity_network",
+          "source": "identity",
+          "raw": {
+            "id_23": "IP_PROXY:ANONYMOUS"
+          },
+          "explanation": "The identity record contains a proxy/anonymous network-related value. The field is preserved as an observed signal; its undocumented semantics are not expanded beyond the recorded value."
+        },
+        {
+          "signal_type": "identity_match_status",
+          "strength": "weak",
+          "direction": "context",
+          "independence_group": "identity_device",
+          "source": "identity",
+          "raw": {
+            "id_34": "match_status:2"
+          },
+          "explanation": "An id_34 match-status value is present. Because the field's semantics are not documented, it is retained as an opaque observed signal rather than assigned a specific fraud meaning."
+        },
+        {
+          "signal_type": "shared_device_profile",
+          "strength": "weak",
+          "direction": "context",
+          "independence_group": "network",
+          "source": "shared_device_network",
+          "raw": {
+            "candidate": false,
+            "device_profile": "SM-G935F Build/NRD90M | Android 7.0 | chrome 62.0 for android | 1920x1080",
+            "device_profile_specificity": 4,
+            "customer_count": 44,
+            "transaction_count": 80,
+            "other_customer_count": 43
+          },
+          "explanation": "The exact device profile is shared across multiple customers. It is potentially useful as network context but is not strong evidence of a shared physical device."
+        },
+        {
+          "signal_type": "post_flagged_activity",
+          "strength": "weak",
+          "direction": "context",
+          "independence_group": "temporal_behavior",
+          "source": "transaction_windows",
+          "raw": {
+            "post_flagged_activity_until_case_open": 1
+          },
+          "explanation": "1 transaction(s) occurred after the flagged transaction but before case opening. This signal respects the case-opening cutoff and does not use future transactions."
+        }
+      ],
+      "evidence_summary": {
+        "strong_count": 0,
+        "medium_count": 4,
+        "weak_count": 3,
+        "not_material_count": 0,
+        "supporting_count": 4,
+        "contradicting_count": 0,
+        "context_count": 3,
+        "independent_evidence_groups": [
+          "behavioral_identity",
+          "behavioral_pattern",
+          "identity_device",
+          "identity_network"
+        ],
+        "independent_evidence_count": 4,
+        "independent_evidence_rule": "direction=supports_fraud AND strength in {strong,medium} AND unique independence_group"
+      },
+      "contradictions": [],
+      "fraud_probability": null,
+      "decision": null,
+      "stop_reason": null
+    },
+    {
+      "case_id": "HHG-015",
+      "raw_context": {
+        "case_id": "HHG-015",
+        "trigger_type": "risk_score",
+        "flagged_txn_id": 3464869,
+        "customer_id": "C03042",
+        "card_id": "C03042-K1",
+        "opened_at": "2016-11-17T19:03:36",
+        "risk_score": 0.77,
+        "amount": 599.94,
+        "channel": "online",
+        "ProductCD": "R"
+      },
+      "evidence": [
+        {
+          "signal_type": "cnp_new_device_pattern",
+          "strength": "medium",
+          "direction": "supports_fraud",
+          "independence_group": "behavioral_pattern",
+          "source": "benchmark_summary",
+          "raw": {
+            "cnp_new_device_candidate": true
+          },
+          "explanation": "The flagged transaction is an online transaction with the documented new-device indicator. This strengthens the CNP pattern but is intentionally grouped with the same behavioral-pattern evidence family."
+        },
+        {
+          "signal_type": "account_takeover_pattern",
+          "strength": "medium",
+          "direction": "supports_fraud",
+          "independence_group": "behavioral_identity",
+          "source": "benchmark_summary",
+          "raw": {
+            "account_takeover_candidate": true,
+            "supporting_signal_count": 0
+          },
+          "explanation": "The transaction behavior contains signals compatible with the documented account-takeover candidate pattern. The candidate remains an inference and is not itself a fraud verdict."
+        },
+        {
+          "signal_type": "repeated_historical_abuse",
+          "strength": "strong",
+          "direction": "supports_fraud",
+          "independence_group": "historical",
+          "source": "benchmark_summary",
+          "raw": {
+            "repeated_abuse_candidate": true,
+            "historical_confirmed_count": 2
+          },
+          "explanation": "The customer's/card's prior history contains repeated abuse-related cases. This is historical support and is not independent current-transaction evidence."
+        },
+        {
+          "signal_type": "new_device_indicator",
+          "strength": "medium",
+          "direction": "supports_fraud",
+          "independence_group": "identity_device",
+          "source": "identity",
+          "raw": {
+            "id_15": "New"
+          },
+          "explanation": "The identity record contains id_15=New. This is treated as an observed identity/device indicator and not as proof of unauthorized activity."
+        },
+        {
+          "signal_type": "identity_match_status",
+          "strength": "weak",
+          "direction": "context",
+          "independence_group": "identity_device",
+          "source": "identity",
+          "raw": {
+            "id_34": "match_status:2"
+          },
+          "explanation": "An id_34 match-status value is present. Because the field's semantics are not documented, it is retained as an opaque observed signal rather than assigned a specific fraud meaning."
+        },
+        {
+          "signal_type": "shared_device_profile",
+          "strength": "weak",
+          "direction": "context",
+          "independence_group": "network",
+          "source": "shared_device_network",
+          "raw": {
+            "candidate": false,
+            "device_profile": "Trident/7.0 | Windows 8.1 | ie 11.0 for desktop | 1680x1050",
+            "device_profile_specificity": 4,
+            "customer_count": 6,
+            "transaction_count": 7,
+            "other_customer_count": 5
+          },
+          "explanation": "The device profile has some cross-customer reuse and is retained as contextual network evidence."
+        },
+        {
+          "signal_type": "historical_case_history",
+          "strength": "strong",
+          "direction": "supports_fraud",
+          "independence_group": "historical",
+          "source": "historical_case_summary",
+          "raw": {
+            "historical_case_count": 3,
+            "historical_confirmed_count": 2,
+            "historical_cleared_count": 1,
+            "historical_patterns": "[\"card_not_present_new_device\", \"none\"]",
+            "historical_exposure": 350.04,
+            "historical_report_count": 0
+          },
+          "explanation": "2 prior cases were confirmed fraud, although 1 prior cases were also cleared. Historical evidence therefore supports elevated concern but is not proof of the current event. Historical evidence is support/context only and is restricted to cases available before the current case opening."
+        },
+        {
+          "signal_type": "historical_cleared_cases",
+          "strength": "medium",
+          "direction": "contradicts_fraud",
+          "independence_group": "historical",
+          "source": "historical_case_summary",
+          "raw": {
+            "historical_cleared_count": 1
+          },
+          "explanation": "1 prior case(s) were cleared. This is a contradictory historical signal and should be considered when assessing current evidence."
+        }
+      ],
+      "evidence_summary": {
+        "strong_count": 2,
+        "medium_count": 4,
+        "weak_count": 2,
+        "not_material_count": 0,
+        "supporting_count": 5,
+        "contradicting_count": 1,
+        "context_count": 2,
+        "independent_evidence_groups": [
+          "behavioral_identity",
+          "behavioral_pattern",
+          "historical",
+          "identity_device"
+        ],
+        "independent_evidence_count": 4,
+        "independent_evidence_rule": "direction=supports_fraud AND strength in {strong,medium} AND unique independence_group"
+      },
+      "contradictions": [
+        {
+          "type": "historical_cleared_cases",
+          "severity": "medium",
+          "direction": "contradicts_fraud",
+          "independence_group": "historical",
+          "explanation": "1 prior case(s) involving the customer/card were cleared. This does not negate current signals but should prevent historical evidence from being treated as conclusive."
+        }
+      ],
+      "fraud_probability": null,
+      "decision": null,
+      "stop_reason": null
+    },
+    {
+      "case_id": "HHG-016",
+      "raw_context": {
+        "case_id": "HHG-016",
+        "trigger_type": "customer_report",
+        "flagged_txn_id": 3534820,
+        "customer_id": "C09988",
+        "card_id": "C09988-K1",
+        "opened_at": "2016-12-12T01:39:08",
+        "risk_score": 0.37,
+        "amount": 59.67,
+        "channel": "online",
+        "ProductCD": "C"
+      },
+      "evidence": [
+        {
+          "signal_type": "cnp_new_device_pattern",
+          "strength": "medium",
+          "direction": "supports_fraud",
+          "independence_group": "behavioral_pattern",
+          "source": "benchmark_summary",
+          "raw": {
+            "cnp_new_device_candidate": true
+          },
+          "explanation": "The flagged transaction is an online transaction with the documented new-device indicator. This strengthens the CNP pattern but is intentionally grouped with the same behavioral-pattern evidence family."
+        },
+        {
+          "signal_type": "new_device_indicator",
+          "strength": "medium",
+          "direction": "supports_fraud",
+          "independence_group": "identity_device",
+          "source": "identity",
+          "raw": {
+            "id_15": "New"
+          },
+          "explanation": "The identity record contains id_15=New. This is treated as an observed identity/device indicator and not as proof of unauthorized activity."
+        },
+        {
+          "signal_type": "shared_device_profile",
+          "strength": "weak",
+          "direction": "context",
+          "independence_group": "network",
+          "source": "shared_device_network",
+          "raw": {
+            "candidate": true,
+            "device_profile": "Windows |  | edge 16.0 | ",
+            "device_profile_specificity": 2,
+            "customer_count": 143,
+            "transaction_count": 534,
+            "other_customer_count": 142
+          },
+          "explanation": "The exact device profile is used by many customers, so profile matching is treated as a weak signal rather than evidence of a shared physical device."
+        }
+      ],
+      "evidence_summary": {
+        "strong_count": 0,
+        "medium_count": 2,
+        "weak_count": 1,
+        "not_material_count": 0,
+        "supporting_count": 2,
+        "contradicting_count": 0,
+        "context_count": 1,
+        "independent_evidence_groups": [
+          "behavioral_pattern",
+          "identity_device"
+        ],
+        "independent_evidence_count": 2,
+        "independent_evidence_rule": "direction=supports_fraud AND strength in {strong,medium} AND unique independence_group"
+      },
+      "contradictions": [],
+      "fraud_probability": null,
+      "decision": null,
+      "stop_reason": null
+    },
+    {
+      "case_id": "HHG-017",
+      "raw_context": {
+        "case_id": "HHG-017",
+        "trigger_type": "risk_score",
+        "flagged_txn_id": 3450629,
+        "customer_id": "C04570",
+        "card_id": "C04570-K1",
+        "opened_at": "2016-11-12T00:46:24",
+        "risk_score": 0.57,
+        "amount": 100.09,
+        "channel": "online",
+        "ProductCD": "R"
+      },
+      "evidence": [
+        {
+          "signal_type": "card_not_present_pattern",
+          "strength": "medium",
+          "direction": "supports_fraud",
+          "independence_group": "behavioral_pattern",
+          "source": "benchmark_summary",
+          "raw": {
+            "cnp_candidate": true
+          },
+          "explanation": "The flagged transaction and surrounding activity match the documented online card-not-present candidate pattern."
+        },
+        {
+          "signal_type": "proxy_network_indicator",
+          "strength": "medium",
+          "direction": "supports_fraud",
+          "independence_group": "identity_network",
+          "source": "identity",
+          "raw": {
+            "id_23": "IP_PROXY:HIDDEN"
+          },
+          "explanation": "The identity record contains a proxy/anonymous network-related value. The field is preserved as an observed signal; its undocumented semantics are not expanded beyond the recorded value."
+        },
+        {
+          "signal_type": "identity_match_status",
+          "strength": "weak",
+          "direction": "context",
+          "independence_group": "identity_device",
+          "source": "identity",
+          "raw": {
+            "id_34": "match_status:2"
+          },
+          "explanation": "An id_34 match-status value is present. Because the field's semantics are not documented, it is retained as an opaque observed signal rather than assigned a specific fraud meaning."
+        },
+        {
+          "signal_type": "shared_device_profile",
+          "strength": "weak",
+          "direction": "context",
+          "independence_group": "network",
+          "source": "shared_device_network",
+          "raw": {
+            "candidate": true,
+            "device_profile": "Windows | Windows 10 | chrome 65.0 | 1920x1080",
+            "device_profile_specificity": 4,
+            "customer_count": 164,
+            "transaction_count": 299,
+            "other_customer_count": 163
+          },
+          "explanation": "The exact device profile is used by many customers, so profile matching is treated as a weak signal rather than evidence of a shared physical device."
+        },
+        {
+          "signal_type": "historical_case_history",
+          "strength": "weak",
+          "direction": "context",
+          "independence_group": "historical",
+          "source": "historical_case_summary",
+          "raw": {
+            "historical_case_count": 1,
+            "historical_confirmed_count": 0,
+            "historical_cleared_count": 1,
+            "historical_patterns": "[\"none\"]",
+            "historical_exposure": 0.0,
+            "historical_report_count": 0
+          },
+          "explanation": "Prior alerts were cleared rather than confirmed fraud. This is historical context and should not be interpreted as support for current fraud. Historical evidence is support/context only and is restricted to cases available before the current case opening."
+        },
+        {
+          "signal_type": "historical_cleared_cases",
+          "strength": "medium",
+          "direction": "contradicts_fraud",
+          "independence_group": "historical",
+          "source": "historical_case_summary",
+          "raw": {
+            "historical_cleared_count": 1
+          },
+          "explanation": "1 prior case(s) were cleared. This is a contradictory historical signal and should be considered when assessing current evidence."
+        }
+      ],
+      "evidence_summary": {
+        "strong_count": 0,
+        "medium_count": 3,
+        "weak_count": 3,
+        "not_material_count": 0,
+        "supporting_count": 2,
+        "contradicting_count": 1,
+        "context_count": 3,
+        "independent_evidence_groups": [
+          "behavioral_pattern",
+          "identity_network"
+        ],
+        "independent_evidence_count": 2,
+        "independent_evidence_rule": "direction=supports_fraud AND strength in {strong,medium} AND unique independence_group"
+      },
+      "contradictions": [
+        {
+          "type": "historical_cleared_cases",
+          "severity": "medium",
+          "direction": "contradicts_fraud",
+          "independence_group": "historical",
+          "explanation": "1 prior case(s) involving the customer/card were cleared. This does not negate current signals but should prevent historical evidence from being treated as conclusive."
+        }
+      ],
+      "fraud_probability": null,
+      "decision": null,
+      "stop_reason": null
+    },
+    {
+      "case_id": "HHG-018",
+      "raw_context": {
+        "case_id": "HHG-018",
+        "trigger_type": "customer_report",
+        "flagged_txn_id": 3491361,
+        "customer_id": "C02354",
+        "card_id": "C02354-K2",
+        "opened_at": "2016-11-27T14:41:26",
+        "risk_score": 0.48,
+        "amount": 39.08,
+        "channel": "in_person",
+        "ProductCD": "W"
+      },
+      "evidence": [
+        {
+          "signal_type": "repeated_historical_abuse",
+          "strength": "strong",
+          "direction": "supports_fraud",
+          "independence_group": "historical",
+          "source": "benchmark_summary",
+          "raw": {
+            "repeated_abuse_candidate": true,
+            "historical_confirmed_count": 19
+          },
+          "explanation": "The customer's/card's prior history contains repeated abuse-related cases. This is historical support and is not independent current-transaction evidence."
+        },
+        {
+          "signal_type": "post_flagged_activity",
+          "strength": "weak",
+          "direction": "context",
+          "independence_group": "temporal_behavior",
+          "source": "transaction_windows",
+          "raw": {
+            "post_flagged_activity_until_case_open": 2
+          },
+          "explanation": "2 transaction(s) occurred after the flagged transaction but before case opening. This signal respects the case-opening cutoff and does not use future transactions."
+        },
+        {
+          "signal_type": "historical_case_history",
+          "strength": "strong",
+          "direction": "supports_fraud",
+          "independence_group": "historical",
+          "source": "historical_case_summary",
+          "raw": {
+            "historical_case_count": 20,
+            "historical_confirmed_count": 19,
+            "historical_cleared_count": 1,
+            "historical_patterns": "[\"account_takeover\", \"card_not_present_fraud\", \"none\", \"out_of_region_use\"]",
+            "historical_exposure": 19262.22,
+            "historical_report_count": 8
+          },
+          "explanation": "19 prior cases were confirmed fraud, although 1 prior cases were also cleared. Historical evidence therefore supports elevated concern but is not proof of the current event. Historical evidence is support/context only and is restricted to cases available before the current case opening."
+        },
+        {
+          "signal_type": "historical_cleared_cases",
+          "strength": "medium",
+          "direction": "contradicts_fraud",
+          "independence_group": "historical",
+          "source": "historical_case_summary",
+          "raw": {
+            "historical_cleared_count": 1
+          },
+          "explanation": "1 prior case(s) were cleared. This is a contradictory historical signal and should be considered when assessing current evidence."
+        }
+      ],
+      "evidence_summary": {
+        "strong_count": 2,
+        "medium_count": 1,
+        "weak_count": 1,
+        "not_material_count": 0,
+        "supporting_count": 2,
+        "contradicting_count": 1,
+        "context_count": 1,
+        "independent_evidence_groups": [
+          "historical"
+        ],
+        "independent_evidence_count": 1,
+        "independent_evidence_rule": "direction=supports_fraud AND strength in {strong,medium} AND unique independence_group"
+      },
+      "contradictions": [
+        {
+          "type": "historical_cleared_cases",
+          "severity": "medium",
+          "direction": "contradicts_fraud",
+          "independence_group": "historical",
+          "explanation": "1 prior case(s) involving the customer/card were cleared. This does not negate current signals but should prevent historical evidence from being treated as conclusive."
+        }
+      ],
+      "fraud_probability": null,
+      "decision": null,
+      "stop_reason": null
+    },
+    {
+      "case_id": "HHG-019",
+      "raw_context": {
+        "case_id": "HHG-019",
+        "trigger_type": "risk_score",
+        "flagged_txn_id": 3503878,
+        "customer_id": "C07987",
+        "card_id": "C07987-K2",
+        "opened_at": "2016-12-01T22:28:53",
+        "risk_score": 0.9,
+        "amount": 99.92,
+        "channel": "online",
+        "ProductCD": "R"
+      },
+      "evidence": [
+        {
+          "signal_type": "cnp_new_device_pattern",
+          "strength": "medium",
+          "direction": "supports_fraud",
+          "independence_group": "behavioral_pattern",
+          "source": "benchmark_summary",
+          "raw": {
+            "cnp_new_device_candidate": true
+          },
+          "explanation": "The flagged transaction is an online transaction with the documented new-device indicator. This strengthens the CNP pattern but is intentionally grouped with the same behavioral-pattern evidence family."
+        },
+        {
+          "signal_type": "account_takeover_pattern",
+          "strength": "medium",
+          "direction": "supports_fraud",
+          "independence_group": "behavioral_identity",
+          "source": "benchmark_summary",
+          "raw": {
+            "account_takeover_candidate": true,
+            "supporting_signal_count": 0
+          },
+          "explanation": "The transaction behavior contains signals compatible with the documented account-takeover candidate pattern. The candidate remains an inference and is not itself a fraud verdict."
+        },
+        {
+          "signal_type": "repeated_historical_abuse",
+          "strength": "strong",
+          "direction": "supports_fraud",
+          "independence_group": "historical",
+          "source": "benchmark_summary",
+          "raw": {
+            "repeated_abuse_candidate": true,
+            "historical_confirmed_count": 3
+          },
+          "explanation": "The customer's/card's prior history contains repeated abuse-related cases. This is historical support and is not independent current-transaction evidence."
+        },
+        {
+          "signal_type": "new_device_indicator",
+          "strength": "medium",
+          "direction": "supports_fraud",
+          "independence_group": "identity_device",
+          "source": "identity",
+          "raw": {
+            "id_15": "New"
+          },
+          "explanation": "The identity record contains id_15=New. This is treated as an observed identity/device indicator and not as proof of unauthorized activity."
+        },
+        {
+          "signal_type": "identity_match_status",
+          "strength": "weak",
+          "direction": "context",
+          "independence_group": "identity_device",
+          "source": "identity",
+          "raw": {
+            "id_34": "match_status:0"
+          },
+          "explanation": "An id_34 match-status value is present. Because the field's semantics are not documented, it is retained as an opaque observed signal rather than assigned a specific fraud meaning."
+        },
+        {
+          "signal_type": "shared_device_profile",
+          "strength": "strong",
+          "direction": "supports_fraud",
+          "independence_group": "network",
+          "source": "shared_device_network",
+          "raw": {
+            "candidate": false,
+            "device_profile": "Windows | other | chrome 61.0 | 1280x720",
+            "device_profile_specificity": 4,
+            "customer_count": 3,
+            "transaction_count": 3,
+            "other_customer_count": 2
+          },
+          "explanation": "The complete device profile is rare across customers and matches activity involving other customers before case opening. This remains a profile-level signal, not proof of physical device ownership."
+        },
+        {
+          "signal_type": "historical_case_history",
+          "strength": "strong",
+          "direction": "supports_fraud",
+          "independence_group": "historical",
+          "source": "historical_case_summary",
+          "raw": {
+            "historical_case_count": 4,
+            "historical_confirmed_count": 3,
+            "historical_cleared_count": 1,
+            "historical_patterns": "[\"card_not_present_fraud\", \"none\", \"out_of_region_use\"]",
+            "historical_exposure": 3519.67,
+            "historical_report_count": 1
+          },
+          "explanation": "3 prior cases were confirmed fraud, although 1 prior cases were also cleared. Historical evidence therefore supports elevated concern but is not proof of the current event. Historical evidence is support/context only and is restricted to cases available before the current case opening."
+        },
+        {
+          "signal_type": "historical_cleared_cases",
+          "strength": "medium",
+          "direction": "contradicts_fraud",
+          "independence_group": "historical",
+          "source": "historical_case_summary",
+          "raw": {
+            "historical_cleared_count": 1
+          },
+          "explanation": "1 prior case(s) were cleared. This is a contradictory historical signal and should be considered when assessing current evidence."
+        }
+      ],
+      "evidence_summary": {
+        "strong_count": 3,
+        "medium_count": 4,
+        "weak_count": 1,
+        "not_material_count": 0,
+        "supporting_count": 6,
+        "contradicting_count": 1,
+        "context_count": 1,
+        "independent_evidence_groups": [
+          "behavioral_identity",
+          "behavioral_pattern",
+          "historical",
+          "identity_device",
+          "network"
+        ],
+        "independent_evidence_count": 5,
+        "independent_evidence_rule": "direction=supports_fraud AND strength in {strong,medium} AND unique independence_group"
+      },
+      "contradictions": [
+        {
+          "type": "historical_cleared_cases",
+          "severity": "medium",
+          "direction": "contradicts_fraud",
+          "independence_group": "historical",
+          "explanation": "1 prior case(s) involving the customer/card were cleared. This does not negate current signals but should prevent historical evidence from being treated as conclusive."
+        }
+      ],
+      "fraud_probability": null,
+      "decision": null,
+      "stop_reason": null
+    },
+    {
+      "case_id": "HHG-020",
+      "raw_context": {
+        "case_id": "HHG-020",
+        "trigger_type": "risk_score",
+        "flagged_txn_id": 3509359,
+        "customer_id": "C12265",
+        "card_id": "C12265-K2",
+        "opened_at": "2016-12-03T12:04:26",
+        "risk_score": 0.52,
+        "amount": 125.08,
+        "channel": "online",
+        "ProductCD": "R"
+      },
+      "evidence": [
+        {
+          "signal_type": "cnp_new_device_pattern",
+          "strength": "medium",
+          "direction": "supports_fraud",
+          "independence_group": "behavioral_pattern",
+          "source": "benchmark_summary",
+          "raw": {
+            "cnp_new_device_candidate": true
+          },
+          "explanation": "The flagged transaction is an online transaction with the documented new-device indicator. This strengthens the CNP pattern but is intentionally grouped with the same behavioral-pattern evidence family."
+        },
+        {
+          "signal_type": "repeated_historical_abuse",
+          "strength": "strong",
+          "direction": "supports_fraud",
+          "independence_group": "historical",
+          "source": "benchmark_summary",
+          "raw": {
+            "repeated_abuse_candidate": true,
+            "historical_confirmed_count": 2
+          },
+          "explanation": "The customer's/card's prior history contains repeated abuse-related cases. This is historical support and is not independent current-transaction evidence."
+        },
+        {
+          "signal_type": "new_device_indicator",
+          "strength": "medium",
+          "direction": "supports_fraud",
+          "independence_group": "identity_device",
+          "source": "identity",
+          "raw": {
+            "id_15": "New"
+          },
+          "explanation": "The identity record contains id_15=New. This is treated as an observed identity/device indicator and not as proof of unauthorized activity."
+        },
+        {
+          "signal_type": "identity_match_status",
+          "strength": "weak",
+          "direction": "context",
+          "independence_group": "identity_device",
+          "source": "identity",
+          "raw": {
+            "id_34": "match_status:2"
+          },
+          "explanation": "An id_34 match-status value is present. Because the field's semantics are not documented, it is retained as an opaque observed signal rather than assigned a specific fraud meaning."
+        },
+        {
+          "signal_type": "shared_device_profile",
+          "strength": "weak",
+          "direction": "context",
+          "independence_group": "network",
+          "source": "shared_device_network",
+          "raw": {
+            "candidate": true,
+            "device_profile": "Trident/7.0 | Windows 10 | ie 11.0 for desktop | 1920x1080",
+            "device_profile_specificity": 4,
+            "customer_count": 232,
+            "transaction_count": 400,
+            "other_customer_count": 231
+          },
+          "explanation": "The exact device profile is used by many customers, so profile matching is treated as a weak signal rather than evidence of a shared physical device."
+        },
+        {
+          "signal_type": "product_novelty",
+          "strength": "weak",
+          "direction": "supports_fraud",
+          "independence_group": "behavior",
+          "source": "benchmark_summary",
+          "raw": {
+            "product_novel": true,
+            "source_field": "product_novel"
+          },
+          "explanation": "The ProductCD was not previously observed in the analyzed customer history."
+        },
+        {
+          "signal_type": "email_novelty",
+          "strength": "weak",
+          "direction": "context",
+          "independence_group": "email",
+          "source": "email_analysis",
+          "raw": {
+            "email_novelty": true,
+            "purchaser_email_seen_before": true,
+            "recipient_email_seen_before": false
+          },
+          "explanation": "Email-related activity appears novel relative to the available customer history. This is contextual evidence rather than proof of fraud."
+        },
+        {
+          "signal_type": "historical_case_history",
+          "strength": "strong",
+          "direction": "supports_fraud",
+          "independence_group": "historical",
+          "source": "historical_case_summary",
+          "raw": {
+            "historical_case_count": 2,
+            "historical_confirmed_count": 2,
+            "historical_cleared_count": 0,
+            "historical_patterns": "[\"account_takeover\"]",
+            "historical_exposure": 115.88,
+            "historical_report_count": 0
+          },
+          "explanation": "2 prior cases were confirmed fraud with no prior cleared cases in the qualifying history. Historical evidence is support/context only and is restricted to cases available before the current case opening."
+        }
+      ],
+      "evidence_summary": {
+        "strong_count": 2,
+        "medium_count": 2,
+        "weak_count": 4,
+        "not_material_count": 0,
+        "supporting_count": 5,
+        "contradicting_count": 0,
+        "context_count": 3,
+        "independent_evidence_groups": [
+          "behavioral_pattern",
+          "historical",
+          "identity_device"
+        ],
+        "independent_evidence_count": 3,
+        "independent_evidence_rule": "direction=supports_fraud AND strength in {strong,medium} AND unique independence_group"
+      },
+      "contradictions": [],
+      "fraud_probability": null,
+      "decision": null,
+      "stop_reason": null
+    }
+  ]
+}

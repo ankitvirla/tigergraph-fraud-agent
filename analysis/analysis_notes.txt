@@ -1,0 +1,45 @@
+TIGERGRAPH AGENTIC FRAUD INVESTIGATION — BENCHMARK DEEP ANALYSIS
+========================================================================
+
+This analysis produces observed signals, derived signals, pattern candidates and historical support.
+It is NOT a final fraud decision engine.
+
+Benchmark cases analyzed: 20
+Historical cases loaded: 5,565
+
+Temporal leakage controls:
+- Evidence is restricted to transaction activity at or before case opening.
+- Historical closed cases are restricted to closed_at <= case opening.
+- Future transactions after case opening are not used as evidence.
+
+Device profile:
+- Exact profile = DeviceInfo + id_30 + id_31 + id_33.
+- id_15 and id_23 are not part of the core profile.
+- Partial/common profiles are not treated as definitive shared-device proof.
+
+Card identity:
+- case_pack card_id values such as C12382-K1/K2 are preserved exactly.
+- Raw transaction card fingerprints are generated only from card1..card6.
+- No K1/K2 mapping is inferred.
+
+Fraud probability:
+- No fraud probability is calculated by this script.
+- risk_score is retained as an input signal only.
+- The eventual investigation agent must combine graph evidence, historical evidence, pattern detection, policy and simulated verification.
+
+Pattern candidate counts:
+- card_testing_candidate: 1/20
+- cnp_candidate: 3/20
+- cnp_new_device_candidate: 11/20
+- out_of_region_candidate: 0/20
+- account_takeover_candidate: 5/20
+- shared_device_candidate: 7/20
+- repeated_abuse_candidate: 12/20
+
+Historical support:
+- Cases with >=1 prior confirmed fraud case: 14
+- Cases with >=1 prior cleared case: 12
+
+Interpretation rule:
+Historical cases and pattern candidates are supporting evidence, not automatic proof of current fraud.
+Undocumented coordinated or repeated abuse should remain discoverable instead of being forced into one of the documented patterns.

@@ -1,0 +1,2 @@
+model,n_features,train_rows,validation_rows,test_rows,train_fraud_rate,validation_fraud_rate,test_fraud_rate,roc_auc,pr_auc,brier_score,log_loss,ece_10_bin,mean_probability,median_probability,min_probability,max_probability
+hist_gradient_boosting_sigmoid_calibrated,18,3339,1113,1113,0.7972446840371369,0.8984725965858041,0.9011680143755616,0.9868440134143027,0.9986177251892487,0.02860314000703825,0.09201009293219005,0.01777226996026048,0.9059979248149488,0.9978393220128048,0.009935547651003672,0.9981833033640762

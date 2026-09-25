@@ -1,0 +1,754 @@
+{
+  "purpose": "Benchmark candidate statistical fraud-probability models using the validated historical training dataset.",
+  "dataset": {
+    "input": "analysis/probability_training_dataset.csv",
+    "rows": 5565,
+    "fraud": 4665,
+    "cleared": 900,
+    "date_min": "2016-07-02T07:17:26",
+    "date_max": "2016-11-02T02:00:37"
+  },
+  "features": [
+    "risk_score",
+    "strong_support_count",
+    "medium_support_count",
+    "weak_support_count",
+    "strong_contradiction_count",
+    "medium_contradiction_count",
+    "weak_contradiction_count",
+    "context_evidence_count",
+    "independent_evidence_count",
+    "card_testing",
+    "cnp",
+    "cnp_new_device",
+    "account_takeover",
+    "out_of_region",
+    "new_device",
+    "proxy_network",
+    "channel_novelty",
+    "product_novelty",
+    "out_of_region_behavior",
+    "repeated_historical_abuse",
+    "shared_device_profile"
+  ],
+  "forbidden_features": [
+    "actions_taken",
+    "analyst_notes",
+    "closed_at",
+    "exposure_usd",
+    "first_fraud_txn_id",
+    "n_txns",
+    "outcome",
+    "pattern",
+    "report_filed",
+    "target_selection",
+    "target_txn_id",
+    "txn_ids"
+  ],
+  "split": {
+    "train": {
+      "rows": 3339,
+      "fraud": 2662,
+      "cleared": 677,
+      "fraud_rate": 0.7972446840371369,
+      "min_opened_at": "2016-07-02T07:17:26",
+      "max_opened_at": "2016-09-11T08:00:56"
+    },
+    "validation": {
+      "rows": 1113,
+      "fraud": 1000,
+      "cleared": 113,
+      "fraud_rate": 0.8984725965858041,
+      "min_opened_at": "2016-09-11T08:11:34",
+      "max_opened_at": "2016-10-06T13:48:10"
+    },
+    "test": {
+      "rows": 1113,
+      "fraud": 1003,
+      "cleared": 110,
+      "fraud_rate": 0.9011680143755616,
+      "min_opened_at": "2016-10-06T14:14:04",
+      "max_opened_at": "2016-11-02T02:00:37"
+    }
+  },
+  "models": [
+    "risk_score_baseline",
+    "logistic_regression",
+    "logistic_regression_sigmoid_calibrated",
+    "random_forest",
+    "random_forest_sigmoid_calibrated",
+    "hist_gradient_boosting",
+    "hist_gradient_boosting_sigmoid_calibrated"
+  ],
+  "metrics_definition": {
+    "roc_auc": "ROC AUC; higher means better ranking separation.",
+    "pr_auc": "Average precision / PR AUC; higher means better precision-recall performance.",
+    "brier_score": "Mean squared probability error; lower is better.",
+    "log_loss": "Probabilistic log loss; lower is better.",
+    "ece_10bin": "10-bin expected calibration error; lower indicates closer empirical calibration."
+  },
+  "test_metrics": [
+    {
+      "model": "hist_gradient_boosting",
+      "split": "test",
+      "rows": 1113,
+      "fraud": 1003,
+      "cleared": 110,
+      "fraud_rate": 0.9011680143755616,
+      "roc_auc": 0.9870887337986041,
+      "pr_auc": 0.9986459286031181,
+      "brier_score": 0.03150343127467444,
+      "log_loss": 0.10255509260210625,
+      "ece_10bin": 0.02669835678093565,
+      "mean_probability": 0.9133054854318883,
+      "median_probability": 0.9999239304327505,
+      "min_probability": 0.0019814290329255107,
+      "max_probability": 0.9999571414462625
+    },
+    {
+      "model": "hist_gradient_boosting_sigmoid_calibrated",
+      "split": "test",
+      "rows": 1113,
+      "fraud": 1003,
+      "cleared": 110,
+      "fraud_rate": 0.9011680143755616,
+      "roc_auc": 0.9870887337986041,
+      "pr_auc": 0.9986459286031181,
+      "brier_score": 0.035879645608732566,
+      "log_loss": 0.13308425655660078,
+      "ece_10bin": 0.024082053540796657,
+      "mean_probability": 0.9008918717281789,
+      "median_probability": 0.9739824480543029,
+      "min_probability": 0.0740687830060002,
+      "max_probability": 0.9739876326646395
+    },
+    {
+      "model": "random_forest",
+      "split": "test",
+      "rows": 1113,
+      "fraud": 1003,
+      "cleared": 110,
+      "fraud_rate": 0.9011680143755616,
+      "roc_auc": 0.9869799691833591,
+      "pr_auc": 0.998624967163659,
+      "brier_score": 0.029811284470372807,
+      "log_loss": 0.11634347417022398,
+      "ece_10bin": 0.04772316350552046,
+      "mean_probability": 0.867119950282648,
+      "median_probability": 0.9775338035905917,
+      "min_probability": 0.013354195929380856,
+      "max_probability": 0.9979992399180916
+    },
+    {
+      "model": "random_forest_sigmoid_calibrated",
+      "split": "test",
+      "rows": 1113,
+      "fraud": 1003,
+      "cleared": 110,
+      "fraud_rate": 0.9011680143755616,
+      "roc_auc": 0.9869799691833591,
+      "pr_auc": 0.998624967163659,
+      "brier_score": 0.030144772684766136,
+      "log_loss": 0.10191262389479049,
+      "ece_10bin": 0.030238166648637592,
+      "mean_probability": 0.9074143681052129,
+      "median_probability": 0.9879790401096287,
+      "min_probability": 0.08135347012247932,
+      "max_probability": 0.9895850922671816
+    },
+    {
+      "model": "logistic_regression",
+      "split": "test",
+      "rows": 1113,
+      "fraud": 1003,
+      "cleared": 110,
+      "fraud_rate": 0.9011680143755616,
+      "roc_auc": 0.9832094625215263,
+      "pr_auc": 0.9982167161957336,
+      "brier_score": 0.0327921315504384,
+      "log_loss": 0.10615141142949844,
+      "ece_10bin": 0.020293185660371728,
+      "mean_probability": 0.9116514512351866,
+      "median_probability": 0.9999872035603621,
+      "min_probability": 0.009751890050578648,
+      "max_probability": 0.9999999999995879
+    },
+    {
+      "model": "logistic_regression_sigmoid_calibrated",
+      "split": "test",
+      "rows": 1113,
+      "fraud": 1003,
+      "cleared": 110,
+      "fraud_rate": 0.9011680143755616,
+      "roc_auc": 0.9832094625215263,
+      "pr_auc": 0.9982167161957336,
+      "brier_score": 0.03657005812707199,
+      "log_loss": 0.13568425161731423,
+      "ece_10bin": 0.02730132751989988,
+      "mean_probability": 0.9020780765320124,
+      "median_probability": 0.9739351081115053,
+      "min_probability": 0.08085025980900752,
+      "max_probability": 0.9739370932517853
+    },
+    {
+      "model": "risk_score_baseline",
+      "split": "test",
+      "rows": 1113,
+      "fraud": 1003,
+      "cleared": 110,
+      "fraud_rate": 0.9011680143755616,
+      "roc_auc": 0.051006072691017854,
+      "pr_auc": 0.7674994836561436,
+      "brier_score": 0.38603971248876906,
+      "log_loss": 1.0969473190514984,
+      "ece_10bin": 0.5287151841868822,
+      "mean_probability": 0.5158490566037736,
+      "median_probability": 0.54,
+      "min_probability": 0.01,
+      "max_probability": 0.98
+    }
+  ],
+  "threshold_metrics_test": [
+    {
+      "threshold": 0.1,
+      "tp": 996,
+      "fp": 68,
+      "tn": 42,
+      "fn": 7,
+      "precision": 0.9360902255639098,
+      "recall": 0.9930209371884346,
+      "predicted_fraud_rate": 0.9559748427672956,
+      "model": "hist_gradient_boosting_sigmoid_calibrated",
+      "split": "test"
+    },
+    {
+      "threshold": 0.2,
+      "tp": 992,
+      "fp": 45,
+      "tn": 65,
+      "fn": 11,
+      "precision": 0.9566055930568949,
+      "recall": 0.9890329012961117,
+      "predicted_fraud_rate": 0.9317160826594789,
+      "model": "hist_gradient_boosting_sigmoid_calibrated",
+      "split": "test"
+    },
+    {
+      "threshold": 0.3,
+      "tp": 991,
+      "fp": 41,
+      "tn": 69,
+      "fn": 12,
+      "precision": 0.9602713178294574,
+      "recall": 0.9880358923230309,
+      "predicted_fraud_rate": 0.9272237196765498,
+      "model": "hist_gradient_boosting_sigmoid_calibrated",
+      "split": "test"
+    },
+    {
+      "threshold": 0.4,
+      "tp": 991,
+      "fp": 39,
+      "tn": 71,
+      "fn": 12,
+      "precision": 0.962135922330097,
+      "recall": 0.9880358923230309,
+      "predicted_fraud_rate": 0.9254267744833783,
+      "model": "hist_gradient_boosting_sigmoid_calibrated",
+      "split": "test"
+    },
+    {
+      "threshold": 0.5,
+      "tp": 989,
+      "fp": 35,
+      "tn": 75,
+      "fn": 14,
+      "precision": 0.9658203125,
+      "recall": 0.9860418743768694,
+      "predicted_fraud_rate": 0.9200359389038635,
+      "model": "hist_gradient_boosting_sigmoid_calibrated",
+      "split": "test"
+    },
+    {
+      "threshold": 0.6,
+      "tp": 986,
+      "fp": 33,
+      "tn": 77,
+      "fn": 17,
+      "precision": 0.9676153091265947,
+      "recall": 0.9830508474576272,
+      "predicted_fraud_rate": 0.9155435759209344,
+      "model": "hist_gradient_boosting_sigmoid_calibrated",
+      "split": "test"
+    },
+    {
+      "threshold": 0.7,
+      "tp": 986,
+      "fp": 32,
+      "tn": 78,
+      "fn": 17,
+      "precision": 0.9685658153241651,
+      "recall": 0.9830508474576272,
+      "predicted_fraud_rate": 0.9146451033243486,
+      "model": "hist_gradient_boosting_sigmoid_calibrated",
+      "split": "test"
+    },
+    {
+      "threshold": 0.8,
+      "tp": 983,
+      "fp": 27,
+      "tn": 83,
+      "fn": 20,
+      "precision": 0.9732673267326732,
+      "recall": 0.9800598205383848,
+      "predicted_fraud_rate": 0.9074573225516622,
+      "model": "hist_gradient_boosting_sigmoid_calibrated",
+      "split": "test"
+    },
+    {
+      "threshold": 0.9,
+      "tp": 977,
+      "fp": 17,
+      "tn": 93,
+      "fn": 26,
+      "precision": 0.9828973843058351,
+      "recall": 0.9740777666999003,
+      "predicted_fraud_rate": 0.8930817610062893,
+      "model": "hist_gradient_boosting_sigmoid_calibrated",
+      "split": "test"
+    },
+    {
+      "threshold": 0.1,
+      "tp": 999,
+      "fp": 98,
+      "tn": 12,
+      "fn": 4,
+      "precision": 0.910665451230629,
+      "recall": 0.996011964107677,
+      "predicted_fraud_rate": 0.9856244384546271,
+      "model": "logistic_regression_sigmoid_calibrated",
+      "split": "test"
+    },
+    {
+      "threshold": 0.2,
+      "tp": 995,
+      "fp": 60,
+      "tn": 50,
+      "fn": 8,
+      "precision": 0.943127962085308,
+      "recall": 0.9920239282153539,
+      "predicted_fraud_rate": 0.9478885893980233,
+      "model": "logistic_regression_sigmoid_calibrated",
+      "split": "test"
+    },
+    {
+      "threshold": 0.3,
+      "tp": 991,
+      "fp": 45,
+      "tn": 65,
+      "fn": 12,
+      "precision": 0.9565637065637066,
+      "recall": 0.9880358923230309,
+      "predicted_fraud_rate": 0.9308176100628931,
+      "model": "logistic_regression_sigmoid_calibrated",
+      "split": "test"
+    },
+    {
+      "threshold": 0.4,
+      "tp": 989,
+      "fp": 39,
+      "tn": 71,
+      "fn": 14,
+      "precision": 0.9620622568093385,
+      "recall": 0.9860418743768694,
+      "predicted_fraud_rate": 0.9236298292902066,
+      "model": "logistic_regression_sigmoid_calibrated",
+      "split": "test"
+    },
+    {
+      "threshold": 0.5,
+      "tp": 986,
+      "fp": 37,
+      "tn": 73,
+      "fn": 17,
+      "precision": 0.9638318670576735,
+      "recall": 0.9830508474576272,
+      "predicted_fraud_rate": 0.9191374663072777,
+      "model": "logistic_regression_sigmoid_calibrated",
+      "split": "test"
+    },
+    {
+      "threshold": 0.6,
+      "tp": 986,
+      "fp": 33,
+      "tn": 77,
+      "fn": 17,
+      "precision": 0.9676153091265947,
+      "recall": 0.9830508474576272,
+      "predicted_fraud_rate": 0.9155435759209344,
+      "model": "logistic_regression_sigmoid_calibrated",
+      "split": "test"
+    },
+    {
+      "threshold": 0.7,
+      "tp": 984,
+      "fp": 31,
+      "tn": 79,
+      "fn": 19,
+      "precision": 0.9694581280788177,
+      "recall": 0.9810568295114656,
+      "predicted_fraud_rate": 0.9119496855345912,
+      "model": "logistic_regression_sigmoid_calibrated",
+      "split": "test"
+    },
+    {
+      "threshold": 0.8,
+      "tp": 980,
+      "fp": 23,
+      "tn": 87,
+      "fn": 23,
+      "precision": 0.9770687936191426,
+      "recall": 0.9770687936191426,
+      "predicted_fraud_rate": 0.9011680143755616,
+      "model": "logistic_regression_sigmoid_calibrated",
+      "split": "test"
+    },
+    {
+      "threshold": 0.9,
+      "tp": 969,
+      "fp": 16,
+      "tn": 94,
+      "fn": 34,
+      "precision": 0.983756345177665,
+      "recall": 0.9661016949152542,
+      "predicted_fraud_rate": 0.8849955076370171,
+      "model": "logistic_regression_sigmoid_calibrated",
+      "split": "test"
+    },
+    {
+      "threshold": 0.1,
+      "tp": 999,
+      "fp": 88,
+      "tn": 22,
+      "fn": 4,
+      "precision": 0.9190432382704692,
+      "recall": 0.996011964107677,
+      "predicted_fraud_rate": 0.9766397124887691,
+      "model": "random_forest_sigmoid_calibrated",
+      "split": "test"
+    },
+    {
+      "threshold": 0.2,
+      "tp": 996,
+      "fp": 65,
+      "tn": 45,
+      "fn": 7,
+      "precision": 0.9387370405278039,
+      "recall": 0.9930209371884346,
+      "predicted_fraud_rate": 0.9532794249775381,
+      "model": "random_forest_sigmoid_calibrated",
+      "split": "test"
+    },
+    {
+      "threshold": 0.3,
+      "tp": 994,
+      "fp": 53,
+      "tn": 57,
+      "fn": 9,
+      "precision": 0.9493791786055397,
+      "recall": 0.9910269192422732,
+      "predicted_fraud_rate": 0.9407008086253369,
+      "model": "random_forest_sigmoid_calibrated",
+      "split": "test"
+    },
+    {
+      "threshold": 0.4,
+      "tp": 990,
+      "fp": 45,
+      "tn": 65,
+      "fn": 13,
+      "precision": 0.9565217391304348,
+      "recall": 0.9870388833499502,
+      "predicted_fraud_rate": 0.9299191374663073,
+      "model": "random_forest_sigmoid_calibrated",
+      "split": "test"
+    },
+    {
+      "threshold": 0.5,
+      "tp": 986,
+      "fp": 31,
+      "tn": 79,
+      "fn": 17,
+      "precision": 0.9695181907571289,
+      "recall": 0.9830508474576272,
+      "predicted_fraud_rate": 0.9137466307277629,
+      "model": "random_forest_sigmoid_calibrated",
+      "split": "test"
+    },
+    {
+      "threshold": 0.6,
+      "tp": 986,
+      "fp": 24,
+      "tn": 86,
+      "fn": 17,
+      "precision": 0.9762376237623762,
+      "recall": 0.9830508474576272,
+      "predicted_fraud_rate": 0.9074573225516622,
+      "model": "random_forest_sigmoid_calibrated",
+      "split": "test"
+    },
+    {
+      "threshold": 0.7,
+      "tp": 982,
+      "fp": 18,
+      "tn": 92,
+      "fn": 21,
+      "precision": 0.982,
+      "recall": 0.9790628115653041,
+      "predicted_fraud_rate": 0.8984725965858041,
+      "model": "random_forest_sigmoid_calibrated",
+      "split": "test"
+    },
+    {
+      "threshold": 0.8,
+      "tp": 973,
+      "fp": 12,
+      "tn": 98,
+      "fn": 30,
+      "precision": 0.9878172588832488,
+      "recall": 0.9700897308075773,
+      "predicted_fraud_rate": 0.8849955076370171,
+      "model": "random_forest_sigmoid_calibrated",
+      "split": "test"
+    },
+    {
+      "threshold": 0.9,
+      "tp": 958,
+      "fp": 3,
+      "tn": 107,
+      "fn": 45,
+      "precision": 0.9968782518210197,
+      "recall": 0.9551345962113659,
+      "predicted_fraud_rate": 0.8634321653189577,
+      "model": "random_forest_sigmoid_calibrated",
+      "split": "test"
+    }
+  ],
+  "diagnostics": {
+    "logistic_regression": {
+      "calibration": {
+        "coef": 6.111280391719599,
+        "intercept": -2.4904467822274636
+      },
+      "coefficients": [
+        {
+          "feature": "risk_score",
+          "coefficient": -5.999794729851855,
+          "odds_ratio_per_unit": 0.0024792610427185956
+        },
+        {
+          "feature": "medium_contradiction_count",
+          "coefficient": 1.9322663569294045,
+          "odds_ratio_per_unit": 6.905142037781427
+        },
+        {
+          "feature": "new_device",
+          "coefficient": -1.830590999523089,
+          "odds_ratio_per_unit": 0.16031879144226305
+        },
+        {
+          "feature": "cnp_new_device",
+          "coefficient": -0.8216762073427187,
+          "odds_ratio_per_unit": 0.4396940181212224
+        },
+        {
+          "feature": "repeated_historical_abuse",
+          "coefficient": 0.7198359927052774,
+          "odds_ratio_per_unit": 2.054096296239787
+        },
+        {
+          "feature": "medium_support_count",
+          "coefficient": 0.6486082139369787,
+          "odds_ratio_per_unit": 1.9128766603913618
+        },
+        {
+          "feature": "independent_evidence_count",
+          "coefficient": 0.5299760592025028,
+          "odds_ratio_per_unit": 1.6988916353110661
+        },
+        {
+          "feature": "context_evidence_count",
+          "coefficient": 0.34410261185930935,
+          "odds_ratio_per_unit": 1.4107233850305518
+        },
+        {
+          "feature": "account_takeover",
+          "coefficient": -0.24220119726524736,
+          "odds_ratio_per_unit": 0.7848982422844453
+        },
+        {
+          "feature": "proxy_network",
+          "coefficient": -0.2418325738915455,
+          "odds_ratio_per_unit": 0.7851876274563211
+        },
+        {
+          "feature": "cnp",
+          "coefficient": 0.22735880875488607,
+          "odds_ratio_per_unit": 1.255280192668185
+        },
+        {
+          "feature": "card_testing",
+          "coefficient": 0.15466750783325034,
+          "odds_ratio_per_unit": 1.1672697885153636
+        },
+        {
+          "feature": "channel_novelty",
+          "coefficient": 0.1462268029231346,
+          "odds_ratio_per_unit": 1.1574586732939713
+        },
+        {
+          "feature": "out_of_region",
+          "coefficient": -0.13865963217838803,
+          "odds_ratio_per_unit": 0.8705242764903922
+        },
+        {
+          "feature": "out_of_region_behavior",
+          "coefficient": -0.13865963217838803,
+          "odds_ratio_per_unit": 0.8705242764903922
+        },
+        {
+          "feature": "shared_device_profile",
+          "coefficient": -0.1382931554909235,
+          "odds_ratio_per_unit": 0.8708433618086919
+        },
+        {
+          "feature": "product_novelty",
+          "coefficient": -0.09114651328419718,
+          "odds_ratio_per_unit": 0.9128839514749173
+        },
+        {
+          "feature": "strong_support_count",
+          "coefficient": -0.06358597323211182,
+          "odds_ratio_per_unit": 0.9383934391155923
+        },
+        {
+          "feature": "weak_support_count",
+          "coefficient": 0.01886965208852011,
+          "odds_ratio_per_unit": 1.0190488090759586
+        },
+        {
+          "feature": "strong_contradiction_count",
+          "coefficient": 0.0,
+          "odds_ratio_per_unit": 1.0
+        },
+        {
+          "feature": "weak_contradiction_count",
+          "coefficient": 0.0,
+          "odds_ratio_per_unit": 1.0
+        }
+      ]
+    },
+    "random_forest": {
+      "calibration": {
+        "coef": 7.086965518941188,
+        "intercept": -2.518738660273642
+      },
+      "feature_importances": [
+        {
+          "feature": "risk_score",
+          "importance": 0.5069789576217284
+        },
+        {
+          "feature": "new_device",
+          "importance": 0.21996877313222277
+        },
+        {
+          "feature": "medium_support_count",
+          "importance": 0.06350017681594537
+        },
+        {
+          "feature": "medium_contradiction_count",
+          "importance": 0.05711801635374081
+        },
+        {
+          "feature": "repeated_historical_abuse",
+          "importance": 0.03382905674961952
+        },
+        {
+          "feature": "shared_device_profile",
+          "importance": 0.032078905967957504
+        },
+        {
+          "feature": "strong_support_count",
+          "importance": 0.027829684385650852
+        },
+        {
+          "feature": "independent_evidence_count",
+          "importance": 0.02095360909481234
+        },
+        {
+          "feature": "cnp_new_device",
+          "importance": 0.015246111822714787
+        },
+        {
+          "feature": "cnp",
+          "importance": 0.005392245888111565
+        },
+        {
+          "feature": "account_takeover",
+          "importance": 0.004681060748194305
+        },
+        {
+          "feature": "context_evidence_count",
+          "importance": 0.004502660875389776
+        },
+        {
+          "feature": "proxy_network",
+          "importance": 0.0024159028253117835
+        },
+        {
+          "feature": "weak_support_count",
+          "importance": 0.0022350062069615047
+        },
+        {
+          "feature": "product_novelty",
+          "importance": 0.0015980951863410165
+        },
+        {
+          "feature": "channel_novelty",
+          "importance": 0.0011806837142361833
+        },
+        {
+          "feature": "out_of_region_behavior",
+          "importance": 0.00025562951381487005
+        },
+        {
+          "feature": "out_of_region",
+          "importance": 0.00023542309724646512
+        },
+        {
+          "feature": "strong_contradiction_count",
+          "importance": 0.0
+        },
+        {
+          "feature": "weak_contradiction_count",
+          "importance": 0.0
+        },
+        {
+          "feature": "card_testing",
+          "importance": 0.0
+        }
+      ]
+    },
+    "hist_gradient_boosting": {
+      "calibration": {
+        "coef": 6.16110415168985,
+        "intercept": -2.5380135812566844
+      },
+      "feature_importances": []
+    }
+  },
+  "calibration_method": "Sigmoid/Platt-style logistic calibration fitted only on the chronological validation split. Test labels are not used for calibration.",
+  "important_distinction": "risk_score is an upstream input/baseline and is not assumed to be a calibrated fraud probability.",
+  "benchmark_scope": "HHG-001 through HHG-020 are excluded. They remain unseen evaluation cases without authoritative current-case labels."
+}

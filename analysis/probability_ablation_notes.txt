@@ -1,0 +1,33 @@
+FRAUD PROBABILITY ABLATION BENCHMARK
+========================================================================
+
+Purpose: controlled feature ablation and risk_score direction test.
+This experiment does not select a production model.
+
+VARIANTS
+------------------------------------------------------------------------
+baseline: 21 features; risk_transform=none
+cleaned: 18 features; risk_transform=none
+inverted_risk: 18 features; risk_transform=invert
+no_risk_score: 17 features; risk_transform=none
+minimal_evidence: 15 features; risk_transform=none
+
+CALIBRATION
+- Sigmoid/Platt calibration fitted only on chronological validation.
+- Test set is used only for final evaluation.
+
+METRIC EXTREMES
+------------------------------------------------------------------------
+roc_auc (max): baseline / hist_gradient_boosting = 0.987179
+pr_auc (max): baseline / hist_gradient_boosting = 0.998654
+brier (min): inverted_risk / hist_gradient_boosting = 0.027748
+log_loss (min): baseline / hist_gradient_boosting = 0.088065
+ece_10 (min): no_risk_score / hist_gradient_boosting = 0.014837
+
+INTERPRETATION
+------------------------------------------------------------------------
+Compare metrics across variants rather than relying on one metric alone.
+The inverted risk_score experiment is a diagnostic test of direction, not permission to redefine the upstream score without verifying its semantics.
+The high historical fraud prevalence remains a population/calibration limitation.
+The benchmark is case-level: label=1 means historical case outcome was confirmed fraud.
+

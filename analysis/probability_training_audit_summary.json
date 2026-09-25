@@ -1,0 +1,112 @@
+{
+  "dataset": {
+    "rows": 5565,
+    "fraud": 4665,
+    "cleared": 900,
+    "fraud_rate": 0.8382749326145552,
+    "date_min": "2016-07-02 07:17:26",
+    "date_max": "2016-11-02 02:00:37"
+  },
+  "splits": {
+    "train": {
+      "rows": 3339,
+      "fraud": 2662,
+      "cleared": 677,
+      "fraud_rate": 0.7972446840371369,
+      "date_min": "2016-07-02 07:17:26",
+      "date_max": "2016-09-11 08:00:56"
+    },
+    "validation": {
+      "rows": 1113,
+      "fraud": 1000,
+      "cleared": 113,
+      "fraud_rate": 0.8984725965858041,
+      "date_min": "2016-09-11 08:11:34",
+      "date_max": "2016-10-06 13:48:10"
+    },
+    "test": {
+      "rows": 1113,
+      "fraud": 1003,
+      "cleared": 110,
+      "fraud_rate": 0.9011680143755616,
+      "date_min": "2016-10-06 14:14:04",
+      "date_max": "2016-11-02 02:00:37"
+    }
+  },
+  "risk_score": {
+    "raw_auc": 0.057567940931284985,
+    "inverted_auc_diagnostic": 0.942432059068715,
+    "spearman_with_label": -0.5643576047588611,
+    "mean_fraud": 0.4751318327974276,
+    "mean_cleared": 0.8812555555555556,
+    "median_fraud": 0.47,
+    "median_cleared": 0.88,
+    "min": 0.01,
+    "max": 0.99,
+    "bucket_count": 10
+  },
+  "feature_audit": {
+    "all_zero_features": [
+      "strong_contradiction_count",
+      "weak_contradiction_count"
+    ],
+    "high_missing_features": [],
+    "strong_positive_univariate_features": [
+      "risk_score",
+      "medium_contradiction_count",
+      "out_of_region",
+      "out_of_region_behavior",
+      "repeated_historical_abuse"
+    ],
+    "strong_negative_univariate_features": [
+      "medium_support_count",
+      "strong_contradiction_count",
+      "weak_contradiction_count",
+      "cnp_new_device",
+      "new_device",
+      "shared_device_profile"
+    ]
+  },
+  "correlation_audit": {
+    "high_correlation_pairs": [
+      {
+        "feature_a": "out_of_region",
+        "feature_b": "out_of_region_behavior",
+        "spearman_correlation": 1.0
+      },
+      {
+        "feature_a": "weak_support_count",
+        "feature_b": "product_novelty",
+        "spearman_correlation": 0.9979611278075817
+      }
+    ],
+    "moderate_or_higher_pair_count": 4
+  },
+  "flags": [
+    "risk_score has very low raw univariate AUC; inspect score direction/semantics before using it as a probability.",
+    "1-risk_score has materially higher diagnostic AUC than risk_score; verify whether risk_score is reversed or represents a different concept.",
+    "The historical case dataset has a high fraud prevalence; probability calibration may not transfer directly to a lower-prevalence production population.",
+    "Some model features are highly correlated; coefficient signs/importances may be unstable or hard to interpret in isolation.",
+    "Detected 2 exact duplicate feature pair(s); review whether both should remain as model inputs."
+  ],
+  "exact_duplicate_pairs": [
+    {
+      "feature_a": "strong_contradiction_count",
+      "feature_b": "weak_contradiction_count",
+      "type": "exact_duplicate"
+    },
+    {
+      "feature_a": "out_of_region",
+      "feature_b": "out_of_region_behavior",
+      "type": "exact_duplicate"
+    }
+  ],
+  "expected_feature_overlap_checks": {
+    "out_of_region_vs_out_of_region_behavior": {
+      "exact_equal": true
+    },
+    "cnp_vs_cnp_new_device": {
+      "cnp_implies_cnp_new_device_rate": 0.49063670411985016
+    }
+  }
+}

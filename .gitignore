@@ -1,0 +1,55 @@
+# =========================
+# Secrets / local config
+# =========================
+.env
+.env.*
+!.env.example
+.mcp.json
+
+# =========================
+# Python
+# =========================
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.pyo
+
+# =========================
+# macOS / IDE
+# =========================
+.DS_Store
+.vscode/
+.idea/
+
+# =========================
+# Node / frontend
+# =========================
+node_modules/
+frontend/node_modules/
+frontend/dist/
+
+# =========================
+# Large source datasets
+# =========================
+data/
+graph_data/
+
+# =========================
+# Generated submission outputs
+# =========================
+submission/outputs/
+
+# =========================
+# Large ML/model artifacts
+# =========================
+*.bin
+*.pt
+*.pth
+*.onnx
+*.safetensors
+
+# =========================
+# Logs
+# =========================
+*.log

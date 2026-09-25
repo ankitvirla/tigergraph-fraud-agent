@@ -1,0 +1,49 @@
+PROBABILITY TRAINING DATASET VALIDATION
+========================================================================
+
+OVERALL PASS: True
+
+DATASET
+------------------------------------------------------------------------
+Rows: 5,565
+Expected historical cases: 5,565
+Row count matches cases: True
+
+CLASS DISTRIBUTION
+------------------------------------------------------------------------
+Observed: {'1': 4665, '0': 900}
+Expected: {'0': 900, '1': 4665}
+Matches: True
+
+LEAKAGE / TEMPORAL CHECKS
+------------------------------------------------------------------------
+Target transaction after case opening: 0
+Target cutoff check: True
+Historical cutoff violations: 0
+Forbidden target leakage features: []
+
+DUPLICATES
+------------------------------------------------------------------------
+Duplicate case IDs: 0
+Duplicate target transaction IDs: 0
+
+FEATURE VALIDATION
+------------------------------------------------------------------------
+Missing model features: []
+Independent evidence rule violations: 0
+Cleared-history semantic violations: 0
+
+DESIGN RULES
+------------------------------------------------------------------------
+1. risk_score is an input feature, not fraud_probability.
+2. Current historical-case outcome is the label only.
+3. Prior historical cases require closed_at <= current opened_at.
+4. Cleared historical cases are contradiction/context, never support.
+5. Independent evidence requires supporting direction + strong/medium strength + unique group.
+6. CNP and CNP+new-device share behavioral_pattern.
+7. Weak/context evidence cannot create an independent supporting group.
+8. The 20 HHG benchmark cases are not included.
+
+IMPORTANT
+------------------------------------------------------------------------
+Do not fit the probability model if OVERALL PASS is False.

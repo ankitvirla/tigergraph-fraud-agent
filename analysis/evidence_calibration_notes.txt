@@ -1,0 +1,44 @@
+EVIDENCE CALIBRATION NOTES
+========================================================================
+Benchmark cases calibrated: 20
+
+IMPORTANT DESIGN RULES
+------------------------------------------------------------------------
+1. This script does not calculate fraud_probability.
+2. risk_score is retained only as an input/context field.
+3. No final fraud decision is produced.
+4. Correlated signals are grouped into evidence families.
+5. CNP and CNP+new-device are not counted as two independent evidence groups.
+6. Historical cases are support/context, not proof of current fraud.
+7. Cleared historical cases are retained as contradictions/context.
+8. Common device profiles are deliberately down-weighted.
+9. Exact device-profile matching does not prove physical device sharing.
+10. The case-opening timestamp remains the temporal evidence cutoff.
+
+CALIBRATED EVIDENCE COUNTS
+------------------------------------------------------------------------
+strong          : 26
+medium          : 47
+weak            : 35
+not_material    : 2
+
+DIRECTIONAL EVIDENCE COUNTS
+------------------------------------------------------------------------
+supports_fraud     : 62
+contradicts_fraud  : 12
+context            : 36
+
+INDEPENDENT EVIDENCE GROUP DISTRIBUTION
+------------------------------------------------------------------------
+0 independent groups: 1 case(s)
+1 independent groups: 7 case(s)
+2 independent groups: 3 case(s)
+3 independent groups: 4 case(s)
+4 independent groups: 4 case(s)
+5 independent groups: 1 case(s)
+
+Cases with contradictions/context conflicts: 12
+
+NEXT STAGE
+------------------------------------------------------------------------
+The downstream investigation agent should combine these calibrated signals with TigerGraph graph evidence, additional deterministic investigation, and explicit evidence requests before calculating fraud_probability and applying stopping conditions.

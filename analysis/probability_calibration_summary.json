@@ -1,0 +1,32 @@
+{
+  "purpose": "First-stage probability calibration analysis. This output is not statistically calibrated fraud probability.",
+  "benchmark_case_count": 20,
+  "risk_score_is_fraud_probability": false,
+  "verified_current_case_ground_truth_available": false,
+  "candidate_evidence_band_counts": {
+    "high_evidence_convergence": 2,
+    "insufficient_supporting_evidence": 1,
+    "limited_independent_evidence": 7,
+    "moderate_evidence_convergence": 3,
+    "substantial_evidence_convergence": 7
+  },
+  "independent_evidence_distribution": {
+    "0": 1,
+    "1": 7,
+    "2": 3,
+    "3": 4,
+    "4": 4,
+    "5": 1
+  },
+  "risk_score_summary": {
+    "min": 0.05,
+    "max": 0.9,
+    "mean": 0.536,
+    "median": 0.53
+  },
+  "repeated_evidence_configurations": {
+    "strong_support=1|medium_support=0|weak_support=0|strong_contradiction=0|medium_contradiction=1|weak_contradiction=0|context=1|independent=1|groups=historical": 3,
+    "strong_support=1|medium_support=3|weak_support=0|strong_contradiction=0|medium_contradiction=1|weak_contradiction=0|context=2|independent=4|groups=behavioral_identity|behavioral_pattern|historical|identity_device": 2
+  },
+  "next_required_step": "Provide or derive a verified current-case outcome label for benchmark calibration before fitting statistical fraud probabilities."
+}
