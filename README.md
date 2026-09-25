@@ -541,19 +541,19 @@ Once added, the README can display them with:
 ```markdown
 ## TigerGraph Graph
 
-![TigerGraph fraud investigation graph](docs/screenshots/tigergraph-graph.png)
+![TigerGraph fraud investigation graph](https://github.com/ankitvirla/tigergraph-fraud-agent/blob/main/docs/screenshots/tigergraph-graph.png)
 
 ## Investigation UI
 
-![Fraud investigation dashboard](docs/screenshots/ui-dashboard.png)
+![Fraud investigation dashboard](https://github.com/ankitvirla/tigergraph-fraud-agent/blob/main/docs/screenshots/ui-dashboard.png)
 
 ## Agent Trace
 
-![Agent investigation trace](docs/screenshots/agent-trace.png)
+![Agent investigation trace](https://github.com/ankitvirla/tigergraph-fraud-agent/blob/main/docs/screenshots/agent-trace.png)
 
 ## GraphRAG Reasoning
 
-![GraphRAG reasoning view](docs/screenshots/graphrag-reasoning.png)
+![GraphRAG reasoning view](https://github.com/ankitvirla/tigergraph-fraud-agent/blob/main/docs/screenshots/graphrag-reasoning.png)
 ```
 
 ---
