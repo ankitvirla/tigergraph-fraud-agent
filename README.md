@@ -52,7 +52,7 @@ The LLM is used for **reasoning, evidence synthesis, and explanation**. It does 
 - Agent-selected next action
 - Local Qwen 2.5 LLM explanation through Ollama
 - React investigation dashboard
-- Real-time Agent Trace
+- Agent Trace
 - GraphRAG reasoning view
 - Raw JSON investigation output
 - Batch execution across 20 benchmark cases
@@ -452,109 +452,23 @@ The UI can operate using the pre-generated benchmark outputs and can also call t
 
 # Screenshots
 
-Screenshots can be added to the repository under:
+The repository includes screenshots of the graph, investigation dashboard, agent trace, and GraphRAG reasoning view:
 
-```text
-docs/
-└── screenshots/
-    ├── tigergraph-graph.png
-    ├── ui-dashboard.png
-    ├── agent-trace.png
-    └── graphrag-reasoning.png
-```
-
-Recommended screenshots:
-
-### 1. TigerGraph Graph
-
-Capture the TigerGraph visualization showing relationships between entities such as:
-
-```text
-Customer
-   │
-   ├── Transaction
-   ├── Card
-   ├── Device
-   └── FraudCase
-```
-
-Add it as:
-
-```text
-docs/screenshots/tigergraph-graph.png
-```
-
-### 2. Investigation UI
-
-Capture the main dashboard showing:
-
-- selected case
-- probability
-- uncertainty
-- evidence
-- next action
-
-Add it as:
-
-```text
-docs/screenshots/ui-dashboard.png
-```
-
-### 3. Agent Trace
-
-Capture the real-time investigation trace:
-
-```text
-Case loaded
-    ↓
-TigerGraph queried
-    ↓
-Evidence retrieved
-    ↓
-Probability calculated
-    ↓
-Uncertainty assessed
-    ↓
-Qwen explanation
-    ↓
-Next action
-```
-
-Add it as:
-
-```text
-docs/screenshots/agent-trace.png
-```
-
-### 4. GraphRAG Reasoning
-
-Capture the UI section showing graph context + evidence + LLM explanation.
-
-Add it as:
-
-```text
-docs/screenshots/graphrag-reasoning.png
-```
-
-Once added, the README can display them with:
-
-```markdown
 ## TigerGraph Graph
 
-![TigerGraph fraud investigation graph](https://github.com/ankitvirla/tigergraph-fraud-agent/blob/main/docs/screenshots/tigergraph-graph.png)
+![TigerGraph fraud investigation graph](docs/screenshots/tigergraph-graph.png)
 
 ## Investigation UI
 
-![Fraud investigation dashboard](https://github.com/ankitvirla/tigergraph-fraud-agent/blob/main/docs/screenshots/ui-dashboard.png)
+![Fraud investigation dashboard](docs/screenshots/ui-dashboard.png)
 
 ## Agent Trace
 
-![Agent investigation trace](https://github.com/ankitvirla/tigergraph-fraud-agent/blob/main/docs/screenshots/agent-trace.png)
+![Agent investigation trace](docs/screenshots/agent-trace.png)
 
 ## GraphRAG Reasoning
 
-![GraphRAG reasoning view](https://github.com/ankitvirla/tigergraph-fraud-agent/blob/main/docs/screenshots/graphrag-reasoning.png)
-```
+![GraphRAG reasoning view](docs/screenshots/graphrag-reasoning.png)
 
 ---
 
@@ -635,8 +549,7 @@ tigergraph-fraud-agent/
 │   │   └── data/
 │   │       ├── HHG-001.json
 │   │       ├── ...
-│   │       ├── HHG-020.json
-│   │       └── benchmark_summary.json
+│   │       └── HHG-020.json
 │   │
 │   ├── src/
 │   │   ├── App.jsx
@@ -700,6 +613,8 @@ Install project dependencies:
 pip install -r requirements.txt
 ```
 
+The benchmark runner writes generated case outputs and `benchmark_summary.json` to `submission/outputs/`. These generated files are not part of the frontend's bundled demo data.
+
 ---
 
 # Environment Configuration
@@ -719,6 +634,14 @@ TG_SECRET=
 
 OLLAMA_URL=http://127.0.0.1:11434
 OLLAMA_MODEL=
+```
+
+The application reads environment variables from the process environment. Export the values before starting the backend or running the agent:
+
+```bash
+set -a
+source .env
+set +a
 ```
 
 Never commit `.env`.
@@ -811,7 +734,7 @@ python fraud_investigation_agent_llm.py HHG-019 --json-only
 python run_all_cases.py
 ```
 
-The batch runner executes the 20 benchmark cases and stores investigation outputs under the submission output location configured by the project.
+The batch runner executes the 20 benchmark cases and stores investigation outputs, including `benchmark_summary.json`, under `submission/outputs/`.
 
 ---
 
