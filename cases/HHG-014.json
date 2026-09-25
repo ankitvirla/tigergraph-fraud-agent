@@ -1,0 +1,5263 @@
+{
+  "case_id": "HHG-014",
+  "status": "investigation_complete",
+  "case": {
+    "case_id": "HHG-014",
+    "trigger_type": "analyst_request",
+    "flagged_txn_id": 3478561,
+    "customer_id": "C13487",
+    "card_id": "C13487-K1",
+    "opened_at": "2016-11-22T20:11:00",
+    "risk_score": 0.05,
+    "amount": 74.96,
+    "channel": "online",
+    "ProductCD": "C"
+  },
+  "evidence_source": {
+    "type": "json",
+    "path": "/Users/ankitbirla/tigergraph-fraud-agent/analysis/calibrated_evidence.json"
+  },
+  "graph_investigation": {
+    "facts": {
+      "customer_profile_success": true,
+      "transaction_context_success": true,
+      "shared_device_query_success": true,
+      "shared_customer_count": 440,
+      "device_count": 2,
+      "historical_case_count": 0
+    },
+    "raw": {
+      "customer_profile": {
+        "success": true,
+        "operation": "run_query",
+        "data": {
+          "query_type": "GSQL",
+          "result": [
+            {
+              "customers": [
+                {
+                  "v_id": "C13487",
+                  "attributes": {
+                    "customer_id": "C13487"
+                  },
+                  "v_type": "customer"
+                }
+              ]
+            },
+            {
+              "cards": [
+                {
+                  "v_id": "CARD_4f3fe1573b7fb15d65bbd848",
+                  "attributes": {
+                    "card1": "13250",
+                    "card2": "555.0",
+                    "card3": "150.0",
+                    "card4": "mastercard",
+                    "card5": "117.0",
+                    "card6": "debit",
+                    "customer_id": "C13487",
+                    "card_id": "CARD_4f3fe1573b7fb15d65bbd848"
+                  },
+                  "v_type": "Card"
+                }
+              ]
+            },
+            {
+              "devices": [
+                {
+                  "v_id": "DEV_9300db47ac591ae7b3e19afc",
+                  "attributes": {
+                    "device_info": "Windows",
+                    "device_id": "DEV_9300db47ac591ae7b3e19afc",
+                    "os": "Windows 10",
+                    "browser": "edge 16.0",
+                    "screen": "1920x1080",
+                    "device_type": "desktop",
+                    "match_status": "match_status:2",
+                    "device_new_found": "Found",
+                    "proxy_indicator": ""
+                  },
+                  "v_type": "Device"
+                },
+                {
+                  "v_id": "DEV_9cfad2ff3154c188a0480b7e",
+                  "attributes": {
+                    "device_info": "SM-G935F Build/NRD90M",
+                    "device_id": "DEV_9cfad2ff3154c188a0480b7e",
+                    "os": "Android 7.0",
+                    "browser": "chrome 62.0 for android",
+                    "screen": "1920x1080",
+                    "device_type": "mobile",
+                    "match_status": "",
+                    "device_new_found": "New",
+                    "proxy_indicator": "IP_PROXY:ANONYMOUS"
+                  },
+                  "v_type": "Device"
+                }
+              ]
+            },
+            {
+              "cases": []
+            },
+            {
+              "transactions": [
+                {
+                  "v_id": "3443869",
+                  "attributes": {
+                    "transaction_id": "3443869",
+                    "amount": 30.88,
+                    "device_id": "",
+                    "risk_score": 0.13,
+                    "channel": "in_person",
+                    "billing_country": "87.0",
+                    "product_code": "W",
+                    "card_id": "CARD_4f3fe1573b7fb15d65bbd848",
+                    "p_email_domain": "gmail.com",
+                    "billing_region": "272.0",
+                    "r_email_domain": "",
+                    "customer_id": "C13487",
+                    "timestamp": "2016-11-09 15:50:16"
+                  },
+                  "v_type": "Transaction"
+                },
+                {
+                  "v_id": "3458103",
+                  "attributes": {
+                    "transaction_id": "3458103",
+                    "amount": 35.9,
+                    "device_id": "",
+                    "risk_score": 0.31,
+                    "channel": "in_person",
+                    "billing_country": "87.0",
+                    "product_code": "W",
+                    "card_id": "CARD_4f3fe1573b7fb15d65bbd848",
+                    "p_email_domain": "",
+                    "billing_region": "191.0",
+                    "r_email_domain": "",
+                    "customer_id": "C13487",
+                    "timestamp": "2016-11-14 21:10:40"
+                  },
+                  "v_type": "Transaction"
+                },
+                {
+                  "v_id": "3064061",
+                  "attributes": {
+                    "transaction_id": "3064061",
+                    "amount": 57.88,
+                    "device_id": "",
+                    "risk_score": 0.01,
+                    "channel": "in_person",
+                    "billing_country": "87.0",
+                    "product_code": "W",
+                    "card_id": "CARD_4f3fe1573b7fb15d65bbd848",
+                    "p_email_domain": "",
+                    "billing_region": "191.0",
+                    "r_email_domain": "",
+                    "customer_id": "C13487",
+                    "timestamp": "2016-07-18 19:28:51"
+                  },
+                  "v_type": "Transaction"
+                },
+                {
+                  "v_id": "3202624",
+                  "attributes": {
+                    "transaction_id": "3202624",
+                    "amount": 58.01,
+                    "device_id": "",
+                    "risk_score": 0.13,
+                    "channel": "in_person",
+                    "billing_country": "87.0",
+                    "product_code": "W",
+                    "card_id": "CARD_4f3fe1573b7fb15d65bbd848",
+                    "p_email_domain": "gmail.com",
+                    "billing_region": "272.0",
+                    "r_email_domain": "",
+                    "customer_id": "C13487",
+                    "timestamp": "2016-08-24 16:25:07"
+                  },
+                  "v_type": "Transaction"
+                },
+                {
+                  "v_id": "3307773",
+                  "attributes": {
+                    "transaction_id": "3307773",
+                    "amount": 107.91,
+                    "device_id": "",
+                    "risk_score": 0.15,
+                    "channel": "in_person",
+                    "billing_country": "87.0",
+                    "product_code": "W",
+                    "card_id": "CARD_4f3fe1573b7fb15d65bbd848",
+                    "p_email_domain": "gmail.com",
+                    "billing_region": "272.0",
+                    "r_email_domain": "",
+                    "customer_id": "C13487",
+                    "timestamp": "2016-09-28 15:25:53"
+                  },
+                  "v_type": "Transaction"
+                },
+                {
+                  "v_id": "3448940",
+                  "attributes": {
+                    "transaction_id": "3448940",
+                    "amount": 107.99,
+                    "device_id": "",
+                    "risk_score": 0.09,
+                    "channel": "in_person",
+                    "billing_country": "87.0",
+                    "product_code": "W",
+                    "card_id": "CARD_4f3fe1573b7fb15d65bbd848",
+                    "p_email_domain": "gmail.com",
+                    "billing_region": "191.0",
+                    "r_email_domain": "",
+                    "customer_id": "C13487",
+                    "timestamp": "2016-11-11 13:46:12"
+                  },
+                  "v_type": "Transaction"
+                },
+                {
+                  "v_id": "3033906",
+                  "attributes": {
+                    "transaction_id": "3033906",
+                    "amount": 31.03,
+                    "device_id": "",
+                    "risk_score": 0.22,
+                    "channel": "in_person",
+                    "billing_country": "87.0",
+                    "product_code": "W",
+                    "card_id": "CARD_4f3fe1573b7fb15d65bbd848",
+                    "p_email_domain": "",
+                    "billing_region": "191.0",
+                    "r_email_domain": "",
+                    "customer_id": "C13487",
+                    "timestamp": "2016-07-11 18:33:09"
+                  },
+                  "v_type": "Transaction"
+                },
+                {
+                  "v_id": "3162164",
+                  "attributes": {
+                    "transaction_id": "3162164",
+                    "amount": 58.02,
+                    "device_id": "",
+                    "risk_score": 0.04,
+                    "channel": "in_person",
+                    "billing_country": "87.0",
+                    "product_code": "W",
+                    "card_id": "CARD_4f3fe1573b7fb15d65bbd848",
+                    "p_email_domain": "gmail.com",
+                    "billing_region": "272.0",
+                    "r_email_domain": "",
+                    "customer_id": "C13487",
+                    "timestamp": "2016-08-10 17:56:11"
+                  },
+                  "v_type": "Transaction"
+                },
+                {
+                  "v_id": "3258184",
+                  "attributes": {
+                    "transaction_id": "3258184",
+                    "amount": 30.87,
+                    "device_id": "",
+                    "risk_score": 0.09,
+                    "channel": "in_person",
+                    "billing_country": "87.0",
+                    "product_code": "W",
+                    "card_id": "CARD_4f3fe1573b7fb15d65bbd848",
+                    "p_email_domain": "gmail.com",
+                    "billing_region": "272.0",
+                    "r_email_domain": "",
+                    "customer_id": "C13487",
+                    "timestamp": "2016-09-11 18:53:01"
+                  },
+                  "v_type": "Transaction"
+                },
+                {
+                  "v_id": "3326424",
+                  "attributes": {
+                    "transaction_id": "3326424",
+                    "amount": 58.03,
+                    "device_id": "",
+                    "risk_score": 0.09,
+                    "channel": "in_person",
+                    "billing_country": "87.0",
+                    "product_code": "W",
+                    "card_id": "CARD_4f3fe1573b7fb15d65bbd848",
+                    "p_email_domain": "",
+                    "billing_region": "191.0",
+                    "r_email_domain": "",
+                    "customer_id": "C13487",
+                    "timestamp": "2016-10-03 10:32:12"
+                  },
+                  "v_type": "Transaction"
+                },
+                {
+                  "v_id": "3244477",
+                  "attributes": {
+                    "transaction_id": "3244477",
+                    "amount": 25.95,
+                    "device_id": "",
+                    "risk_score": 0.23,
+                    "channel": "in_person",
+                    "billing_country": "87.0",
+                    "product_code": "W",
+                    "card_id": "CARD_4f3fe1573b7fb15d65bbd848",
+                    "p_email_domain": "bellsouth.net",
+                    "billing_region": "272.0",
+                    "r_email_domain": "",
+                    "customer_id": "C13487",
+                    "timestamp": "2016-09-07 00:13:45"
+                  },
+                  "v_type": "Transaction"
+                },
+                {
+                  "v_id": "3489320",
+                  "attributes": {
+                    "transaction_id": "3489320",
+                    "amount": 252.28,
+                    "device_id": "DEV_9cfad2ff3154c188a0480b7e",
+                    "risk_score": 0.22,
+                    "channel": "online",
+                    "billing_country": "87.0",
+                    "product_code": "C",
+                    "card_id": "CARD_4f3fe1573b7fb15d65bbd848",
+                    "p_email_domain": "yahoo.com",
+                    "billing_region": "191.0",
+                    "r_email_domain": "gmail.com",
+                    "customer_id": "C13487",
+                    "timestamp": "2016-11-26 17:39:00"
+                  },
+                  "v_type": "Transaction"
+                },
+                {
+                  "v_id": "3524718",
+                  "attributes": {
+                    "transaction_id": "3524718",
+                    "amount": 25.95,
+                    "device_id": "",
+                    "risk_score": 0.28,
+                    "channel": "in_person",
+                    "billing_country": "87.0",
+                    "product_code": "W",
+                    "card_id": "CARD_4f3fe1573b7fb15d65bbd848",
+                    "p_email_domain": "gmail.com",
+                    "billing_region": "272.0",
+                    "r_email_domain": "",
+                    "customer_id": "C13487",
+                    "timestamp": "2016-12-08 14:32:48"
+                  },
+                  "v_type": "Transaction"
+                },
+                {
+                  "v_id": "3124990",
+                  "attributes": {
+                    "transaction_id": "3124990",
+                    "amount": 58.04,
+                    "device_id": "",
+                    "risk_score": 0.02,
+                    "channel": "in_person",
+                    "billing_country": "87.0",
+                    "product_code": "W",
+                    "card_id": "CARD_4f3fe1573b7fb15d65bbd848",
+                    "p_email_domain": "gmail.com",
+                    "billing_region": "272.0",
+                    "r_email_domain": "",
+                    "customer_id": "C13487",
+                    "timestamp": "2016-07-30 16:53:58"
+                  },
+                  "v_type": "Transaction"
+                },
+                {
+                  "v_id": "3156179",
+                  "attributes": {
+                    "transaction_id": "3156179",
+                    "amount": 77.87,
+                    "device_id": "",
+                    "risk_score": 0.07,
+                    "channel": "in_person",
+                    "billing_country": "87.0",
+                    "product_code": "W",
+                    "card_id": "CARD_4f3fe1573b7fb15d65bbd848",
+                    "p_email_domain": "",
+                    "billing_region": "191.0",
+                    "r_email_domain": "",
+                    "customer_id": "C13487",
+                    "timestamp": "2016-08-08 18:54:34"
+                  },
+                  "v_type": "Transaction"
+                },
+                {
+                  "v_id": "3266679",
+                  "attributes": {
+                    "transaction_id": "3266679",
+                    "amount": 47.99,
+                    "device_id": "",
+                    "risk_score": 0.42,
+                    "channel": "in_person",
+                    "billing_country": "87.0",
+                    "product_code": "W",
+                    "card_id": "CARD_4f3fe1573b7fb15d65bbd848",
+                    "p_email_domain": "",
+                    "billing_region": "191.0",
+                    "r_email_domain": "",
+                    "customer_id": "C13487",
+                    "timestamp": "2016-09-14 17:02:39"
+                  },
+                  "v_type": "Transaction"
+                },
+                {
+                  "v_id": "3358389",
+                  "attributes": {
+                    "transaction_id": "3358389",
+                    "amount": 35.95,
+                    "device_id": "",
+                    "risk_score": 0.13,
+                    "channel": "in_person",
+                    "billing_country": "87.0",
+                    "product_code": "W",
+                    "card_id": "CARD_4f3fe1573b7fb15d65bbd848",
+                    "p_email_domain": "",
+                    "billing_region": "191.0",
+                    "r_email_domain": "",
+                    "customer_id": "C13487",
+                    "timestamp": "2016-10-12 18:39:51"
+                  },
+                  "v_type": "Transaction"
+                },
+                {
+                  "v_id": "3385224",
+                  "attributes": {
+                    "transaction_id": "3385224",
+                    "amount": 108.49,
+                    "device_id": "",
+                    "risk_score": 0.17,
+                    "channel": "in_person",
+                    "billing_country": "87.0",
+                    "product_code": "W",
+                    "card_id": "CARD_4f3fe1573b7fb15d65bbd848",
+                    "p_email_domain": "gmail.com",
+                    "billing_region": "272.0",
+                    "r_email_domain": "",
+                    "customer_id": "C13487",
+                    "timestamp": "2016-10-21 19:13:46"
+                  },
+                  "v_type": "Transaction"
+                },
+                {
+                  "v_id": "3391017",
+                  "attributes": {
+                    "transaction_id": "3391017",
+                    "amount": 31.01,
+                    "device_id": "",
+                    "risk_score": 0.13,
+                    "channel": "in_person",
+                    "billing_country": "87.0",
+                    "product_code": "W",
+                    "card_id": "CARD_4f3fe1573b7fb15d65bbd848",
+                    "p_email_domain": "gmail.com",
+                    "billing_region": "272.0",
+                    "r_email_domain": "",
+                    "customer_id": "C13487",
+                    "timestamp": "2016-10-23 18:27:29"
+                  },
+                  "v_type": "Transaction"
+                },
+                {
+                  "v_id": "3460634",
+                  "attributes": {
+                    "transaction_id": "3460634",
+                    "amount": 112.37,
+                    "device_id": "DEV_9cfad2ff3154c188a0480b7e",
+                    "risk_score": 0.1,
+                    "channel": "online",
+                    "billing_country": "87.0",
+                    "product_code": "C",
+                    "card_id": "CARD_4f3fe1573b7fb15d65bbd848",
+                    "p_email_domain": "yahoo.com",
+                    "billing_region": "191.0",
+                    "r_email_domain": "gmail.com",
+                    "customer_id": "C13487",
+                    "timestamp": "2016-11-15 20:30:00"
+                  },
+                  "v_type": "Transaction"
+                },
+                {
+                  "v_id": "3008103",
+                  "attributes": {
+                    "transaction_id": "3008103",
+                    "amount": 80.93,
+                    "device_id": "",
+                    "risk_score": 0.08,
+                    "channel": "in_person",
+                    "billing_country": "87.0",
+                    "product_code": "W",
+                    "card_id": "CARD_4f3fe1573b7fb15d65bbd848",
+                    "p_email_domain": "",
+                    "billing_region": "191.0",
+                    "r_email_domain": "",
+                    "customer_id": "C13487",
+                    "timestamp": "2016-07-04 19:14:19"
+                  },
+                  "v_type": "Transaction"
+                },
+                {
+                  "v_id": "3132954",
+                  "attributes": {
+                    "transaction_id": "3132954",
+                    "amount": 57.99,
+                    "device_id": "",
+                    "risk_score": 0.05,
+                    "channel": "in_person",
+                    "billing_country": "87.0",
+                    "product_code": "W",
+                    "card_id": "CARD_4f3fe1573b7fb15d65bbd848",
+                    "p_email_domain": "",
+                    "billing_region": "191.0",
+                    "r_email_domain": "",
+                    "customer_id": "C13487",
+                    "timestamp": "2016-08-01 21:18:47"
+                  },
+                  "v_type": "Transaction"
+                },
+                {
+                  "v_id": "3330877",
+                  "attributes": {
+                    "transaction_id": "3330877",
+                    "amount": 57.99,
+                    "device_id": "",
+                    "risk_score": 0.21,
+                    "channel": "in_person",
+                    "billing_country": "87.0",
+                    "product_code": "W",
+                    "card_id": "CARD_4f3fe1573b7fb15d65bbd848",
+                    "p_email_domain": "",
+                    "billing_region": "191.0",
+                    "r_email_domain": "",
+                    "customer_id": "C13487",
+                    "timestamp": "2016-10-04 15:16:10"
+                  },
+                  "v_type": "Transaction"
+                },
+                {
+                  "v_id": "3056677",
+                  "attributes": {
+                    "transaction_id": "3056677",
+                    "amount": 50.01,
+                    "device_id": "",
+                    "risk_score": 0.06,
+                    "channel": "in_person",
+                    "billing_country": "87.0",
+                    "product_code": "W",
+                    "card_id": "CARD_4f3fe1573b7fb15d65bbd848",
+                    "p_email_domain": "gmail.com",
+                    "billing_region": "272.0",
+                    "r_email_domain": "",
+                    "customer_id": "C13487",
+                    "timestamp": "2016-07-17 01:51:12"
+                  },
+                  "v_type": "Transaction"
+                },
+                {
+                  "v_id": "3275104",
+                  "attributes": {
+                    "transaction_id": "3275104",
+                    "amount": 58.02,
+                    "device_id": "",
+                    "risk_score": 0.09,
+                    "channel": "in_person",
+                    "billing_country": "87.0",
+                    "product_code": "W",
+                    "card_id": "CARD_4f3fe1573b7fb15d65bbd848",
+                    "p_email_domain": "bellsouth.net",
+                    "billing_region": "272.0",
+                    "r_email_domain": "",
+                    "customer_id": "C13487",
+                    "timestamp": "2016-09-17 13:35:20"
+                  },
+                  "v_type": "Transaction"
+                },
+                {
+                  "v_id": "3462636",
+                  "attributes": {
+                    "transaction_id": "3462636",
+                    "amount": 30.88,
+                    "device_id": "",
+                    "risk_score": 0.25,
+                    "channel": "in_person",
+                    "billing_country": "87.0",
+                    "product_code": "W",
+                    "card_id": "CARD_4f3fe1573b7fb15d65bbd848",
+                    "p_email_domain": "gmail.com",
+                    "billing_region": "272.0",
+                    "r_email_domain": "",
+                    "customer_id": "C13487",
+                    "timestamp": "2016-11-16 16:32:54"
+                  },
+                  "v_type": "Transaction"
+                },
+                {
+                  "v_id": "3510711",
+                  "attributes": {
+                    "transaction_id": "3510711",
+                    "amount": 42.95,
+                    "device_id": "",
+                    "risk_score": 0.15,
+                    "channel": "in_person",
+                    "billing_country": "87.0",
+                    "product_code": "W",
+                    "card_id": "CARD_4f3fe1573b7fb15d65bbd848",
+                    "p_email_domain": "gmail.com",
+                    "billing_region": "191.0",
+                    "r_email_domain": "",
+                    "customer_id": "C13487",
+                    "timestamp": "2016-12-03 18:53:03"
+                  },
+                  "v_type": "Transaction"
+                },
+                {
+                  "v_id": "3232776",
+                  "attributes": {
+                    "transaction_id": "3232776",
+                    "amount": 57.96,
+                    "device_id": "",
+                    "risk_score": 0.27,
+                    "channel": "in_person",
+                    "billing_country": "87.0",
+                    "product_code": "W",
+                    "card_id": "CARD_4f3fe1573b7fb15d65bbd848",
+                    "p_email_domain": "",
+                    "billing_region": "191.0",
+                    "r_email_domain": "",
+                    "customer_id": "C13487",
+                    "timestamp": "2016-09-03 17:58:00"
+                  },
+                  "v_type": "Transaction"
+                },
+                {
+                  "v_id": "3228563",
+                  "attributes": {
+                    "transaction_id": "3228563",
+                    "amount": 57.96,
+                    "device_id": "",
+                    "risk_score": 0.13,
+                    "channel": "in_person",
+                    "billing_country": "87.0",
+                    "product_code": "W",
+                    "card_id": "CARD_4f3fe1573b7fb15d65bbd848",
+                    "p_email_domain": "gmail.com",
+                    "billing_region": "191.0",
+                    "r_email_domain": "",
+                    "customer_id": "C13487",
+                    "timestamp": "2016-09-02 15:20:49"
+                  },
+                  "v_type": "Transaction"
+                },
+                {
+                  "v_id": "3289729",
+                  "attributes": {
+                    "transaction_id": "3289729",
+                    "amount": 47.92,
+                    "device_id": "",
+                    "risk_score": 0.23,
+                    "channel": "in_person",
+                    "billing_country": "87.0",
+                    "product_code": "W",
+                    "card_id": "CARD_4f3fe1573b7fb15d65bbd848",
+                    "p_email_domain": "gmail.com",
+                    "billing_region": "272.0",
+                    "r_email_domain": "",
+                    "customer_id": "C13487",
+                    "timestamp": "2016-09-22 15:41:59"
+                  },
+                  "v_type": "Transaction"
+                },
+                {
+                  "v_id": "3237296",
+                  "attributes": {
+                    "transaction_id": "3237296",
+                    "amount": 48.04,
+                    "device_id": "",
+                    "risk_score": 0.12,
+                    "channel": "in_person",
+                    "billing_country": "87.0",
+                    "product_code": "W",
+                    "card_id": "CARD_4f3fe1573b7fb15d65bbd848",
+                    "p_email_domain": "gmail.com",
+                    "billing_region": "272.0",
+                    "r_email_domain": "",
+                    "customer_id": "C13487",
+                    "timestamp": "2016-09-04 22:28:31"
+                  },
+                  "v_type": "Transaction"
+                },
+                {
+                  "v_id": "3089291",
+                  "attributes": {
+                    "transaction_id": "3089291",
+                    "amount": 57.98,
+                    "device_id": "",
+                    "risk_score": 0.55,
+                    "channel": "in_person",
+                    "billing_country": "87.0",
+                    "product_code": "W",
+                    "card_id": "CARD_4f3fe1573b7fb15d65bbd848",
+                    "p_email_domain": "gmail.com",
+                    "billing_region": "272.0",
+                    "r_email_domain": "",
+                    "customer_id": "C13487",
+                    "timestamp": "2016-07-23 16:46:47"
+                  },
+                  "v_type": "Transaction"
+                },
+                {
+                  "v_id": "3166518",
+                  "attributes": {
+                    "transaction_id": "3166518",
+                    "amount": 77.88,
+                    "device_id": "",
+                    "risk_score": 0.08,
+                    "channel": "in_person",
+                    "billing_country": "87.0",
+                    "product_code": "W",
+                    "card_id": "CARD_4f3fe1573b7fb15d65bbd848",
+                    "p_email_domain": "gmail.com",
+                    "billing_region": "272.0",
+                    "r_email_domain": "",
+                    "customer_id": "C13487",
+                    "timestamp": "2016-08-12 00:14:36"
+                  },
+                  "v_type": "Transaction"
+                },
+                {
+                  "v_id": "3331272",
+                  "attributes": {
+                    "transaction_id": "3331272",
+                    "amount": 47.88,
+                    "device_id": "",
+                    "risk_score": 0.05,
+                    "channel": "in_person",
+                    "billing_country": "87.0",
+                    "product_code": "W",
+                    "card_id": "CARD_4f3fe1573b7fb15d65bbd848",
+                    "p_email_domain": "gmail.com",
+                    "billing_region": "272.0",
+                    "r_email_domain": "",
+                    "customer_id": "C13487",
+                    "timestamp": "2016-10-04 17:00:26"
+                  },
+                  "v_type": "Transaction"
+                },
+                {
+                  "v_id": "3432321",
+                  "attributes": {
+                    "transaction_id": "3432321",
+                    "amount": 26.03,
+                    "device_id": "",
+                    "risk_score": 0.01,
+                    "channel": "in_person",
+                    "billing_country": "87.0",
+                    "product_code": "W",
+                    "card_id": "CARD_4f3fe1573b7fb15d65bbd848",
+                    "p_email_domain": "gmail.com",
+                    "billing_region": "191.0",
+                    "r_email_domain": "",
+                    "customer_id": "C13487",
+                    "timestamp": "2016-11-05 16:01:45"
+                  },
+                  "v_type": "Transaction"
+                },
+                {
+                  "v_id": "3364272",
+                  "attributes": {
+                    "transaction_id": "3364272",
+                    "amount": 225.94,
+                    "device_id": "",
+                    "risk_score": 0.2,
+                    "channel": "in_person",
+                    "billing_country": "87.0",
+                    "product_code": "W",
+                    "card_id": "CARD_4f3fe1573b7fb15d65bbd848",
+                    "p_email_domain": "anonymous.com",
+                    "billing_region": "191.0",
+                    "r_email_domain": "",
+                    "customer_id": "C13487",
+                    "timestamp": "2016-10-14 17:48:13"
+                  },
+                  "v_type": "Transaction"
+                },
+                {
+                  "v_id": "3458865",
+                  "attributes": {
+                    "transaction_id": "3458865",
+                    "amount": 35.86,
+                    "device_id": "",
+                    "risk_score": 0.18,
+                    "channel": "in_person",
+                    "billing_country": "87.0",
+                    "product_code": "W",
+                    "card_id": "CARD_4f3fe1573b7fb15d65bbd848",
+                    "p_email_domain": "",
+                    "billing_region": "191.0",
+                    "r_email_domain": "",
+                    "customer_id": "C13487",
+                    "timestamp": "2016-11-15 01:33:32"
+                  },
+                  "v_type": "Transaction"
+                },
+                {
+                  "v_id": "3302405",
+                  "attributes": {
+                    "transaction_id": "3302405",
+                    "amount": 30.91,
+                    "device_id": "",
+                    "risk_score": 0.03,
+                    "channel": "in_person",
+                    "billing_country": "87.0",
+                    "product_code": "W",
+                    "card_id": "CARD_4f3fe1573b7fb15d65bbd848",
+                    "p_email_domain": "gmail.com",
+                    "billing_region": "272.0",
+                    "r_email_domain": "",
+                    "customer_id": "C13487",
+                    "timestamp": "2016-09-26 20:14:01"
+                  },
+                  "v_type": "Transaction"
+                },
+                {
+                  "v_id": "3378558",
+                  "attributes": {
+                    "transaction_id": "3378558",
+                    "amount": 36.01,
+                    "device_id": "",
+                    "risk_score": 0.07,
+                    "channel": "in_person",
+                    "billing_country": "87.0",
+                    "product_code": "W",
+                    "card_id": "CARD_4f3fe1573b7fb15d65bbd848",
+                    "p_email_domain": "",
+                    "billing_region": "191.0",
+                    "r_email_domain": "",
+                    "customer_id": "C13487",
+                    "timestamp": "2016-10-19 15:14:19"
+                  },
+                  "v_type": "Transaction"
+                },
+                {
+                  "v_id": "3478886",
+                  "attributes": {
+                    "transaction_id": "3478886",
+                    "amount": 31,
+                    "device_id": "",
+                    "risk_score": 0.34,
+                    "channel": "in_person",
+                    "billing_country": "87.0",
+                    "product_code": "W",
+                    "card_id": "CARD_4f3fe1573b7fb15d65bbd848",
+                    "p_email_domain": "gmail.com",
+                    "billing_region": "272.0",
+                    "r_email_domain": "",
+                    "customer_id": "C13487",
+                    "timestamp": "2016-11-22 18:04:15"
+                  },
+                  "v_type": "Transaction"
+                },
+                {
+                  "v_id": "3457509",
+                  "attributes": {
+                    "transaction_id": "3457509",
+                    "amount": 35.92,
+                    "device_id": "",
+                    "risk_score": 0.15,
+                    "channel": "in_person",
+                    "billing_country": "87.0",
+                    "product_code": "W",
+                    "card_id": "CARD_4f3fe1573b7fb15d65bbd848",
+                    "p_email_domain": "",
+                    "billing_region": "191.0",
+                    "r_email_domain": "",
+                    "customer_id": "C13487",
+                    "timestamp": "2016-11-14 18:09:35"
+                  },
+                  "v_type": "Transaction"
+                },
+                {
+                  "v_id": "3101009",
+                  "attributes": {
+                    "transaction_id": "3101009",
+                    "amount": 57.98,
+                    "device_id": "",
+                    "risk_score": 0.31,
+                    "channel": "in_person",
+                    "billing_country": "87.0",
+                    "product_code": "W",
+                    "card_id": "CARD_4f3fe1573b7fb15d65bbd848",
+                    "p_email_domain": "",
+                    "billing_region": "191.0",
+                    "r_email_domain": "",
+                    "customer_id": "C13487",
+                    "timestamp": "2016-07-25 16:34:09"
+                  },
+                  "v_type": "Transaction"
+                },
+                {
+                  "v_id": "3477218",
+                  "attributes": {
+                    "transaction_id": "3477218",
+                    "amount": 36.04,
+                    "device_id": "",
+                    "risk_score": 0.06,
+                    "channel": "in_person",
+                    "billing_country": "87.0",
+                    "product_code": "W",
+                    "card_id": "CARD_4f3fe1573b7fb15d65bbd848",
+                    "p_email_domain": "",
+                    "billing_region": "191.0",
+                    "r_email_domain": "",
+                    "customer_id": "C13487",
+                    "timestamp": "2016-11-21 23:39:05"
+                  },
+                  "v_type": "Transaction"
+                },
+                {
+                  "v_id": "3517247",
+                  "attributes": {
+                    "transaction_id": "3517247",
+                    "amount": 35.96,
+                    "device_id": "",
+                    "risk_score": 0.12,
+                    "channel": "in_person",
+                    "billing_country": "87.0",
+                    "product_code": "W",
+                    "card_id": "CARD_4f3fe1573b7fb15d65bbd848",
+                    "p_email_domain": "",
+                    "billing_region": "191.0",
+                    "r_email_domain": "",
+                    "customer_id": "C13487",
+                    "timestamp": "2016-12-05 21:33:21"
+                  },
+                  "v_type": "Transaction"
+                },
+                {
+                  "v_id": "3558767",
+                  "attributes": {
+                    "transaction_id": "3558767",
+                    "amount": 48.03,
+                    "device_id": "",
+                    "risk_score": 0.1,
+                    "channel": "in_person",
+                    "billing_country": "87.0",
+                    "product_code": "W",
+                    "card_id": "CARD_4f3fe1573b7fb15d65bbd848",
+                    "p_email_domain": "",
+                    "billing_region": "191.0",
+                    "r_email_domain": "",
+                    "customer_id": "C13487",
+                    "timestamp": "2016-12-20 02:16:19"
+                  },
+                  "v_type": "Transaction"
+                },
+                {
+                  "v_id": "3160002",
+                  "attributes": {
+                    "transaction_id": "3160002",
+                    "amount": 170.97,
+                    "device_id": "",
+                    "risk_score": 0.14,
+                    "channel": "in_person",
+                    "billing_country": "87.0",
+                    "product_code": "W",
+                    "card_id": "CARD_4f3fe1573b7fb15d65bbd848",
+                    "p_email_domain": "outlook.com",
+                    "billing_region": "191.0",
+                    "r_email_domain": "",
+                    "customer_id": "C13487",
+                    "timestamp": "2016-08-09 21:54:30"
+                  },
+                  "v_type": "Transaction"
+                },
+                {
+                  "v_id": "3221711",
+                  "attributes": {
+                    "transaction_id": "3221711",
+                    "amount": 58.02,
+                    "device_id": "",
+                    "risk_score": 0.09,
+                    "channel": "in_person",
+                    "billing_country": "87.0",
+                    "product_code": "W",
+                    "card_id": "CARD_4f3fe1573b7fb15d65bbd848",
+                    "p_email_domain": "",
+                    "billing_region": "191.0",
+                    "r_email_domain": "",
+                    "customer_id": "C13487",
+                    "timestamp": "2016-08-31 03:03:06"
+                  },
+                  "v_type": "Transaction"
+                },
+                {
+                  "v_id": "3349012",
+                  "attributes": {
+                    "transaction_id": "3349012",
+                    "amount": 26.89,
+                    "device_id": "",
+                    "risk_score": 0.06,
+                    "channel": "in_person",
+                    "billing_country": "87.0",
+                    "product_code": "W",
+                    "card_id": "CARD_4f3fe1573b7fb15d65bbd848",
+                    "p_email_domain": "gmail.com",
+                    "billing_region": "272.0",
+                    "r_email_domain": "",
+                    "customer_id": "C13487",
+                    "timestamp": "2016-10-09 18:54:04"
+                  },
+                  "v_type": "Transaction"
+                },
+                {
+                  "v_id": "3403715",
+                  "attributes": {
+                    "transaction_id": "3403715",
+                    "amount": 35.88,
+                    "device_id": "",
+                    "risk_score": 0.13,
+                    "channel": "in_person",
+                    "billing_country": "87.0",
+                    "product_code": "W",
+                    "card_id": "CARD_4f3fe1573b7fb15d65bbd848",
+                    "p_email_domain": "",
+                    "billing_region": "191.0",
+                    "r_email_domain": "",
+                    "customer_id": "C13487",
+                    "timestamp": "2016-10-27 21:03:30"
+                  },
+                  "v_type": "Transaction"
+                },
+                {
+                  "v_id": "3578937",
+                  "attributes": {
+                    "transaction_id": "3578937",
+                    "amount": 57.89,
+                    "device_id": "",
+                    "risk_score": 0.2,
+                    "channel": "in_person",
+                    "billing_country": "87.0",
+                    "product_code": "W",
+                    "card_id": "CARD_4f3fe1573b7fb15d65bbd848",
+                    "p_email_domain": "",
+                    "billing_region": "191.0",
+                    "r_email_domain": "",
+                    "customer_id": "C13487",
+                    "timestamp": "2016-12-27 14:43:09"
+                  },
+                  "v_type": "Transaction"
+                },
+                {
+                  "v_id": "3048762",
+                  "attributes": {
+                    "transaction_id": "3048762",
+                    "amount": 58.95,
+                    "device_id": "",
+                    "risk_score": 0.15,
+                    "channel": "in_person",
+                    "billing_country": "87.0",
+                    "product_code": "W",
+                    "card_id": "CARD_4f3fe1573b7fb15d65bbd848",
+                    "p_email_domain": "anonymous.com",
+                    "billing_region": "191.0",
+                    "r_email_domain": "",
+                    "customer_id": "C13487",
+                    "timestamp": "2016-07-15 05:20:06"
+                  },
+                  "v_type": "Transaction"
+                },
+                {
+                  "v_id": "3307780",
+                  "attributes": {
+                    "transaction_id": "3307780",
+                    "amount": 107.89,
+                    "device_id": "",
+                    "risk_score": 0.14,
+                    "channel": "in_person",
+                    "billing_country": "87.0",
+                    "product_code": "W",
+                    "card_id": "CARD_4f3fe1573b7fb15d65bbd848",
+                    "p_email_domain": "gmail.com",
+                    "billing_region": "272.0",
+                    "r_email_domain": "",
+                    "customer_id": "C13487",
+                    "timestamp": "2016-09-28 15:28:47"
+                  },
+                  "v_type": "Transaction"
+                },
+                {
+                  "v_id": "3506459",
+                  "attributes": {
+                    "transaction_id": "3506459",
+                    "amount": 30.87,
+                    "device_id": "",
+                    "risk_score": 0.2,
+                    "channel": "in_person",
+                    "billing_country": "87.0",
+                    "product_code": "W",
+                    "card_id": "CARD_4f3fe1573b7fb15d65bbd848",
+                    "p_email_domain": "gmail.com",
+                    "billing_region": "272.0",
+                    "r_email_domain": "",
+                    "customer_id": "C13487",
+                    "timestamp": "2016-12-02 13:49:41"
+                  },
+                  "v_type": "Transaction"
+                },
+                {
+                  "v_id": "3537024",
+                  "attributes": {
+                    "transaction_id": "3537024",
+                    "amount": 35.91,
+                    "device_id": "",
+                    "risk_score": 0.22,
+                    "channel": "in_person",
+                    "billing_country": "87.0",
+                    "product_code": "W",
+                    "card_id": "CARD_4f3fe1573b7fb15d65bbd848",
+                    "p_email_domain": "",
+                    "billing_region": "191.0",
+                    "r_email_domain": "",
+                    "customer_id": "C13487",
+                    "timestamp": "2016-12-12 19:23:27"
+                  },
+                  "v_type": "Transaction"
+                },
+                {
+                  "v_id": "3402749",
+                  "attributes": {
+                    "transaction_id": "3402749",
+                    "amount": 30.9,
+                    "device_id": "",
+                    "risk_score": 0.15,
+                    "channel": "in_person",
+                    "billing_country": "87.0",
+                    "product_code": "W",
+                    "card_id": "CARD_4f3fe1573b7fb15d65bbd848",
+                    "p_email_domain": "gmail.com",
+                    "billing_region": "272.0",
+                    "r_email_domain": "",
+                    "customer_id": "C13487",
+                    "timestamp": "2016-10-27 16:33:48"
+                  },
+                  "v_type": "Transaction"
+                },
+                {
+                  "v_id": "3170774",
+                  "attributes": {
+                    "transaction_id": "3170774",
+                    "amount": 39,
+                    "device_id": "",
+                    "risk_score": 0.17,
+                    "channel": "in_person",
+                    "billing_country": "87.0",
+                    "product_code": "W",
+                    "card_id": "CARD_4f3fe1573b7fb15d65bbd848",
+                    "p_email_domain": "gmail.com",
+                    "billing_region": "191.0",
+                    "r_email_domain": "",
+                    "customer_id": "C13487",
+                    "timestamp": "2016-08-13 17:36:30"
+                  },
+                  "v_type": "Transaction"
+                },
+                {
+                  "v_id": "3438604",
+                  "attributes": {
+                    "transaction_id": "3438604",
+                    "amount": 55.98,
+                    "device_id": "",
+                    "risk_score": 0.01,
+                    "channel": "in_person",
+                    "billing_country": "87.0",
+                    "product_code": "W",
+                    "card_id": "CARD_4f3fe1573b7fb15d65bbd848",
+                    "p_email_domain": "",
+                    "billing_region": "191.0",
+                    "r_email_domain": "",
+                    "customer_id": "C13487",
+                    "timestamp": "2016-11-07 17:38:15"
+                  },
+                  "v_type": "Transaction"
+                },
+                {
+                  "v_id": "3145429",
+                  "attributes": {
+                    "transaction_id": "3145429",
+                    "amount": 78.01,
+                    "device_id": "",
+                    "risk_score": 0.15,
+                    "channel": "in_person",
+                    "billing_country": "87.0",
+                    "product_code": "W",
+                    "card_id": "CARD_4f3fe1573b7fb15d65bbd848",
+                    "p_email_domain": "gmail.com",
+                    "billing_region": "272.0",
+                    "r_email_domain": "",
+                    "customer_id": "C13487",
+                    "timestamp": "2016-08-05 15:43:16"
+                  },
+                  "v_type": "Transaction"
+                },
+                {
+                  "v_id": "3060144",
+                  "attributes": {
+                    "transaction_id": "3060144",
+                    "amount": 58.03,
+                    "device_id": "",
+                    "risk_score": 0.01,
+                    "channel": "in_person",
+                    "billing_country": "87.0",
+                    "product_code": "W",
+                    "card_id": "CARD_4f3fe1573b7fb15d65bbd848",
+                    "p_email_domain": "",
+                    "billing_region": "191.0",
+                    "r_email_domain": "",
+                    "customer_id": "C13487",
+                    "timestamp": "2016-07-17 21:43:18"
+                  },
+                  "v_type": "Transaction"
+                },
+                {
+                  "v_id": "3069675",
+                  "attributes": {
+                    "transaction_id": "3069675",
+                    "amount": 31.03,
+                    "device_id": "",
+                    "risk_score": 0.2,
+                    "channel": "in_person",
+                    "billing_country": "87.0",
+                    "product_code": "W",
+                    "card_id": "CARD_4f3fe1573b7fb15d65bbd848",
+                    "p_email_domain": "gmail.com",
+                    "billing_region": "272.0",
+                    "r_email_domain": "",
+                    "customer_id": "C13487",
+                    "timestamp": "2016-07-19 21:45:30"
+                  },
+                  "v_type": "Transaction"
+                },
+                {
+                  "v_id": "3197482",
+                  "attributes": {
+                    "transaction_id": "3197482",
+                    "amount": 54,
+                    "device_id": "",
+                    "risk_score": 0.08,
+                    "channel": "in_person",
+                    "billing_country": "87.0",
+                    "product_code": "W",
+                    "card_id": "CARD_4f3fe1573b7fb15d65bbd848",
+                    "p_email_domain": "",
+                    "billing_region": "191.0",
+                    "r_email_domain": "",
+                    "customer_id": "C13487",
+                    "timestamp": "2016-08-22 19:05:17"
+                  },
+                  "v_type": "Transaction"
+                },
+                {
+                  "v_id": "3284106",
+                  "attributes": {
+                    "transaction_id": "3284106",
+                    "amount": 67.93,
+                    "device_id": "",
+                    "risk_score": 0.03,
+                    "channel": "in_person",
+                    "billing_country": "87.0",
+                    "product_code": "W",
+                    "card_id": "CARD_4f3fe1573b7fb15d65bbd848",
+                    "p_email_domain": "",
+                    "billing_region": "191.0",
+                    "r_email_domain": "",
+                    "customer_id": "C13487",
+                    "timestamp": "2016-09-20 15:05:32"
+                  },
+                  "v_type": "Transaction"
+                },
+                {
+                  "v_id": "3361184",
+                  "attributes": {
+                    "transaction_id": "3361184",
+                    "amount": 25.92,
+                    "device_id": "",
+                    "risk_score": 0.05,
+                    "channel": "in_person",
+                    "billing_country": "87.0",
+                    "product_code": "W",
+                    "card_id": "CARD_4f3fe1573b7fb15d65bbd848",
+                    "p_email_domain": "gmail.com",
+                    "billing_region": "272.0",
+                    "r_email_domain": "",
+                    "customer_id": "C13487",
+                    "timestamp": "2016-10-13 17:30:09"
+                  },
+                  "v_type": "Transaction"
+                },
+                {
+                  "v_id": "3373830",
+                  "attributes": {
+                    "transaction_id": "3373830",
+                    "amount": 26.04,
+                    "device_id": "",
+                    "risk_score": 0.04,
+                    "channel": "in_person",
+                    "billing_country": "87.0",
+                    "product_code": "W",
+                    "card_id": "CARD_4f3fe1573b7fb15d65bbd848",
+                    "p_email_domain": "gmail.com",
+                    "billing_region": "272.0",
+                    "r_email_domain": "",
+                    "customer_id": "C13487",
+                    "timestamp": "2016-10-17 21:23:05"
+                  },
+                  "v_type": "Transaction"
+                },
+                {
+                  "v_id": "3219583",
+                  "attributes": {
+                    "transaction_id": "3219583",
+                    "amount": 48,
+                    "device_id": "",
+                    "risk_score": 0.14,
+                    "channel": "in_person",
+                    "billing_country": "87.0",
+                    "product_code": "W",
+                    "card_id": "CARD_4f3fe1573b7fb15d65bbd848",
+                    "p_email_domain": "gmail.com",
+                    "billing_region": "272.0",
+                    "r_email_domain": "",
+                    "customer_id": "C13487",
+                    "timestamp": "2016-08-30 16:04:08"
+                  },
+                  "v_type": "Transaction"
+                },
+                {
+                  "v_id": "3331302",
+                  "attributes": {
+                    "transaction_id": "3331302",
+                    "amount": 47.92,
+                    "device_id": "",
+                    "risk_score": 0.26,
+                    "channel": "in_person",
+                    "billing_country": "87.0",
+                    "product_code": "W",
+                    "card_id": "CARD_4f3fe1573b7fb15d65bbd848",
+                    "p_email_domain": "gmail.com",
+                    "billing_region": "272.0",
+                    "r_email_domain": "",
+                    "customer_id": "C13487",
+                    "timestamp": "2016-10-04 17:06:30"
+                  },
+                  "v_type": "Transaction"
+                },
+                {
+                  "v_id": "3353237",
+                  "attributes": {
+                    "transaction_id": "3353237",
+                    "amount": 25.91,
+                    "device_id": "",
+                    "risk_score": 0.13,
+                    "channel": "in_person",
+                    "billing_country": "87.0",
+                    "product_code": "W",
+                    "card_id": "CARD_4f3fe1573b7fb15d65bbd848",
+                    "p_email_domain": "gmail.com",
+                    "billing_region": "191.0",
+                    "r_email_domain": "",
+                    "customer_id": "C13487",
+                    "timestamp": "2016-10-10 23:29:59"
+                  },
+                  "v_type": "Transaction"
+                },
+                {
+                  "v_id": "3497594",
+                  "attributes": {
+                    "transaction_id": "3497594",
+                    "amount": 30.96,
+                    "device_id": "",
+                    "risk_score": 0.11,
+                    "channel": "in_person",
+                    "billing_country": "87.0",
+                    "product_code": "W",
+                    "card_id": "CARD_4f3fe1573b7fb15d65bbd848",
+                    "p_email_domain": "gmail.com",
+                    "billing_region": "272.0",
+                    "r_email_domain": "",
+                    "customer_id": "C13487",
+                    "timestamp": "2016-11-29 16:55:33"
+                  },
+                  "v_type": "Transaction"
+                },
+                {
+                  "v_id": "3197562",
+                  "attributes": {
+                    "transaction_id": "3197562",
+                    "amount": 40.02,
+                    "device_id": "",
+                    "risk_score": 0.04,
+                    "channel": "in_person",
+                    "billing_country": "87.0",
+                    "product_code": "W",
+                    "card_id": "CARD_4f3fe1573b7fb15d65bbd848",
+                    "p_email_domain": "gmail.com",
+                    "billing_region": "272.0",
+                    "r_email_domain": "",
+                    "customer_id": "C13487",
+                    "timestamp": "2016-08-22 19:29:13"
+                  },
+                  "v_type": "Transaction"
+                },
+                {
+                  "v_id": "3245742",
+                  "attributes": {
+                    "transaction_id": "3245742",
+                    "amount": 47.86,
+                    "device_id": "",
+                    "risk_score": 0.16,
+                    "channel": "in_person",
+                    "billing_country": "87.0",
+                    "product_code": "W",
+                    "card_id": "CARD_4f3fe1573b7fb15d65bbd848",
+                    "p_email_domain": "",
+                    "billing_region": "191.0",
+                    "r_email_domain": "",
+                    "customer_id": "C13487",
+                    "timestamp": "2016-09-07 15:36:49"
+                  },
+                  "v_type": "Transaction"
+                },
+                {
+                  "v_id": "3307900",
+                  "attributes": {
+                    "transaction_id": "3307900",
+                    "amount": 55.92,
+                    "device_id": "",
+                    "risk_score": 0.02,
+                    "channel": "in_person",
+                    "billing_country": "87.0",
+                    "product_code": "W",
+                    "card_id": "CARD_4f3fe1573b7fb15d65bbd848",
+                    "p_email_domain": "",
+                    "billing_region": "191.0",
+                    "r_email_domain": "",
+                    "customer_id": "C13487",
+                    "timestamp": "2016-09-28 16:06:34"
+                  },
+                  "v_type": "Transaction"
+                },
+                {
+                  "v_id": "3138748",
+                  "attributes": {
+                    "transaction_id": "3138748",
+                    "amount": 57.99,
+                    "device_id": "",
+                    "risk_score": 0.08,
+                    "channel": "in_person",
+                    "billing_country": "87.0",
+                    "product_code": "W",
+                    "card_id": "CARD_4f3fe1573b7fb15d65bbd848",
+                    "p_email_domain": "gmail.com",
+                    "billing_region": "272.0",
+                    "r_email_domain": "",
+                    "customer_id": "C13487",
+                    "timestamp": "2016-08-03 17:10:17"
+                  },
+                  "v_type": "Transaction"
+                },
+                {
+                  "v_id": "3478561",
+                  "attributes": {
+                    "transaction_id": "3478561",
+                    "amount": 74.96,
+                    "device_id": "DEV_9cfad2ff3154c188a0480b7e",
+                    "risk_score": 0.05,
+                    "channel": "online",
+                    "billing_country": "87.0",
+                    "product_code": "C",
+                    "card_id": "CARD_4f3fe1573b7fb15d65bbd848",
+                    "p_email_domain": "yahoo.com",
+                    "billing_region": "191.0",
+                    "r_email_domain": "gmail.com",
+                    "customer_id": "C13487",
+                    "timestamp": "2016-11-22 16:11:00"
+                  },
+                  "v_type": "Transaction"
+                },
+                {
+                  "v_id": "3421895",
+                  "attributes": {
+                    "transaction_id": "3421895",
+                    "amount": 25.92,
+                    "device_id": "",
+                    "risk_score": 0.23,
+                    "channel": "in_person",
+                    "billing_country": "87.0",
+                    "product_code": "W",
+                    "card_id": "CARD_4f3fe1573b7fb15d65bbd848",
+                    "p_email_domain": "gmail.com",
+                    "billing_region": "272.0",
+                    "r_email_domain": "",
+                    "customer_id": "C13487",
+                    "timestamp": "2016-11-02 13:28:31"
+                  },
+                  "v_type": "Transaction"
+                },
+                {
+                  "v_id": "3551004",
+                  "attributes": {
+                    "transaction_id": "3551004",
+                    "amount": 20.98,
+                    "device_id": "",
+                    "risk_score": 0.11,
+                    "channel": "in_person",
+                    "billing_country": "87.0",
+                    "product_code": "W",
+                    "card_id": "CARD_4f3fe1573b7fb15d65bbd848",
+                    "p_email_domain": "gmail.com",
+                    "billing_region": "272.0",
+                    "r_email_domain": "",
+                    "customer_id": "C13487",
+                    "timestamp": "2016-12-17 14:56:55"
+                  },
+                  "v_type": "Transaction"
+                },
+                {
+                  "v_id": "3495787",
+                  "attributes": {
+                    "transaction_id": "3495787",
+                    "amount": 35.92,
+                    "device_id": "",
+                    "risk_score": 0.19,
+                    "channel": "in_person",
+                    "billing_country": "87.0",
+                    "product_code": "W",
+                    "card_id": "CARD_4f3fe1573b7fb15d65bbd848",
+                    "p_email_domain": "",
+                    "billing_region": "191.0",
+                    "r_email_domain": "",
+                    "customer_id": "C13487",
+                    "timestamp": "2016-11-28 22:07:15"
+                  },
+                  "v_type": "Transaction"
+                },
+                {
+                  "v_id": "3182101",
+                  "attributes": {
+                    "transaction_id": "3182101",
+                    "amount": 88.03,
+                    "device_id": "",
+                    "risk_score": 0.04,
+                    "channel": "in_person",
+                    "billing_country": "87.0",
+                    "product_code": "W",
+                    "card_id": "CARD_4f3fe1573b7fb15d65bbd848",
+                    "p_email_domain": "gmail.com",
+                    "billing_region": "272.0",
+                    "r_email_domain": "",
+                    "customer_id": "C13487",
+                    "timestamp": "2016-08-17 15:24:50"
+                  },
+                  "v_type": "Transaction"
+                },
+                {
+                  "v_id": "3179654",
+                  "attributes": {
+                    "transaction_id": "3179654",
+                    "amount": 57.93,
+                    "device_id": "",
+                    "risk_score": 0.29,
+                    "channel": "in_person",
+                    "billing_country": "87.0",
+                    "product_code": "W",
+                    "card_id": "CARD_4f3fe1573b7fb15d65bbd848",
+                    "p_email_domain": "",
+                    "billing_region": "191.0",
+                    "r_email_domain": "",
+                    "customer_id": "C13487",
+                    "timestamp": "2016-08-16 18:01:41"
+                  },
+                  "v_type": "Transaction"
+                },
+                {
+                  "v_id": "3166525",
+                  "attributes": {
+                    "transaction_id": "3166525",
+                    "amount": 77.97,
+                    "device_id": "",
+                    "risk_score": 0.17,
+                    "channel": "in_person",
+                    "billing_country": "87.0",
+                    "product_code": "W",
+                    "card_id": "CARD_4f3fe1573b7fb15d65bbd848",
+                    "p_email_domain": "gmail.com",
+                    "billing_region": "272.0",
+                    "r_email_domain": "",
+                    "customer_id": "C13487",
+                    "timestamp": "2016-08-12 00:15:51"
+                  },
+                  "v_type": "Transaction"
+                },
+                {
+                  "v_id": "3412468",
+                  "attributes": {
+                    "transaction_id": "3412468",
+                    "amount": 57.9,
+                    "device_id": "",
+                    "risk_score": 0.18,
+                    "channel": "in_person",
+                    "billing_country": "87.0",
+                    "product_code": "W",
+                    "card_id": "CARD_4f3fe1573b7fb15d65bbd848",
+                    "p_email_domain": "",
+                    "billing_region": "191.0",
+                    "r_email_domain": "",
+                    "customer_id": "C13487",
+                    "timestamp": "2016-10-30 16:50:32"
+                  },
+                  "v_type": "Transaction"
+                },
+                {
+                  "v_id": "3536091",
+                  "attributes": {
+                    "transaction_id": "3536091",
+                    "amount": 31.02,
+                    "device_id": "",
+                    "risk_score": 0.01,
+                    "channel": "in_person",
+                    "billing_country": "87.0",
+                    "product_code": "W",
+                    "card_id": "CARD_4f3fe1573b7fb15d65bbd848",
+                    "p_email_domain": "gmail.com",
+                    "billing_region": "272.0",
+                    "r_email_domain": "",
+                    "customer_id": "C13487",
+                    "timestamp": "2016-12-12 14:05:58"
+                  },
+                  "v_type": "Transaction"
+                },
+                {
+                  "v_id": "3323111",
+                  "attributes": {
+                    "transaction_id": "3323111",
+                    "amount": 100.02,
+                    "device_id": "DEV_9300db47ac591ae7b3e19afc",
+                    "risk_score": 0.57,
+                    "channel": "online",
+                    "billing_country": "87.0",
+                    "product_code": "R",
+                    "card_id": "CARD_4f3fe1573b7fb15d65bbd848",
+                    "p_email_domain": "yahoo.com",
+                    "billing_region": "191.0",
+                    "r_email_domain": "gmail.com",
+                    "customer_id": "C13487",
+                    "timestamp": "2016-10-02 16:35:23"
+                  },
+                  "v_type": "Transaction"
+                },
+                {
+                  "v_id": "3138777",
+                  "attributes": {
+                    "transaction_id": "3138777",
+                    "amount": 35.93,
+                    "device_id": "",
+                    "risk_score": 0.23,
+                    "channel": "in_person",
+                    "billing_country": "87.0",
+                    "product_code": "W",
+                    "card_id": "CARD_4f3fe1573b7fb15d65bbd848",
+                    "p_email_domain": "gmail.com",
+                    "billing_region": "272.0",
+                    "r_email_domain": "",
+                    "customer_id": "C13487",
+                    "timestamp": "2016-08-03 17:18:19"
+                  },
+                  "v_type": "Transaction"
+                },
+                {
+                  "v_id": "3107704",
+                  "attributes": {
+                    "transaction_id": "3107704",
+                    "amount": 35.9,
+                    "device_id": "",
+                    "risk_score": 0.1,
+                    "channel": "in_person",
+                    "billing_country": "87.0",
+                    "product_code": "W",
+                    "card_id": "CARD_4f3fe1573b7fb15d65bbd848",
+                    "p_email_domain": "gmail.com",
+                    "billing_region": "272.0",
+                    "r_email_domain": "",
+                    "customer_id": "C13487",
+                    "timestamp": "2016-07-26 19:30:57"
+                  },
+                  "v_type": "Transaction"
+                },
+                {
+                  "v_id": "3166466",
+                  "attributes": {
+                    "transaction_id": "3166466",
+                    "amount": 107.96,
+                    "device_id": "",
+                    "risk_score": 0.32,
+                    "channel": "in_person",
+                    "billing_country": "87.0",
+                    "product_code": "W",
+                    "card_id": "CARD_4f3fe1573b7fb15d65bbd848",
+                    "p_email_domain": "gmail.com",
+                    "billing_region": "272.0",
+                    "r_email_domain": "",
+                    "customer_id": "C13487",
+                    "timestamp": "2016-08-11 23:57:44"
+                  },
+                  "v_type": "Transaction"
+                }
+              ]
+            }
+          ],
+          "query_text_preview": "\n        INTERPRET QUERY () FOR GRAPH FraudInvestigationGraph {\n\n            customers =\n                SELECT c\n                FROM customer:c\n                WHERE c.customer_id == \"C13487\";\n\n    ..."
+        },
+        "summary": "Success: GSQL query executed successfully",
+        "metadata": {
+          "graph_name": "FraudInvestigationGraph",
+          "execution_mode": "interpreted"
+        },
+        "suggestions": [
+          "Tip: For better performance: install the query with 'install_query' and use 'run_installed_query'",
+          "Interpreted queries are slower but good for ad-hoc exploration",
+          "View installed queries: show_graph_details()"
+        ],
+        "timestamp": "2026-09-25T00:35:19.689923Z"
+      },
+      "transaction_context": {
+        "success": true,
+        "operation": "run_query",
+        "data": {
+          "query_type": "GSQL",
+          "result": [
+            {
+              "target_transaction": [
+                {
+                  "v_id": "3478561",
+                  "attributes": {
+                    "transaction_id": "3478561",
+                    "amount": 74.96,
+                    "device_id": "DEV_9cfad2ff3154c188a0480b7e",
+                    "risk_score": 0.05,
+                    "channel": "online",
+                    "billing_country": "87.0",
+                    "product_code": "C",
+                    "card_id": "CARD_4f3fe1573b7fb15d65bbd848",
+                    "p_email_domain": "yahoo.com",
+                    "billing_region": "191.0",
+                    "r_email_domain": "gmail.com",
+                    "customer_id": "C13487",
+                    "timestamp": "2016-11-22 16:11:00"
+                  },
+                  "v_type": "Transaction"
+                }
+              ]
+            },
+            {
+              "related_customer": [
+                {
+                  "v_id": "C13487",
+                  "attributes": {
+                    "customer_id": "C13487"
+                  },
+                  "v_type": "customer"
+                }
+              ]
+            },
+            {
+              "related_card": [
+                {
+                  "v_id": "CARD_4f3fe1573b7fb15d65bbd848",
+                  "attributes": {
+                    "card1": "13250",
+                    "card2": "555.0",
+                    "card3": "150.0",
+                    "card4": "mastercard",
+                    "card5": "117.0",
+                    "card6": "debit",
+                    "customer_id": "C13487",
+                    "card_id": "CARD_4f3fe1573b7fb15d65bbd848"
+                  },
+                  "v_type": "Card"
+                }
+              ]
+            },
+            {
+              "related_device": [
+                {
+                  "v_id": "DEV_9300db47ac591ae7b3e19afc",
+                  "attributes": {
+                    "device_info": "Windows",
+                    "device_id": "DEV_9300db47ac591ae7b3e19afc",
+                    "os": "Windows 10",
+                    "browser": "edge 16.0",
+                    "screen": "1920x1080",
+                    "device_type": "desktop",
+                    "match_status": "match_status:2",
+                    "device_new_found": "Found",
+                    "proxy_indicator": ""
+                  },
+                  "v_type": "Device"
+                },
+                {
+                  "v_id": "DEV_9cfad2ff3154c188a0480b7e",
+                  "attributes": {
+                    "device_info": "SM-G935F Build/NRD90M",
+                    "device_id": "DEV_9cfad2ff3154c188a0480b7e",
+                    "os": "Android 7.0",
+                    "browser": "chrome 62.0 for android",
+                    "screen": "1920x1080",
+                    "device_type": "mobile",
+                    "match_status": "",
+                    "device_new_found": "New",
+                    "proxy_indicator": "IP_PROXY:ANONYMOUS"
+                  },
+                  "v_type": "Device"
+                }
+              ]
+            },
+            {
+              "historical_cases": []
+            },
+            {
+              "containing_cases": []
+            }
+          ],
+          "query_text_preview": "\n        INTERPRET QUERY () FOR GRAPH FraudInvestigationGraph {\n\n            target_transaction =\n                SELECT t\n                FROM Transaction:t\n                WHERE t.transaction_id == ..."
+        },
+        "summary": "Success: GSQL query executed successfully",
+        "metadata": {
+          "graph_name": "FraudInvestigationGraph",
+          "execution_mode": "interpreted"
+        },
+        "suggestions": [
+          "Tip: For better performance: install the query with 'install_query' and use 'run_installed_query'",
+          "Interpreted queries are slower but good for ad-hoc exploration",
+          "View installed queries: show_graph_details()"
+        ],
+        "timestamp": "2026-09-25T00:35:19.367812Z"
+      },
+      "shared_device_network": {
+        "success": true,
+        "operation": "run_query",
+        "data": {
+          "query_type": "GSQL",
+          "result": [
+            {
+              "target_devices": [
+                {
+                  "v_id": "DEV_9300db47ac591ae7b3e19afc",
+                  "attributes": {
+                    "device_info": "Windows",
+                    "device_id": "DEV_9300db47ac591ae7b3e19afc",
+                    "os": "Windows 10",
+                    "browser": "edge 16.0",
+                    "screen": "1920x1080",
+                    "device_type": "desktop",
+                    "match_status": "match_status:2",
+                    "device_new_found": "Found",
+                    "proxy_indicator": ""
+                  },
+                  "v_type": "Device"
+                },
+                {
+                  "v_id": "DEV_9cfad2ff3154c188a0480b7e",
+                  "attributes": {
+                    "device_info": "SM-G935F Build/NRD90M",
+                    "device_id": "DEV_9cfad2ff3154c188a0480b7e",
+                    "os": "Android 7.0",
+                    "browser": "chrome 62.0 for android",
+                    "screen": "1920x1080",
+                    "device_type": "mobile",
+                    "match_status": "",
+                    "device_new_found": "New",
+                    "proxy_indicator": "IP_PROXY:ANONYMOUS"
+                  },
+                  "v_type": "Device"
+                }
+              ]
+            },
+            {
+              "shared_customers": [
+                {
+                  "v_id": "C10675",
+                  "attributes": {
+                    "customer_id": "C10675"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C07936",
+                  "attributes": {
+                    "customer_id": "C07936"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C07694",
+                  "attributes": {
+                    "customer_id": "C07694"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C01289",
+                  "attributes": {
+                    "customer_id": "C01289"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C11385",
+                  "attributes": {
+                    "customer_id": "C11385"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C06494",
+                  "attributes": {
+                    "customer_id": "C06494"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C12578",
+                  "attributes": {
+                    "customer_id": "C12578"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C04555",
+                  "attributes": {
+                    "customer_id": "C04555"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C09343",
+                  "attributes": {
+                    "customer_id": "C09343"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C02910",
+                  "attributes": {
+                    "customer_id": "C02910"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C05772",
+                  "attributes": {
+                    "customer_id": "C05772"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C03019",
+                  "attributes": {
+                    "customer_id": "C03019"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C08972",
+                  "attributes": {
+                    "customer_id": "C08972"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C12865",
+                  "attributes": {
+                    "customer_id": "C12865"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C13086",
+                  "attributes": {
+                    "customer_id": "C13086"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C12942",
+                  "attributes": {
+                    "customer_id": "C12942"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C10193",
+                  "attributes": {
+                    "customer_id": "C10193"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C09631",
+                  "attributes": {
+                    "customer_id": "C09631"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C07858",
+                  "attributes": {
+                    "customer_id": "C07858"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C03479",
+                  "attributes": {
+                    "customer_id": "C03479"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C02167",
+                  "attributes": {
+                    "customer_id": "C02167"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C09823",
+                  "attributes": {
+                    "customer_id": "C09823"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C01996",
+                  "attributes": {
+                    "customer_id": "C01996"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C04524",
+                  "attributes": {
+                    "customer_id": "C04524"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C11309",
+                  "attributes": {
+                    "customer_id": "C11309"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C11464",
+                  "attributes": {
+                    "customer_id": "C11464"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C05347",
+                  "attributes": {
+                    "customer_id": "C05347"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C07322",
+                  "attributes": {
+                    "customer_id": "C07322"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C07360",
+                  "attributes": {
+                    "customer_id": "C07360"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C10955",
+                  "attributes": {
+                    "customer_id": "C10955"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C09195",
+                  "attributes": {
+                    "customer_id": "C09195"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C08834",
+                  "attributes": {
+                    "customer_id": "C08834"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C08569",
+                  "attributes": {
+                    "customer_id": "C08569"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C03843",
+                  "attributes": {
+                    "customer_id": "C03843"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C09998",
+                  "attributes": {
+                    "customer_id": "C09998"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C05560",
+                  "attributes": {
+                    "customer_id": "C05560"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C02138",
+                  "attributes": {
+                    "customer_id": "C02138"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C03699",
+                  "attributes": {
+                    "customer_id": "C03699"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C01137",
+                  "attributes": {
+                    "customer_id": "C01137"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C00768",
+                  "attributes": {
+                    "customer_id": "C00768"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C02321",
+                  "attributes": {
+                    "customer_id": "C02321"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C06343",
+                  "attributes": {
+                    "customer_id": "C06343"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C08034",
+                  "attributes": {
+                    "customer_id": "C08034"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C11000",
+                  "attributes": {
+                    "customer_id": "C11000"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C09354",
+                  "attributes": {
+                    "customer_id": "C09354"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C09149",
+                  "attributes": {
+                    "customer_id": "C09149"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C03545",
+                  "attributes": {
+                    "customer_id": "C03545"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C06617",
+                  "attributes": {
+                    "customer_id": "C06617"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C10320",
+                  "attributes": {
+                    "customer_id": "C10320"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C09872",
+                  "attributes": {
+                    "customer_id": "C09872"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C00329",
+                  "attributes": {
+                    "customer_id": "C00329"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C12166",
+                  "attributes": {
+                    "customer_id": "C12166"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C07456",
+                  "attributes": {
+                    "customer_id": "C07456"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C09373",
+                  "attributes": {
+                    "customer_id": "C09373"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C13489",
+                  "attributes": {
+                    "customer_id": "C13489"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C04307",
+                  "attributes": {
+                    "customer_id": "C04307"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C11929",
+                  "attributes": {
+                    "customer_id": "C11929"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C02231",
+                  "attributes": {
+                    "customer_id": "C02231"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C06481",
+                  "attributes": {
+                    "customer_id": "C06481"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C06026",
+                  "attributes": {
+                    "customer_id": "C06026"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C00995",
+                  "attributes": {
+                    "customer_id": "C00995"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C13410",
+                  "attributes": {
+                    "customer_id": "C13410"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C13167",
+                  "attributes": {
+                    "customer_id": "C13167"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C13001",
+                  "attributes": {
+                    "customer_id": "C13001"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C03237",
+                  "attributes": {
+                    "customer_id": "C03237"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C09049",
+                  "attributes": {
+                    "customer_id": "C09049"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C08989",
+                  "attributes": {
+                    "customer_id": "C08989"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C00855",
+                  "attributes": {
+                    "customer_id": "C00855"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C00887",
+                  "attributes": {
+                    "customer_id": "C00887"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C03977",
+                  "attributes": {
+                    "customer_id": "C03977"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C08269",
+                  "attributes": {
+                    "customer_id": "C08269"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C09876",
+                  "attributes": {
+                    "customer_id": "C09876"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C07385",
+                  "attributes": {
+                    "customer_id": "C07385"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C10899",
+                  "attributes": {
+                    "customer_id": "C10899"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C13034",
+                  "attributes": {
+                    "customer_id": "C13034"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C11965",
+                  "attributes": {
+                    "customer_id": "C11965"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C09586",
+                  "attributes": {
+                    "customer_id": "C09586"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C09405",
+                  "attributes": {
+                    "customer_id": "C09405"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C08156",
+                  "attributes": {
+                    "customer_id": "C08156"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C08112",
+                  "attributes": {
+                    "customer_id": "C08112"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C07871",
+                  "attributes": {
+                    "customer_id": "C07871"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C01935",
+                  "attributes": {
+                    "customer_id": "C01935"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C03914",
+                  "attributes": {
+                    "customer_id": "C03914"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C07185",
+                  "attributes": {
+                    "customer_id": "C07185"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C02360",
+                  "attributes": {
+                    "customer_id": "C02360"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C12645",
+                  "attributes": {
+                    "customer_id": "C12645"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C11936",
+                  "attributes": {
+                    "customer_id": "C11936"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C10020",
+                  "attributes": {
+                    "customer_id": "C10020"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C09363",
+                  "attributes": {
+                    "customer_id": "C09363"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C09241",
+                  "attributes": {
+                    "customer_id": "C09241"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C10127",
+                  "attributes": {
+                    "customer_id": "C10127"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C08450",
+                  "attributes": {
+                    "customer_id": "C08450"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C06251",
+                  "attributes": {
+                    "customer_id": "C06251"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C12439",
+                  "attributes": {
+                    "customer_id": "C12439"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C01154",
+                  "attributes": {
+                    "customer_id": "C01154"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C02897",
+                  "attributes": {
+                    "customer_id": "C02897"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C00952",
+                  "attributes": {
+                    "customer_id": "C00952"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C01280",
+                  "attributes": {
+                    "customer_id": "C01280"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C09468",
+                  "attributes": {
+                    "customer_id": "C09468"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C07164",
+                  "attributes": {
+                    "customer_id": "C07164"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C11709",
+                  "attributes": {
+                    "customer_id": "C11709"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C09444",
+                  "attributes": {
+                    "customer_id": "C09444"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C08796",
+                  "attributes": {
+                    "customer_id": "C08796"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C08168",
+                  "attributes": {
+                    "customer_id": "C08168"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C08011",
+                  "attributes": {
+                    "customer_id": "C08011"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C07796",
+                  "attributes": {
+                    "customer_id": "C07796"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C01138",
+                  "attributes": {
+                    "customer_id": "C01138"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C09174",
+                  "attributes": {
+                    "customer_id": "C09174"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C01751",
+                  "attributes": {
+                    "customer_id": "C01751"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C04244",
+                  "attributes": {
+                    "customer_id": "C04244"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C05175",
+                  "attributes": {
+                    "customer_id": "C05175"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C04060",
+                  "attributes": {
+                    "customer_id": "C04060"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C04196",
+                  "attributes": {
+                    "customer_id": "C04196"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C02975",
+                  "attributes": {
+                    "customer_id": "C02975"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C03341",
+                  "attributes": {
+                    "customer_id": "C03341"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C02245",
+                  "attributes": {
+                    "customer_id": "C02245"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C04688",
+                  "attributes": {
+                    "customer_id": "C04688"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C00759",
+                  "attributes": {
+                    "customer_id": "C00759"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C05551",
+                  "attributes": {
+                    "customer_id": "C05551"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C06437",
+                  "attributes": {
+                    "customer_id": "C06437"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C12001",
+                  "attributes": {
+                    "customer_id": "C12001"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C09196",
+                  "attributes": {
+                    "customer_id": "C09196"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C02676",
+                  "attributes": {
+                    "customer_id": "C02676"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C03714",
+                  "attributes": {
+                    "customer_id": "C03714"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C03744",
+                  "attributes": {
+                    "customer_id": "C03744"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C09471",
+                  "attributes": {
+                    "customer_id": "C09471"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C02148",
+                  "attributes": {
+                    "customer_id": "C02148"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C07439",
+                  "attributes": {
+                    "customer_id": "C07439"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C01812",
+                  "attributes": {
+                    "customer_id": "C01812"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C02502",
+                  "attributes": {
+                    "customer_id": "C02502"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C12961",
+                  "attributes": {
+                    "customer_id": "C12961"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C00750",
+                  "attributes": {
+                    "customer_id": "C00750"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C04105",
+                  "attributes": {
+                    "customer_id": "C04105"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C01182",
+                  "attributes": {
+                    "customer_id": "C01182"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C10446",
+                  "attributes": {
+                    "customer_id": "C10446"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C03738",
+                  "attributes": {
+                    "customer_id": "C03738"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C11522",
+                  "attributes": {
+                    "customer_id": "C11522"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C01109",
+                  "attributes": {
+                    "customer_id": "C01109"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C12913",
+                  "attributes": {
+                    "customer_id": "C12913"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C01983",
+                  "attributes": {
+                    "customer_id": "C01983"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C01377",
+                  "attributes": {
+                    "customer_id": "C01377"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C07621",
+                  "attributes": {
+                    "customer_id": "C07621"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C10561",
+                  "attributes": {
+                    "customer_id": "C10561"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C09274",
+                  "attributes": {
+                    "customer_id": "C09274"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C08564",
+                  "attributes": {
+                    "customer_id": "C08564"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C03212",
+                  "attributes": {
+                    "customer_id": "C03212"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C02499",
+                  "attributes": {
+                    "customer_id": "C02499"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C08418",
+                  "attributes": {
+                    "customer_id": "C08418"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C05039",
+                  "attributes": {
+                    "customer_id": "C05039"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C03040",
+                  "attributes": {
+                    "customer_id": "C03040"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C05419",
+                  "attributes": {
+                    "customer_id": "C05419"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C09733",
+                  "attributes": {
+                    "customer_id": "C09733"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C13321",
+                  "attributes": {
+                    "customer_id": "C13321"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C02740",
+                  "attributes": {
+                    "customer_id": "C02740"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C04306",
+                  "attributes": {
+                    "customer_id": "C04306"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C04024",
+                  "attributes": {
+                    "customer_id": "C04024"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C01828",
+                  "attributes": {
+                    "customer_id": "C01828"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C11413",
+                  "attributes": {
+                    "customer_id": "C11413"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C03062",
+                  "attributes": {
+                    "customer_id": "C03062"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C00849",
+                  "attributes": {
+                    "customer_id": "C00849"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C06370",
+                  "attributes": {
+                    "customer_id": "C06370"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C09493",
+                  "attributes": {
+                    "customer_id": "C09493"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C10326",
+                  "attributes": {
+                    "customer_id": "C10326"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C05246",
+                  "attributes": {
+                    "customer_id": "C05246"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C06224",
+                  "attributes": {
+                    "customer_id": "C06224"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C06942",
+                  "attributes": {
+                    "customer_id": "C06942"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C12211",
+                  "attributes": {
+                    "customer_id": "C12211"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C09800",
+                  "attributes": {
+                    "customer_id": "C09800"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C09711",
+                  "attributes": {
+                    "customer_id": "C09711"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C09666",
+                  "attributes": {
+                    "customer_id": "C09666"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C09079",
+                  "attributes": {
+                    "customer_id": "C09079"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C01599",
+                  "attributes": {
+                    "customer_id": "C01599"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C10778",
+                  "attributes": {
+                    "customer_id": "C10778"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C00773",
+                  "attributes": {
+                    "customer_id": "C00773"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C01144",
+                  "attributes": {
+                    "customer_id": "C01144"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C03490",
+                  "attributes": {
+                    "customer_id": "C03490"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C08711",
+                  "attributes": {
+                    "customer_id": "C08711"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C07997",
+                  "attributes": {
+                    "customer_id": "C07997"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C05753",
+                  "attributes": {
+                    "customer_id": "C05753"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C12289",
+                  "attributes": {
+                    "customer_id": "C12289"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C10962",
+                  "attributes": {
+                    "customer_id": "C10962"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C08861",
+                  "attributes": {
+                    "customer_id": "C08861"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C13064",
+                  "attributes": {
+                    "customer_id": "C13064"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C03517",
+                  "attributes": {
+                    "customer_id": "C03517"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C02094",
+                  "attributes": {
+                    "customer_id": "C02094"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C00452",
+                  "attributes": {
+                    "customer_id": "C00452"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C01563",
+                  "attributes": {
+                    "customer_id": "C01563"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C05487",
+                  "attributes": {
+                    "customer_id": "C05487"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C05535",
+                  "attributes": {
+                    "customer_id": "C05535"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C12108",
+                  "attributes": {
+                    "customer_id": "C12108"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C11670",
+                  "attributes": {
+                    "customer_id": "C11670"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C11920",
+                  "attributes": {
+                    "customer_id": "C11920"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C10715",
+                  "attributes": {
+                    "customer_id": "C10715"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C07957",
+                  "attributes": {
+                    "customer_id": "C07957"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C02342",
+                  "attributes": {
+                    "customer_id": "C02342"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C07017",
+                  "attributes": {
+                    "customer_id": "C07017"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C00280",
+                  "attributes": {
+                    "customer_id": "C00280"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C12796",
+                  "attributes": {
+                    "customer_id": "C12796"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C11249",
+                  "attributes": {
+                    "customer_id": "C11249"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C04313",
+                  "attributes": {
+                    "customer_id": "C04313"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C07472",
+                  "attributes": {
+                    "customer_id": "C07472"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C06218",
+                  "attributes": {
+                    "customer_id": "C06218"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C00915",
+                  "attributes": {
+                    "customer_id": "C00915"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C10930",
+                  "attributes": {
+                    "customer_id": "C10930"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C11865",
+                  "attributes": {
+                    "customer_id": "C11865"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C11451",
+                  "attributes": {
+                    "customer_id": "C11451"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C11143",
+                  "attributes": {
+                    "customer_id": "C11143"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C09206",
+                  "attributes": {
+                    "customer_id": "C09206"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C09187",
+                  "attributes": {
+                    "customer_id": "C09187"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C08637",
+                  "attributes": {
+                    "customer_id": "C08637"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C07940",
+                  "attributes": {
+                    "customer_id": "C07940"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C03676",
+                  "attributes": {
+                    "customer_id": "C03676"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C07867",
+                  "attributes": {
+                    "customer_id": "C07867"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C10250",
+                  "attributes": {
+                    "customer_id": "C10250"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C03864",
+                  "attributes": {
+                    "customer_id": "C03864"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C04865",
+                  "attributes": {
+                    "customer_id": "C04865"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C06905",
+                  "attributes": {
+                    "customer_id": "C06905"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C11702",
+                  "attributes": {
+                    "customer_id": "C11702"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C09975",
+                  "attributes": {
+                    "customer_id": "C09975"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C09249",
+                  "attributes": {
+                    "customer_id": "C09249"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C07614",
+                  "attributes": {
+                    "customer_id": "C07614"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C07612",
+                  "attributes": {
+                    "customer_id": "C07612"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C12690",
+                  "attributes": {
+                    "customer_id": "C12690"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C03422",
+                  "attributes": {
+                    "customer_id": "C03422"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C01093",
+                  "attributes": {
+                    "customer_id": "C01093"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C01148",
+                  "attributes": {
+                    "customer_id": "C01148"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C06710",
+                  "attributes": {
+                    "customer_id": "C06710"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C06398",
+                  "attributes": {
+                    "customer_id": "C06398"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C05868",
+                  "attributes": {
+                    "customer_id": "C05868"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C08489",
+                  "attributes": {
+                    "customer_id": "C08489"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C09933",
+                  "attributes": {
+                    "customer_id": "C09933"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C08466",
+                  "attributes": {
+                    "customer_id": "C08466"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C09251",
+                  "attributes": {
+                    "customer_id": "C09251"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C03218",
+                  "attributes": {
+                    "customer_id": "C03218"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C02902",
+                  "attributes": {
+                    "customer_id": "C02902"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C02096",
+                  "attributes": {
+                    "customer_id": "C02096"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C09710",
+                  "attributes": {
+                    "customer_id": "C09710"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C00255",
+                  "attributes": {
+                    "customer_id": "C00255"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C01104",
+                  "attributes": {
+                    "customer_id": "C01104"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C01942",
+                  "attributes": {
+                    "customer_id": "C01942"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C12958",
+                  "attributes": {
+                    "customer_id": "C12958"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C08748",
+                  "attributes": {
+                    "customer_id": "C08748"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C05182",
+                  "attributes": {
+                    "customer_id": "C05182"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C02180",
+                  "attributes": {
+                    "customer_id": "C02180"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C03285",
+                  "attributes": {
+                    "customer_id": "C03285"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C06568",
+                  "attributes": {
+                    "customer_id": "C06568"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C13291",
+                  "attributes": {
+                    "customer_id": "C13291"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C12696",
+                  "attributes": {
+                    "customer_id": "C12696"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C10295",
+                  "attributes": {
+                    "customer_id": "C10295"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C12586",
+                  "attributes": {
+                    "customer_id": "C12586"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C07842",
+                  "attributes": {
+                    "customer_id": "C07842"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C03695",
+                  "attributes": {
+                    "customer_id": "C03695"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C07338",
+                  "attributes": {
+                    "customer_id": "C07338"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C08348",
+                  "attributes": {
+                    "customer_id": "C08348"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C06821",
+                  "attributes": {
+                    "customer_id": "C06821"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C01776",
+                  "attributes": {
+                    "customer_id": "C01776"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C10757",
+                  "attributes": {
+                    "customer_id": "C10757"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C00834",
+                  "attributes": {
+                    "customer_id": "C00834"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C03992",
+                  "attributes": {
+                    "customer_id": "C03992"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C05115",
+                  "attributes": {
+                    "customer_id": "C05115"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C04108",
+                  "attributes": {
+                    "customer_id": "C04108"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C03318",
+                  "attributes": {
+                    "customer_id": "C03318"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C05267",
+                  "attributes": {
+                    "customer_id": "C05267"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C04921",
+                  "attributes": {
+                    "customer_id": "C04921"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C09863",
+                  "attributes": {
+                    "customer_id": "C09863"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C01494",
+                  "attributes": {
+                    "customer_id": "C01494"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C07212",
+                  "attributes": {
+                    "customer_id": "C07212"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C12895",
+                  "attributes": {
+                    "customer_id": "C12895"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C13049",
+                  "attributes": {
+                    "customer_id": "C13049"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C12267",
+                  "attributes": {
+                    "customer_id": "C12267"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C05704",
+                  "attributes": {
+                    "customer_id": "C05704"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C03575",
+                  "attributes": {
+                    "customer_id": "C03575"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C03474",
+                  "attributes": {
+                    "customer_id": "C03474"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C02480",
+                  "attributes": {
+                    "customer_id": "C02480"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C02079",
+                  "attributes": {
+                    "customer_id": "C02079"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C11586",
+                  "attributes": {
+                    "customer_id": "C11586"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C09623",
+                  "attributes": {
+                    "customer_id": "C09623"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C06220",
+                  "attributes": {
+                    "customer_id": "C06220"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C12897",
+                  "attributes": {
+                    "customer_id": "C12897"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C12132",
+                  "attributes": {
+                    "customer_id": "C12132"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C08033",
+                  "attributes": {
+                    "customer_id": "C08033"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C01609",
+                  "attributes": {
+                    "customer_id": "C01609"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C01393",
+                  "attributes": {
+                    "customer_id": "C01393"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C05814",
+                  "attributes": {
+                    "customer_id": "C05814"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C12909",
+                  "attributes": {
+                    "customer_id": "C12909"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C11889",
+                  "attributes": {
+                    "customer_id": "C11889"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C13151",
+                  "attributes": {
+                    "customer_id": "C13151"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C11082",
+                  "attributes": {
+                    "customer_id": "C11082"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C09359",
+                  "attributes": {
+                    "customer_id": "C09359"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C09116",
+                  "attributes": {
+                    "customer_id": "C09116"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C03278",
+                  "attributes": {
+                    "customer_id": "C03278"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C03528",
+                  "attributes": {
+                    "customer_id": "C03528"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C04615",
+                  "attributes": {
+                    "customer_id": "C04615"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C08285",
+                  "attributes": {
+                    "customer_id": "C08285"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C04613",
+                  "attributes": {
+                    "customer_id": "C04613"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C03598",
+                  "attributes": {
+                    "customer_id": "C03598"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C00854",
+                  "attributes": {
+                    "customer_id": "C00854"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C05123",
+                  "attributes": {
+                    "customer_id": "C05123"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C05537",
+                  "attributes": {
+                    "customer_id": "C05537"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C03999",
+                  "attributes": {
+                    "customer_id": "C03999"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C07335",
+                  "attributes": {
+                    "customer_id": "C07335"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C06198",
+                  "attributes": {
+                    "customer_id": "C06198"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C10925",
+                  "attributes": {
+                    "customer_id": "C10925"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C09650",
+                  "attributes": {
+                    "customer_id": "C09650"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C11995",
+                  "attributes": {
+                    "customer_id": "C11995"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C08374",
+                  "attributes": {
+                    "customer_id": "C08374"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C07648",
+                  "attributes": {
+                    "customer_id": "C07648"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C01347",
+                  "attributes": {
+                    "customer_id": "C01347"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C01378",
+                  "attributes": {
+                    "customer_id": "C01378"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C04311",
+                  "attributes": {
+                    "customer_id": "C04311"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C06962",
+                  "attributes": {
+                    "customer_id": "C06962"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C06420",
+                  "attributes": {
+                    "customer_id": "C06420"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C04742",
+                  "attributes": {
+                    "customer_id": "C04742"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C04759",
+                  "attributes": {
+                    "customer_id": "C04759"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C13056",
+                  "attributes": {
+                    "customer_id": "C13056"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C10350",
+                  "attributes": {
+                    "customer_id": "C10350"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C11339",
+                  "attributes": {
+                    "customer_id": "C11339"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C03351",
+                  "attributes": {
+                    "customer_id": "C03351"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C12441",
+                  "attributes": {
+                    "customer_id": "C12441"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C00889",
+                  "attributes": {
+                    "customer_id": "C00889"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C06130",
+                  "attributes": {
+                    "customer_id": "C06130"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C00942",
+                  "attributes": {
+                    "customer_id": "C00942"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C11513",
+                  "attributes": {
+                    "customer_id": "C11513"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C10755",
+                  "attributes": {
+                    "customer_id": "C10755"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C08217",
+                  "attributes": {
+                    "customer_id": "C08217"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C03708",
+                  "attributes": {
+                    "customer_id": "C03708"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C12460",
+                  "attributes": {
+                    "customer_id": "C12460"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C02479",
+                  "attributes": {
+                    "customer_id": "C02479"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C01867",
+                  "attributes": {
+                    "customer_id": "C01867"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C03634",
+                  "attributes": {
+                    "customer_id": "C03634"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C07409",
+                  "attributes": {
+                    "customer_id": "C07409"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C03630",
+                  "attributes": {
+                    "customer_id": "C03630"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C04125",
+                  "attributes": {
+                    "customer_id": "C04125"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C04259",
+                  "attributes": {
+                    "customer_id": "C04259"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C04274",
+                  "attributes": {
+                    "customer_id": "C04274"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C13461",
+                  "attributes": {
+                    "customer_id": "C13461"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C09999",
+                  "attributes": {
+                    "customer_id": "C09999"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C09568",
+                  "attributes": {
+                    "customer_id": "C09568"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C07577",
+                  "attributes": {
+                    "customer_id": "C07577"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C12900",
+                  "attributes": {
+                    "customer_id": "C12900"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C10037",
+                  "attributes": {
+                    "customer_id": "C10037"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C01834",
+                  "attributes": {
+                    "customer_id": "C01834"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C00779",
+                  "attributes": {
+                    "customer_id": "C00779"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C07485",
+                  "attributes": {
+                    "customer_id": "C07485"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C01982",
+                  "attributes": {
+                    "customer_id": "C01982"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C01909",
+                  "attributes": {
+                    "customer_id": "C01909"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C01135",
+                  "attributes": {
+                    "customer_id": "C01135"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C02949",
+                  "attributes": {
+                    "customer_id": "C02949"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C06208",
+                  "attributes": {
+                    "customer_id": "C06208"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C13335",
+                  "attributes": {
+                    "customer_id": "C13335"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C12774",
+                  "attributes": {
+                    "customer_id": "C12774"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C09906",
+                  "attributes": {
+                    "customer_id": "C09906"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C10390",
+                  "attributes": {
+                    "customer_id": "C10390"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C09165",
+                  "attributes": {
+                    "customer_id": "C09165"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C11543",
+                  "attributes": {
+                    "customer_id": "C11543"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C07629",
+                  "attributes": {
+                    "customer_id": "C07629"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C01780",
+                  "attributes": {
+                    "customer_id": "C01780"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C03405",
+                  "attributes": {
+                    "customer_id": "C03405"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C00235",
+                  "attributes": {
+                    "customer_id": "C00235"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C01155",
+                  "attributes": {
+                    "customer_id": "C01155"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C01659",
+                  "attributes": {
+                    "customer_id": "C01659"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C11652",
+                  "attributes": {
+                    "customer_id": "C11652"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C04285",
+                  "attributes": {
+                    "customer_id": "C04285"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C04754",
+                  "attributes": {
+                    "customer_id": "C04754"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C06127",
+                  "attributes": {
+                    "customer_id": "C06127"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C06197",
+                  "attributes": {
+                    "customer_id": "C06197"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C12395",
+                  "attributes": {
+                    "customer_id": "C12395"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C09521",
+                  "attributes": {
+                    "customer_id": "C09521"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C08256",
+                  "attributes": {
+                    "customer_id": "C08256"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C07925",
+                  "attributes": {
+                    "customer_id": "C07925"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C07741",
+                  "attributes": {
+                    "customer_id": "C07741"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C05362",
+                  "attributes": {
+                    "customer_id": "C05362"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C03363",
+                  "attributes": {
+                    "customer_id": "C03363"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C02250",
+                  "attributes": {
+                    "customer_id": "C02250"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C04591",
+                  "attributes": {
+                    "customer_id": "C04591"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C07256",
+                  "attributes": {
+                    "customer_id": "C07256"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C05392",
+                  "attributes": {
+                    "customer_id": "C05392"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C00103",
+                  "attributes": {
+                    "customer_id": "C00103"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C05245",
+                  "attributes": {
+                    "customer_id": "C05245"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C11855",
+                  "attributes": {
+                    "customer_id": "C11855"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C10977",
+                  "attributes": {
+                    "customer_id": "C10977"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C09660",
+                  "attributes": {
+                    "customer_id": "C09660"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C10745",
+                  "attributes": {
+                    "customer_id": "C10745"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C07223",
+                  "attributes": {
+                    "customer_id": "C07223"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C05448",
+                  "attributes": {
+                    "customer_id": "C05448"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C09301",
+                  "attributes": {
+                    "customer_id": "C09301"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C04068",
+                  "attributes": {
+                    "customer_id": "C04068"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C09470",
+                  "attributes": {
+                    "customer_id": "C09470"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C12574",
+                  "attributes": {
+                    "customer_id": "C12574"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C06650",
+                  "attributes": {
+                    "customer_id": "C06650"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C12150",
+                  "attributes": {
+                    "customer_id": "C12150"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C03778",
+                  "attributes": {
+                    "customer_id": "C03778"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C01744",
+                  "attributes": {
+                    "customer_id": "C01744"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C01959",
+                  "attributes": {
+                    "customer_id": "C01959"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C03047",
+                  "attributes": {
+                    "customer_id": "C03047"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C01730",
+                  "attributes": {
+                    "customer_id": "C01730"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C06190",
+                  "attributes": {
+                    "customer_id": "C06190"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C11227",
+                  "attributes": {
+                    "customer_id": "C11227"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C06811",
+                  "attributes": {
+                    "customer_id": "C06811"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C06890",
+                  "attributes": {
+                    "customer_id": "C06890"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C11804",
+                  "attributes": {
+                    "customer_id": "C11804"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C10861",
+                  "attributes": {
+                    "customer_id": "C10861"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C07987",
+                  "attributes": {
+                    "customer_id": "C07987"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C11764",
+                  "attributes": {
+                    "customer_id": "C11764"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C02716",
+                  "attributes": {
+                    "customer_id": "C02716"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C06031",
+                  "attributes": {
+                    "customer_id": "C06031"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C00957",
+                  "attributes": {
+                    "customer_id": "C00957"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C13358",
+                  "attributes": {
+                    "customer_id": "C13358"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C05670",
+                  "attributes": {
+                    "customer_id": "C05670"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C06169",
+                  "attributes": {
+                    "customer_id": "C06169"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C11853",
+                  "attributes": {
+                    "customer_id": "C11853"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C08314",
+                  "attributes": {
+                    "customer_id": "C08314"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C07729",
+                  "attributes": {
+                    "customer_id": "C07729"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C11468",
+                  "attributes": {
+                    "customer_id": "C11468"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C02311",
+                  "attributes": {
+                    "customer_id": "C02311"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C05385",
+                  "attributes": {
+                    "customer_id": "C05385"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C11749",
+                  "attributes": {
+                    "customer_id": "C11749"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C03856",
+                  "attributes": {
+                    "customer_id": "C03856"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C01286",
+                  "attributes": {
+                    "customer_id": "C01286"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C02377",
+                  "attributes": {
+                    "customer_id": "C02377"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C00969",
+                  "attributes": {
+                    "customer_id": "C00969"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C08918",
+                  "attributes": {
+                    "customer_id": "C08918"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C05530",
+                  "attributes": {
+                    "customer_id": "C05530"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C12033",
+                  "attributes": {
+                    "customer_id": "C12033"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C07149",
+                  "attributes": {
+                    "customer_id": "C07149"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C10754",
+                  "attributes": {
+                    "customer_id": "C10754"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C11687",
+                  "attributes": {
+                    "customer_id": "C11687"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C08363",
+                  "attributes": {
+                    "customer_id": "C08363"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C07762",
+                  "attributes": {
+                    "customer_id": "C07762"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C12517",
+                  "attributes": {
+                    "customer_id": "C12517"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C02347",
+                  "attributes": {
+                    "customer_id": "C02347"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C03551",
+                  "attributes": {
+                    "customer_id": "C03551"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C01782",
+                  "attributes": {
+                    "customer_id": "C01782"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C03066",
+                  "attributes": {
+                    "customer_id": "C03066"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C09283",
+                  "attributes": {
+                    "customer_id": "C09283"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C02780",
+                  "attributes": {
+                    "customer_id": "C02780"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C01333",
+                  "attributes": {
+                    "customer_id": "C01333"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C02833",
+                  "attributes": {
+                    "customer_id": "C02833"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C07356",
+                  "attributes": {
+                    "customer_id": "C07356"
+                  },
+                  "v_type": "customer"
+                },
+                {
+                  "v_id": "C11539",
+                  "attributes": {
+                    "customer_id": "C11539"
+                  },
+                  "v_type": "customer"
+                }
+              ]
+            }
+          ],
+          "query_text_preview": "\n        INTERPRET QUERY () FOR GRAPH FraudInvestigationGraph {\n\n            target_devices =\n                SELECT d\n                FROM customer:c -(USES_DEVICE)-> Device:d\n                WHERE c..."
+        },
+        "summary": "Success: GSQL query executed successfully",
+        "metadata": {
+          "graph_name": "FraudInvestigationGraph",
+          "execution_mode": "interpreted"
+        },
+        "suggestions": [
+          "Tip: For better performance: install the query with 'install_query' and use 'run_installed_query'",
+          "Interpreted queries are slower but good for ad-hoc exploration",
+          "View installed queries: show_graph_details()"
+        ],
+        "timestamp": "2026-09-25T00:35:19.453859Z"
+      }
+    }
+  },
+  "evidence": {
+    "strong": [],
+    "medium": [
+      {
+        "signal_type": "cnp_new_device_pattern",
+        "strength": "medium",
+        "direction": "supports_fraud",
+        "independence_group": "behavioral_pattern",
+        "source": "benchmark_summary",
+        "raw": {
+          "cnp_new_device_candidate": true
+        },
+        "explanation": "The flagged transaction is an online transaction with the documented new-device indicator. This strengthens the CNP pattern but is intentionally grouped with the same behavioral-pattern evidence family."
+      },
+      {
+        "signal_type": "account_takeover_pattern",
+        "strength": "medium",
+        "direction": "supports_fraud",
+        "independence_group": "behavioral_identity",
+        "source": "benchmark_summary",
+        "raw": {
+          "account_takeover_candidate": true,
+          "supporting_signal_count": 0
+        },
+        "explanation": "The transaction behavior contains signals compatible with the documented account-takeover candidate pattern. The candidate remains an inference and is not itself a fraud verdict."
+      },
+      {
+        "signal_type": "new_device_indicator",
+        "strength": "medium",
+        "direction": "supports_fraud",
+        "independence_group": "identity_device",
+        "source": "identity",
+        "raw": {
+          "id_15": "New"
+        },
+        "explanation": "The identity record contains id_15=New. This is treated as an observed identity/device indicator and not as proof of unauthorized activity."
+      },
+      {
+        "signal_type": "proxy_network_indicator",
+        "strength": "medium",
+        "direction": "supports_fraud",
+        "independence_group": "identity_network",
+        "source": "identity",
+        "raw": {
+          "id_23": "IP_PROXY:ANONYMOUS"
+        },
+        "explanation": "The identity record contains a proxy/anonymous network-related value. The field is preserved as an observed signal; its undocumented semantics are not expanded beyond the recorded value."
+      }
+    ],
+    "weak": [
+      {
+        "signal_type": "identity_match_status",
+        "strength": "weak",
+        "direction": "context",
+        "independence_group": "identity_device",
+        "source": "identity",
+        "raw": {
+          "id_34": "match_status:2"
+        },
+        "explanation": "An id_34 match-status value is present. Because the field's semantics are not documented, it is retained as an opaque observed signal rather than assigned a specific fraud meaning."
+      },
+      {
+        "signal_type": "shared_device_profile",
+        "strength": "weak",
+        "direction": "context",
+        "independence_group": "network",
+        "source": "shared_device_network",
+        "raw": {
+          "candidate": false,
+          "device_profile": "SM-G935F Build/NRD90M | Android 7.0 | chrome 62.0 for android | 1920x1080",
+          "device_profile_specificity": 4,
+          "customer_count": 44,
+          "transaction_count": 80,
+          "other_customer_count": 43
+        },
+        "explanation": "The exact device profile is shared across multiple customers. It is potentially useful as network context but is not strong evidence of a shared physical device."
+      },
+      {
+        "signal_type": "post_flagged_activity",
+        "strength": "weak",
+        "direction": "context",
+        "independence_group": "temporal_behavior",
+        "source": "transaction_windows",
+        "raw": {
+          "post_flagged_activity_until_case_open": 1
+        },
+        "explanation": "1 transaction(s) occurred after the flagged transaction but before case opening. This signal respects the case-opening cutoff and does not use future transactions."
+      }
+    ],
+    "not_material": [],
+    "supporting": [
+      {
+        "signal_type": "cnp_new_device_pattern",
+        "strength": "medium",
+        "direction": "supports_fraud",
+        "independence_group": "behavioral_pattern",
+        "source": "benchmark_summary",
+        "raw": {
+          "cnp_new_device_candidate": true
+        },
+        "explanation": "The flagged transaction is an online transaction with the documented new-device indicator. This strengthens the CNP pattern but is intentionally grouped with the same behavioral-pattern evidence family."
+      },
+      {
+        "signal_type": "account_takeover_pattern",
+        "strength": "medium",
+        "direction": "supports_fraud",
+        "independence_group": "behavioral_identity",
+        "source": "benchmark_summary",
+        "raw": {
+          "account_takeover_candidate": true,
+          "supporting_signal_count": 0
+        },
+        "explanation": "The transaction behavior contains signals compatible with the documented account-takeover candidate pattern. The candidate remains an inference and is not itself a fraud verdict."
+      },
+      {
+        "signal_type": "new_device_indicator",
+        "strength": "medium",
+        "direction": "supports_fraud",
+        "independence_group": "identity_device",
+        "source": "identity",
+        "raw": {
+          "id_15": "New"
+        },
+        "explanation": "The identity record contains id_15=New. This is treated as an observed identity/device indicator and not as proof of unauthorized activity."
+      },
+      {
+        "signal_type": "proxy_network_indicator",
+        "strength": "medium",
+        "direction": "supports_fraud",
+        "independence_group": "identity_network",
+        "source": "identity",
+        "raw": {
+          "id_23": "IP_PROXY:ANONYMOUS"
+        },
+        "explanation": "The identity record contains a proxy/anonymous network-related value. The field is preserved as an observed signal; its undocumented semantics are not expanded beyond the recorded value."
+      }
+    ],
+    "contradictions": [],
+    "context": [
+      {
+        "signal_type": "identity_match_status",
+        "strength": "weak",
+        "direction": "context",
+        "independence_group": "identity_device",
+        "source": "identity",
+        "raw": {
+          "id_34": "match_status:2"
+        },
+        "explanation": "An id_34 match-status value is present. Because the field's semantics are not documented, it is retained as an opaque observed signal rather than assigned a specific fraud meaning."
+      },
+      {
+        "signal_type": "shared_device_profile",
+        "strength": "weak",
+        "direction": "context",
+        "independence_group": "network",
+        "source": "shared_device_network",
+        "raw": {
+          "candidate": false,
+          "device_profile": "SM-G935F Build/NRD90M | Android 7.0 | chrome 62.0 for android | 1920x1080",
+          "device_profile_specificity": 4,
+          "customer_count": 44,
+          "transaction_count": 80,
+          "other_customer_count": 43
+        },
+        "explanation": "The exact device profile is shared across multiple customers. It is potentially useful as network context but is not strong evidence of a shared physical device."
+      },
+      {
+        "signal_type": "post_flagged_activity",
+        "strength": "weak",
+        "direction": "context",
+        "independence_group": "temporal_behavior",
+        "source": "transaction_windows",
+        "raw": {
+          "post_flagged_activity_until_case_open": 1
+        },
+        "explanation": "1 transaction(s) occurred after the flagged transaction but before case opening. This signal respects the case-opening cutoff and does not use future transactions."
+      }
+    ]
+  },
+  "evidence_summary": {
+    "strong_count": 0,
+    "medium_count": 4,
+    "weak_count": 3,
+    "not_material_count": 0,
+    "supporting_count": 4,
+    "contradicting_count": 0,
+    "context_count": 3,
+    "independent_evidence_groups": [
+      "behavioral_identity",
+      "behavioral_pattern",
+      "identity_device",
+      "identity_network"
+    ],
+    "independent_evidence_count": 4,
+    "independent_evidence_rule": "direction=supports_fraud AND strength in {strong,medium} AND unique independence_group"
+  },
+  "model_features": {
+    "risk_score": 0.05,
+    "strong_support_count": 0,
+    "medium_support_count": 4,
+    "weak_support_count": 0,
+    "medium_contradiction_count": 0,
+    "context_evidence_count": 3,
+    "independent_evidence_count": 4,
+    "card_testing": 0,
+    "cnp": 0,
+    "cnp_new_device": 1,
+    "account_takeover": 1,
+    "out_of_region": 0,
+    "new_device": 1,
+    "proxy_network": 1,
+    "channel_novelty": 0,
+    "product_novelty": 0,
+    "repeated_historical_abuse": 0,
+    "shared_device_profile": 0
+  },
+  "risk_assessment": {
+    "fraud_probability": 0.9964014839430323,
+    "raw_model_probability": 0.9998762803025961,
+    "model_name": "hist_gradient_boosting_sigmoid_calibrated",
+    "feature_count": 18,
+    "calibration": "sigmoid_platt",
+    "calibration_fit": "historical_validation_only",
+    "scope": "case_level_historical_fraud_outcome"
+  },
+  "uncertainty": {
+    "level": "low",
+    "independent_evidence_count": 4,
+    "supporting_evidence_count": 4,
+    "contradicting_evidence_count": 0,
+    "reasons": []
+  },
+  "next_action": {
+    "action": "prepare_investigator_review",
+    "reason": "Current evidence and graph context are sufficiently complete for investigator review."
+  },
+  "investigation_trace": [
+    "Loading calibrated case evidence.",
+    "Loaded HHG-014 for customer C13487.",
+    "Evidence source: json.",
+    "Running TigerGraph MCP investigation.",
+    "Retrieved customer profile.",
+    "Retrieved transaction context.",
+    "Retrieved shared-device network context.",
+    "Merged calibrated evidence with live graph context.",
+    "Built 18 probability-model features.",
+    "Applied historical HGB + validation-only Platt calibration.",
+    "Assessed investigation uncertainty as low.",
+    "Selected next action: prepare_investigator_review.",
+    "Generating grounded investigator explanation with local Ollama.",
+    "Generated grounded LLM explanation."
+  ],
+  "scope_notes": [
+    "Probability is a case-level estimate based on historical closed-case outcomes.",
+    "HHG-001 through HHG-020 do not have authoritative current-case labels.",
+    "risk_score is an upstream model input and is not itself a fraud probability.",
+    "Independent evidence count uses only supporting strong/medium evidence and unique independence groups.",
+    "Graph relationships are reported from TigerGraph retrieval; unsupported relationships are not inferred."
+  ],
+  "llm_explanation": {
+    "status": "success",
+    "provider": "ollama",
+    "model": "qwen2.5:7b",
+    "summary": "High fraud probability with strong supporting evidence.",
+    "key_findings": [
+      "New device indicator",
+      "Account takeover pattern",
+      "Proxy network indicator",
+      "Shared device profile"
+    ],
+    "uncertainty_explanation": "Low uncertainty due to multiple supporting evidences and no contradicting evidence.",
+    "recommended_next_step": "Prepare for investigator review."
+  }
+}
